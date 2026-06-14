@@ -1,0 +1,1719 @@
+{
+  "track_name": "Software Engineer / Software Developer",
+  "semesters": [
+    {
+      "semester_code": "II-I",
+      "semester_title": "Common Foundation for All",
+      "hours": 48,
+      "focus": "Programming Foundations + DSA Basics + Git + Web Introduction",
+      "objective": "By the end of II‑I, every student can write basic programs in Python/Java/C, understand fundamental DSA, use Git/GitHub, and have a taste of HTML/CSS/JS.",
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Core Programming Foundations",
+          "hours": "20 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Preferred Language: Python"
+            },
+            {
+              "type": "bullet",
+              "text": "Topics:"
+            },
+            {
+              "type": "bullet",
+              "text": "Syntax, variables, conditionals, loops, functions, I/O."
+            },
+            {
+              "type": "bullet",
+              "text": "Basic OOP: classes, objects, methods, constructors."
+            },
+            {
+              "type": "bullet",
+              "text": "Error handling, debugging practices."
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "DSA Basics",
+          "hours": "10 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Arrays, strings, recursion ideas."
+            },
+            {
+              "type": "bullet",
+              "text": "Time and space complexity intuition (Big‑O at a high level)."
+            },
+            {
+              "type": "bullet",
+              "text": "Simple problems from platforms (2 h of guided practice)."
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Git & GitHub Version Control",
+          "hours": "6 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Git basics: init, add, commit, log, branch, merge."
+            },
+            {
+              "type": "bullet",
+              "text": "Remote repositories: clone, push, pull, pull request workflow."
+            },
+            {
+              "type": "bullet",
+              "text": "Classroom activity: students push a small programming assignment repo."
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Web Basics",
+          "hours": "8 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "HTML fundamentals: structure, forms, common tags."
+            },
+            {
+              "type": "bullet",
+              "text": "CSS essentials: selectors, box model, basic layout."
+            },
+            {
+              "type": "bullet",
+              "text": "JavaScript intro: variables, functions, DOM basics, events."
+            },
+            {
+              "type": "bullet",
+              "text": "One simple static webpage mini‑task."
+            }
+          ]
+        },
+        {
+          "module_number": "5",
+          "module_title": "Software Engineering & Agile Overview",
+          "hours": "4 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "SDLC models; emphasis on Agile/Scrum basics (roles, ceremonies, user stories)."
+            },
+            {
+              "type": "bullet",
+              "text": "Versioning + issue tracking (GitHub Issues, basic Kanban)."
+            }
+          ]
+        }
+      ],
+      "post_assessment": "Baseline coding test to decide who leans to SE/FSD vs Data vs Cloud/DevOps/Security."
+    },
+    {
+      "semester_code": "II-II",
+      "semester_title": "Year II - Semester II",
+      "hours": null,
+      "split_description": null,
+      "sub_tracks": [
+        {
+          "sub_track_name": "Track A – Core SE (Average Performers)",
+          "pre_requisites": [
+            "Students should be comfortable solving problems using basic DSA (arrays, strings, simple linked",
+            "lists/stacks/queues, basic recursion and complexity) in at least one programming language",
+            "(C++/Java/Python), with prior exposure to introductory OOP, relational databases/SQL, and a",
+            "simple web/console app deployed once, so this semester can focus on strengthening patterns,",
+            "applying OOP/system design, working with transactions and simple cloud CI/CD."
+          ],
+          "modules": [
+            {
+              "module_number": "1",
+              "module_title": "Advanced DSA & Problem Solving – 20 h (Core SE)",
+              "hours": "20 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Core Structures & Algorithms – 14 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Trees/BSTs, heaps, graphs at intro–intermediate level.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Classic patterns (sliding window, two pointers, binary search) on easy–medium problems.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Problem Solving Labs – 4 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Guided sets on easy–medium questions with ample scaffolding.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Emphasis on writing clear, correct solutions and explaining logic.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI‑Assisted Coding – 2 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Use AI mainly to:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Re‑explain problems, suggest pseudo‑code, generate additional test cases."
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Strong emphasis: students must first attempt manually, then compare with AI and discuss complexity/edge cases. Focus: Confidence and correctness on core patterns + healthy AI usage habits.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "2",
+              "module_title": "System Design & OOP in Practice – 10 h (Core SE)",
+              "hours": "10 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Low-level Design & SOLID – 6 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Simple examples, step‑by‑step UML for small systems (Library Management, etc.).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Designing Small Systems – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "1–2 small case studies, focusing on correct decomposition, not scale.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in Design & Code Review – 1 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Use AI review tools to check style, naming, basic refactors.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Students practice accepting/rejecting suggestions thoughtfully. Focus: Solid fundamentals, no pressure to design very complex systems yet.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "3",
+              "module_title": "Databases & Transactions for SE – 8 h (Core SE)",
+              "hours": "8 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Relational Design & Querying – 4 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Clean schema for simple apps, focus on 3NF and basic indexing.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Transactions & Stored Procedures – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Simple transactions and stored procedures.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI‑Assisted SQL & Performance Awareness – 1 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Show how AI suggests more efficient queries; students compare EXPLAIN output and indexes conceptually. Focus: Comfort with relational modeling and safe, readable SQL, plus awareness of AI tuning tools.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "4",
+              "module_title": "Cloud & CI/CD Overview – 10 h (Core SE)",
+              "hours": "10 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Cloud Basics & Simple Deployment – 5 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Deploy a small app to a single VM, set up logs.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Intro to CI/CD Concepts – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Very simple pipeline (build + unit tests + deploy).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in CI/CD & Monitoring – 2 h (awareness)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Explain use‑cases (AI scanning logs, flagging failing patterns) conceptually. Focus: They can deploy and interpret a simple pipeline, and understand where AI plugs in, but not necessarily configure advanced tooling.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_track_name": "Track B – Advanced SE (High Performers)",
+          "pre_requisites": [
+            "Students should be strong at solving medium‑level DSA problems (arrays, strings, linked lists,",
+            "trees/BSTs, graphs, recursion/DP basics, standard patterns with time‑complexity reasoning) in at",
+            "least one language (C++/Java/Python), with solid OOP and low‑level design exposure, comfort",
+            "designing and querying relational schemas, and prior experience deploying a simple app with a",
+            "basic CI/CD pipeline, so this track can focus on interview‑grade DSA, richer system design,",
+            "performance‑aware SQL, and more realistic cloud/AI‑augmented pipelines."
+          ],
+          "modules": [
+            {
+              "module_number": "1",
+              "module_title": "Advanced DSA & Problem Solving – 20 h (Advanced SE)",
+              "hours": "20 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Core + Enhanced Structures – 14 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Same content as Core, but with more emphasis on tricky use‑cases:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Trees: LCA, diameter, tree DP (basic forms)."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Graphs: more varied problems (connected components, simple shortest paths)."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Patterns: multi‑source BFS, binary search on answer, prefix sums, etc."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Problem Solving Labs – 4 h (Medium–Hard)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Medium difficulty problems (and a few gateway hard ones) on coding platforms.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Timed practice and editorial reading, post‑analysis of failed attempts.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI‑Assisted Coding – 2 h (Advanced usage)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Use AI as coach:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Ask for constraints analysis, alternative solutions, edge‑case generation."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Use AI to get feedback on complexity and code quality after they submit their own solution."
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Discuss ethics around AI use in contests/interviews, aligning with platform rules. Focus: Interview‑grade DSA strength plus disciplined AI use tailored to high‑performer expectations.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "2",
+              "module_title": "System Design & OOP in Practice – 10 h (Advanced SE)",
+              "hours": "10 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Low-level Design & SOLID – 6 h (Harder Cases)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "More complex scenarios: multi‑module systems, more entities, constraints.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Designing Small–Medium Systems – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Case studies with more components: simple feed system, simplified booking system, etc.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in Design & Code Review – 1 h (Deeper)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Use AI tools to critique and refine their designs (e.g., identify code smells, security issues, possible microservice boundaries).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Compare AI’s suggestions with students’ own design choices and industry best practices. Focus: Preparing for LLD/System Design rounds at better companies, where AI is part of code review and design tooling.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "3",
+              "module_title": "Databases & Transactions for SE – 8 h (Advanced SE)",
+              "hours": "8 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Relational Design & Querying – 4 h (Larger Schemas)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Design schemas for slightly larger systems (multi‑tenant or with reporting tables).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Query optimization scenarios (indexes, query patterns).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Transactions & Stored Procedures – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "More involved transactions (e.g., multi‑step operations that need rollback handling).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI‑Assisted SQL & Performance – 1 h (Hands‑on)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Give a slow query, use AI to propose variants, and validate with EXPLAIN plans or timing in DB. Focus: Building capacity to reason about performance, not just write correct SQL.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "4",
+              "module_title": "Cloud & CI/CD Overview – 10 h (Advanced SE)",
+              "hours": "10 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Cloud Basics & Deployment – 5 h (Richer Setup)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Same VM deployment, plus:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Basic security (security groups, minimal IAM role concept)."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Simple horizontal scaling idea or using a PaaS option."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "CI/CD Concepts – 3 h (More Realistic Pipeline)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Pipeline with linting + unit tests + simple security check (SAST or dependency scan).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in CI/CD & Monitoring – 2 h (More Applied)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Discuss scenarios where:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "AI analyzes build/test logs to flag flaky tests, risky changes."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "AI tools act as a “quality gate” in the pipeline; students design an example stage in YAML/diagram form. Focus: High performers see how to design pipelines that could integrate AI‑based checks and evaluate risk, closer to top product companies’ practices."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-I",
+      "semester_title": "Year III - Semester I",
+      "hours": null,
+      "split_description": null,
+      "sub_tracks": [
+        {
+          "sub_track_name": "Track A – Core Deep Tech (Average Performers)",
+          "pre_requisites": [
+            "Students should be comfortable solving basic to lower‑medium DSA problems (arrays, strings,",
+            "simple linked lists/stacks/queues, introductory trees/graphs, recursion, and Big‑O reasoning) in at",
+            "least one programming language (C++/Java/Python), with prior exposure to OOP fundamentals,",
+            "simple relational schemas/SQL, and having seen at least one basic web/console app deployed, so",
+            "this semester can focus on strengthening patterns, applying OOP/system design, working with",
+            "transactions, and using simple cloud + CI/CD flows with AI assistance."
+          ],
+          "modules": [
+            {
+              "module_number": "1",
+              "module_title": "Advanced DSA & Problem Solving – 20 h (Core)",
+              "hours": "20 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Core Structures & Algorithms – 14 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Trees & BST (traversal, basic insert/delete, simple path questions) at intro–intermediate level.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Heaps & Priority Queues (standard problems: k‑largest, scheduling).",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Graphs: adjacency list, BFS/DFS, simple shortest path examples (unweighted or basic weighted).",
+                      "details": []
+                    },
+                    {
+                      "letter": "d",
+                      "title": "Classic patterns: sliding window, two pointers, standard binary search, one or two “binary search on answer” examples.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Problem Solving Labs – 4 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Guided practice on easy–medium problems.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Faculty provides stepwise hints; focus is on attaining correctness and clarity.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI‑Assisted Coding – Good & Bad Usage – 2 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "AI used mainly as a teacher:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Explaining problem statements and constraints in simpler words.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Suggesting pseudo‑code or test cases after a student attempts on their own.",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Discussion:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Risks of copy‑pasting full solutions.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Need to manually check complexity and edge cases even when AI writes code. Expected Outcome (Core): Students can reliably solve easy to lower‑medium DSA problems independently, and use AI as a tutor to clarify concepts and generate test cases, not as an answer engine.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "2",
+              "module_title": "System Design & OOP in Practice – 10 h (Core)",
+              "hours": "10 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Low‑level Design & SOLID – 6 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Reinforce basic OOP: encapsulation, inheritance, composition.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Apply SOLID principles to small, single‑service examples.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "UML basics: small class diagrams and straightforward sequence diagrams.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Designing Small Systems – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Case studies such as Library Management, simple Task Manager.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Focus on clear class design and relationships, not scale or performance.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in Design & Code Review – 1 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Use AI code review tools to:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Spot simple style issues, minor code smells",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Suggest refactors for small methods.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Students practice accepting/rejecting suggestions and explaining why. Expected Outcome (Core): Students can design and implement well‑structured small systems, and understand how AI code review assists in basic refactoring and style checks without replacing human judgment.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "3",
+              "module_title": "Databases & Transactions for SE – 8 h (Core)",
+              "hours": "8 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Relational Design & Querying – 4 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Design simple schemas (e.g., Library, Task Manager) up to 3NF.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Write essential queries with joins and basic aggregates.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Transactions & Stored Procedures – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "ACID concepts explained via simple examples.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "One or two basic stored procedures/functions.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI‑Assisted SQL & Performance Awareness – 1 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Show a non‑optimal query and an AI‑suggested improvement.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Discuss why the improved query is better (index use, filter order), at an intuitive level. Expected Outcome (Core): Students can model and query standard relational problems, and appreciate how AI tools can suggest better SQL, while still needing to know the relational concepts themselves.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "4",
+              "module_title": "Cloud & CI/CD Overview – 10 h (Core)",
+              "hours": "10 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Cloud Basics for SE & Simple Deployment – 5 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Deploy a simple monolithic web/service app to a single cloud VM.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Introduce logs and basic monitoring (viewing logs, basic metrics dashboards).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Intro to CI/CD Concepts – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Single pipeline: build → run tests → deploy.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Basic configuration using GitHub Actions/Jenkins/GitLab CI.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in CI/CD & Production Monitoring – 2 h (Awareness)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Conceptual:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "AI watches build/test logs to detect flaky tests or unusual failures.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "AI assists in release decisions based on past failure patterns and metrics. Expected Outcome (Core): Students can deploy and maintain a basic cloud app with a simple CI/CD pipeline, and understand at a high level how AI tools augment observability and reliability.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_track_name": "Track B – Advanced Deep Tech (High Performers)",
+          "pre_requisites": [
+            "Students should be strong at solving medium‑level DSA problems (arrays, strings, linked lists,",
+            "trees/BSTs, graphs, recursion/DP basics, standard patterns with time‑/space‑complexity analysis)",
+            "in at least one language (C++/Java/Python), with solid prior exposure to OOP and low‑level",
+            "design, relational schema design and SQL, and deploying a simple app with a basic CI/CD",
+            "pipeline, so this track can focus on interview‑grade DSA, richer system design,",
+            "performance‑aware databases, and more realistic cloud/AI‑augmented DevOps workflows."
+          ],
+          "modules": [
+            {
+              "module_number": "1",
+              "module_title": "Advanced DSA & Problem Solving – 20 h (Advanced)",
+              "hours": "20 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Core & Enhanced Structures & Algorithms – 14 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Same topics, but with richer cases:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Trees: LCA, diameter, simple tree DP forms.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Graphs: multiple BFS/DFS‑based problems, basic shortest path in weighted graphs.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Patterns: advanced sliding window, prefix sums, more “binary search on answer” tasks.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Problem Solving Labs – 4 h (Medium–Hard)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Problem sets mostly in medium range and some gateway hard problems.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Timed sessions; include editorial reading & post‑mortems as part of learning.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI‑Assisted Coding – 2 h (Advanced usage)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Use AI as a coach:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Ask for alternate approaches and complexity analysis after writing own solutions.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Generate corner‑case tests and compare performance.",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Discussion on ethical use during interviews (strict no‑use in live rounds). Expected Outcome (Advanced): Students can handle medium DSA interview problems confidently, and use AI strategically for reflection, optimization ideas, and advanced test generation.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "2",
+              "module_title": "System Design & OOP in Practice – 10 h (Advanced)",
+              "hours": "10 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Low‑level Design & SOLID – 6 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "More complex case studies (e.g., Ride‑sharing, simplified booking or feed system).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Introduce trade‑offs (flexibility vs complexity, over‑engineering vs under‑design).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Designing Small–Medium Systems – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Students produce more detailed UML (classes, key interactions, basic layering).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in Design & Code Review – 1 h (Deeper)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Use AI tools to:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Identify potential security issues, performance hotspots, and deeper code smells.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Suggest alternative designs (e.g., layering, patterns) and discuss trade‑offs. Expected Outcome (Advanced): Students are better prepared for LLD/system‑design style interviews, understanding how AI can assist in design critique while they remain the decision‑makers.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "3",
+              "module_title": "Databases & Transactions for SE – 8 h (Advanced)",
+              "hours": "8 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Relational Design & Querying – 4 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Schemas for slightly larger systems (e.g., multi‑user, simple analytics requirements).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Queries involving non‑trivial joins and basic performance considerations.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Transactions & Stored Procedures – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Transactions spanning multiple tables; error handling patterns.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI‑Assisted SQL & Performance – 1 h (Hands‑on)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Students experiment with AI‑suggested query rewrites and compare actual run‑time/EXPLAIN plans (guided by faculty). Expected Outcome (Advanced): Students can reason about database performance and schema choices, and use AI tools to help tune performance, not just write queries.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "4",
+              "module_title": "Cloud & CI/CD Overview – 10 h (Advanced)",
+              "hours": "10 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Cloud Basics for SE & Deployment – 5 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Same fundamentals as Core plus:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Exposure to basic PaaS (e.g., managed app service) or one extra environment.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Simple hardening: security groups, least‑privilege IAM role (concept).",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Introduction to CI/CD Concepts – 3 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Pipeline includes linting + tests + a simple security or quality check (e.g., dependency vulnerability scan).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in CI/CD & Monitoring – 2 h (Applied)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Students design (even at a conceptual/YAML level) a pipeline stage where an AI “quality gate” could run:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "E.g., AI analyzes code changes + test results to flag risky deployments. Expected Outcome (Advanced): High performers can design and implement more realistic DevOps workflows, and can articulate where and how AI can be plugged into their pipelines for smarter decisions.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-II",
+      "semester_title": "Year III - Semester II",
+      "hours": null,
+      "split_description": null,
+      "sub_tracks": [
+        {
+          "sub_track_name": "Track A – Core Advanced Topics (Average Performers)",
+          "pre_requisites": [
+            "Students should be comfortable solving easy–medium DSA problems (arrays, strings, basic",
+            "linked lists/stacks/queues, introductory trees/graphs, recursion and time‑complexity reasoning) in",
+            "at least one programming language (C++/Java/Python), with prior experience building a small",
+            "app using OOP and a relational DB (CRUD + simple feature) and deploying it once to a basic",
+            "cloud setup/CI pipeline, so this semester can focus on interview‑oriented DSA practice,",
+            "conceptual concurrency/microservices, and an end‑to‑end mini project with honest AI‑assisted",
+            "development."
+          ],
+          "modules": [
+            {
+              "module_number": "1",
+              "module_title": "Competitive Programming & Interview Prep – 24 h (Core)",
+              "hours": "24 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Focused DSA Practice – 14 h (Core)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Problem sets: easy–medium, mostly medium‑ish on arrays, strings, trees, graphs, DP basics, common patterns.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Emphasis on:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Clear problem breakdown and brute‑force first.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Time/space complexity reasoning for their final solution.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Explicit practice listing edge cases before coding.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Mock Interviews & Communication – 6 h (Core)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Simulated 1:1 rounds with moderate‑difficulty questions.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Strong focus on:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Thinking aloud, clarifying requirements.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Explaining trade‑offs and next steps, even if solution is not fully optimal.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "Using AI Tools Ethically for Interview Prep – 4 h (Core)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Landscape: copilot tools, AI interview assistants, AI‑driven practice platforms, but positioned as support.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Do’s for Core track:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Use AI to get hints, pattern recognition help, or summary of editorial after attempting.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Use AI to generate extra test cases and verify solutions.",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Don’ts:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Copy‑pasting entire solutions; using AI during actual interviews/assessments.",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "d",
+                      "title": "Guided activity (simpler variant):",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Students solve a medium problem.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Then use an AI assistant to:",
+                          "details": [
+                            {
+                              "type": "bullet",
+                              "text": "Compare with AI’s solution."
+                            },
+                            {
+                              "type": "bullet",
+                              "text": "Identify one or two improvements (better variable names, slightly better complexity if available)."
+                            },
+                            {
+                              "type": "bullet",
+                              "text": "Document what they learned from the comparison. Expected Outcome (Core): Students become comfortable with standard interview‑level (easy–medium) questions, and learn to use AI tools as practice partners that give hints, explanations, and tests, without compromising integrity."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "2",
+              "module_title": "Advanced Topics for SE – 12 h (Core)",
+              "hours": "12 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Concurrency & OS Reinforcement – 6 h (Core)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Threads vs processes; shared memory; conceptual understanding.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Synchronization: locks, race conditions, deadlocks at a diagram + pseudo‑code level.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Simple examples (producer–consumer, shared counter) discussed more than implemented.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Microservices & REST Best Practices – 4 h (Core)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Monolith vs microservices, small examples.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "REST API best practices: resource naming, status codes, idempotency.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Observability basics (logs, metrics, traces) explained using simple sample logs and diagrams.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in Production Systems (Debugging & Monitoring) – 2 h (Core)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Conceptual: AI agents/analytics that:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Scan logs/traces for latency spikes, error surges.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Raise alerts or basic suggestions.",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Emphasis that good logging and clear architecture from developers makes AI‑driven observability effective. Expected Outcome (Core): Students understand concurrency and microservices at a conceptual and small‑scale example level, and see how AI‑powered observability tools help monitor/debug systems, provided fundamentals (logging, error handling) are sound.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "3",
+              "module_title": "Mini Project – 12 h (Core)",
+              "hours": "12 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Core Requirements (unchanged):",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "End‑to‑end console or web application in Java/Python, with:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Normalized relational DB schema.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "CRUD + one meaningful feature (search/filter/simple analytics).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Deployed to a cloud VM or basic PaaS.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "AI‑Assisted Development & Testing (Core expectation):",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Students must document:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Where they used AI (boilerplate, tests, simple refactors).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "How they checked correctness of AI‑generated code (manual tests, reviews).",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "Optional AI Feature Integration (Core):",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Allowed but not required to fully implement.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "At minimum, they can design (in documentation) an AI/LLM API integration (e.g., chatbot/help, simple suggestion) with request/response schema.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "d",
+                  "title": "AI‑Aware Observability & Monitoring Note (Core):",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Add basic logs and a few simple metrics.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "In documentation, describe high‑level how an AI monitoring tool could use these to detect unusual error spikes or frequent failed operations. Expected Outcome (Core): Students deliver a clean, working project, and honestly reflect on where AI helped and how they validated it, plus a basic understanding of how AI‑based monitoring would sit around such a system.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sub_track_name": "Track B – Advanced Topics (High Performers)",
+          "pre_requisites": [
+            "Students should be strong at solving medium‑level DSA problems (arrays, strings, linked lists,",
+            "trees/BSTs, graphs, recursion/DP basics, pattern‑based problem solving with clear time/space",
+            "analysis) in at least one language (C++/Java/Python), with solid prior experience in OOP and",
+            "low‑level design, relational schema design and SQL, and deploying a DB‑backed app with a",
+            "simple CI/CD pipeline, so this track can focus on company‑level competitive programming,",
+            "deeper SE topics (concurrency, microservices), and production‑like AI‑augmented projects."
+          ],
+          "modules": [
+            {
+              "module_number": "1",
+              "module_title": "Competitive Programming & Interview Prep – 24 h (Advanced)",
+              "hours": "24 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Focused DSA Practice – 14 h (Advanced)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Problem sets: mostly medium, some medium‑hard in arrays, strings, trees, graphs, DP basics, patterns.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Pattern‑driven practice: explicitly mapping problems to known patterns (two pointers, union‑find, BFS/DFS, DP on trees), in line with pattern‑based interview prep advice.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Strong emphasis on:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Fast pattern recognition.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Deriving and arguing complexity before coding.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Mock Interviews & Communication – 6 h (Advanced)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Simulated interviews with higher difficulty and time pressure, closer to top‑product expectations.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Additional focus on:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Explaining trade‑offs between multiple approaches (e.g., brute force vs optimized).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Post‑interview self‑analysis.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "Using AI Tools Ethically for Interview Prep – 4 h (Advanced)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Same Do’s/Don’ts, but with deeper and more demanding usage:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Using AI tutors to generate personalized practice paths and targeted problems based on weaknesses.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Employing AI for real‑time code analysis and feedback after submissions (style, efficiency, edge‑case warnings).",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Guided activity (richer):",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Students solve a medium+ problem.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Feed their solution to an AI tool that can comment on complexity and edge cases.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "They must:",
+                          "details": [
+                            {
+                              "type": "bullet",
+                              "text": "Write a short critique of AI’s feedback (what was useful, what was wrong/irrelevant)."
+                            },
+                            {
+                              "type": "bullet",
+                              "text": "Improve their solution based on that analysis. Expected Outcome (Advanced): Students approach company‑level coding rounds with higher confidence, using AI as a coach (personalized paths, feedback on style/complexity) while strictly maintaining interview integrity."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "2",
+              "module_title": "Advanced Topics for SE – 12 h (Advanced)",
+              "hours": "12 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Concurrency & OS Reinforcement – 6 h (Advanced)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Same concepts, but with more depth and code:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Write or reason about simple concurrent code samples.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Discuss real scenarios (thread pools, producer–consumer with bounded buffer).",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Microservices & REST Best Practices – 4 h (Advanced)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Deeper discussion:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Simple design of a small microservice system (e.g., user service + order service).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Trade‑offs (latency vs consistency).",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in Production Systems (Debugging & Monitoring) – 2 h (Advanced)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Go beyond awareness:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Design a log format and tracing identifiers that would help AI tools correlate events across services.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Case analysis: given sample logs/traces from multiple services, students outline how an AI engine could infer a root cause. Expected Outcome (Advanced): Students can reason more concretely about real production issues, and intentionally structure logs and architecture so that AI‑powered observability tools can be effective.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "module_number": "3",
+              "module_title": "Mini Project – 12 h (Advanced)",
+              "hours": "12 h",
+              "topics": [
+                {
+                  "letter": "a",
+                  "title": "Core Project Requirements (same base):",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "End‑to‑end app with DB, CRUD, one meaningful feature, cloud deployment.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "AI‑Assisted Development & Testing (Advanced expectation):",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "More demanding reflection:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Students must include examples of rejecting AI suggestions and explain why (wrong logic, too complex, insecure, etc.).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "They should use AI explicitly for test generation, refactoring suggestions, and basic performance hints, then measure/validate changes.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "Optional AI Feature Integration (Advanced – strongly encouraged):",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "High performers are expected to at least prototype one of:",
+                      "details": [
+                        {
+                          "roman_numeral": "i",
+                          "title": "Live or stubbed AI/LLM API (chatbot, suggestion, summarization).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Or a well‑specified mock with request/response contract and UI integrated.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "d",
+                  "title": "AI‑Aware Observability & Monitoring Note (Advanced):",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Add more structured logs and simple metrics (latency, error counts).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "In the report, they should sketch a simple AI‑driven alerting rule or anomaly detection scenario using those logs/metrics. Expected Outcome (Advanced): Students not only build a production‑like app but also show mature, critical use of AI in the dev lifecycle, and can convincingly describe how AI‑driven monitoring would wrap around their system.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "IV-I",
+      "semester_title": "Placement Readiness Program",
+      "hours": 72,
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Company Specific Practice Tests",
+          "hours": "48 h",
+          "topics": []
+        },
+        {
+          "module_number": "2",
+          "module_title": "Soft Skills",
+          "hours": "24 h",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}

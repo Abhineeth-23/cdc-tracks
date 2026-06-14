@@ -1,0 +1,1272 @@
+{
+  "track_name": "Data Analyst / Data Scientist / AI/ML Engineer",
+  "semesters": [
+    {
+      "semester_code": "II-I",
+      "semester_title": "Common Foundation for All",
+      "hours": 48,
+      "focus": "Programming Foundations + DSA Basics + Git + Web Introduction",
+      "objective": "By the end of II‑I, every student can write basic programs in Python/Java/C, understand fundamental DSA, use Git/GitHub, and have a taste of HTML/CSS/JS.",
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Core Programming Foundations",
+          "hours": "20 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Language: Python",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Topics:",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Syntax, variables, conditionals, loops, functions, I/O.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Basic OOP: classes, objects, methods, constructors.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Error handling, debugging practices.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "DSA Basics",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Arrays, strings, recursion ideas.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Time and space complexity intuition (Big‑O at a high level).",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Simple problems from platforms (2 h of guided practice).",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Git & GitHub Version Control",
+          "hours": "6 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Git basics: init, add, commit, log, branch, merge.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Remote repositories: clone, push, pull, pull request workflow.",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Classroom activity: students push a small programming assignment repo.",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Web Basics",
+          "hours": "8 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "HTML fundamentals: structure, forms, common tags.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "CSS essentials: selectors, box model, basic layout.",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "JavaScript intro: variables, functions, DOM basics, events.",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "One simple static webpage mini‑task.",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "5",
+          "module_title": "Software Engineering & Agile Overview",
+          "hours": "4 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "SDLC models; emphasis on Agile/Scrum basics (roles, ceremonies, user stories).",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Versioning + issue tracking (GitHub Issues, basic Kanban). Deliverables by end of II‑I:",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "A GitHub profile with at least 2 small coding repos and 1 static portfolio page.",
+              "details": []
+            }
+          ]
+        }
+      ],
+      "post_assessment": "Baseline coding test to decide who leans to SE/FSD vs Data vs Cloud/DevOps/Security."
+    },
+    {
+      "semester_code": "II-II",
+      "semester_title": "Core DSA + Databases + Early Specialization",
+      "hours": 48,
+      "focus": "Strengthen DSA + Teach SQL + Start Track‑oriented modules",
+      "split_info": "Common Modules - 24 h + Track Specific Modules - 24 h",
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Common Modules",
+          "hours": "24 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Data Structures & Algorithms Core – 14 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Data structures: arrays, linked lists, stacks, queues, hash maps, basic trees.",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "Algorithms: searching, sorting, introduction to recursion and greedy ideas.",
+                  "details": []
+                },
+                {
+                  "letter": "c",
+                  "title": "4–6 h of problem‑solving labs (LeetCode/GFG‑style curated sets).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Relational Databases & SQL – 10 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "ER modeling basics.",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "SQL: CREATE, SELECT, INSERT, UPDATE, DELETE, WHERE, JOINS, GROUP BY, HAVING.",
+                  "details": []
+                },
+                {
+                  "letter": "c",
+                  "title": "Simple lab: design and query a mini student‑course database.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Track Intro Modules (DA/DS/AI/ML Engineer)",
+          "hours": "24 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Python for Data – 10 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Data Handling with Pandas & NumPy – 7 h",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Loading datasets from CSV/Excel into Pandas.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Inspecting data: head, info, describe, dtypes.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Cleaning basics: handling missing values (drop/fill), removing duplicates.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iv",
+                      "title": "Filtering rows, selecting columns, sorting.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "v",
+                      "title": "GroupBy operations for simple aggregations (sum, mean, count).",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "vi",
+                      "title": "Basic NumPy arrays for numeric operations.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Basic Descriptive Statistics – 2 h",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Mean, median, mode, min, max, standard deviation.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Simple frequency distributions and basic visual checks (histogram/boxplot via Pandas/Matplotlib).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI‑Assisted Data Work & Prompting (1 h – awareness + demo)",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Explain how modern data analysts use AI tools to:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Generate Python snippets for data cleaning/EDA."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Suggest transformations or feature ideas, given a schema description."
+                        }
+                      ]
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Introduce basic prompt engineering for data tasks:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "How to clearly describe a dataset, the goal, and expected output when asking an AI assistant."
+                        }
+                      ]
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Instructor demonstration:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Show a small CSV structure and ask an AI assistant for code to “clean and summarize” it, then review the code for correctness and adjust as needed. Expected Outcome: Students can manually perform core data cleaning and EDA in Python and also understand how to use AI assistants as helpers (not replacements) for routine data tasks."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Excel for Analytics – 6 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Core Excel Analytics – 4 h",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Data cleaning basics in Excel: remove duplicates, text-to-columns, basic formatting.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Lookup functions: VLOOKUP, XLOOKUP, INDEX‑MATCH (conceptually).",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Pivot tables: building pivots, grouping, basic calculated fields.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iv",
+                      "title": "Simple data modeling: arranging raw data into analyzable tables.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Excel + AI Integration Awareness – 2 h",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Explain that modern Excel/office tools increasingly include AI helpers (e.g., Copilot, formula suggestions, automated insights).",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Demonstrate (if available) or conceptually explain:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Using AI to generate formulas, suggest pivot configurations, or summarize trends in a table."
+                        }
+                      ]
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Stress good practice:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Always validate AI‑suggested formulas and summaries against the underlying data. Expected Outcome: Students can analyse data with Excel and understand that AI‑enhanced Excel can speed up work, but still requires human verification and understanding of pivots/lookups."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "Introduction to Data Visualization Tools – 8 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Visualization Basics – 3 h",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Good chart practices: choosing chart types for comparisons, trends, distributions.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Linking visuals to questions: “What decision should this chart support?”",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Hands‑on with Power BI or Tableau – 4 h",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Importing data from CSV/Excel.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Creating basic visuals: bar, line, pie/donut, tables.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Building a simple interactive dashboard with filters/slicers.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "AI in BI Tools – 1 h (awareness + guided example)",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Many BI tools now offer AI features such as:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "“Explain this visual” / “Quick insights”,"
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Natural language queries (“show sales by region last year”)."
+                        }
+                      ]
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Demonstrate (if your license supports it) or conceptually explain:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Asking the BI tool to generate insights or charts with natural language, and then verifying if those insights match the underlying data."
+                        }
+                      ]
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Connect to AI analyst roles:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Data analysts increasingly need to interpret AI-suggested insights, not just produce charts. Expected Outcome: Students gain basic dashboarding skills and understand that BI tools now come with AI‑driven insight and NLQ features, which they must use critically and responsibly."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "pre_requisites": [
+        "(Python for Data - 10h + Excel for Analytics - 6h + Data Visualization Tools - 8h) Pre-requisites: Students should be comfortable with basic programming (ideally some Python at “variables–loops–lists” level), school‑level statistics (mean/median, percentages), and basic spreadsheet use (entering/sorting data, simple formulas) so this module can focus on using Python, Excel, and BI tools for real data cleaning, analysis, and visualization with AI‑assisted support."
+      ]
+    },
+    {
+      "semester_code": "III-I",
+      "semester_title": "Deep Tech (DA/DS/AI/ML Engineer)",
+      "hours": 48,
+      "description": "Statistics and Mathematics for Data - 14h + Data Analytics with Python - 14h + SQL for Analytics - 10h + Introduction to Machine Learning - 10h)",
+      "pre_requisites": [
+        "Students should be comfortable with Python basics (variables, loops, lists, simple functions),",
+        "introductory statistics (mean/median, variance, basic probability ideas), core SQL",
+        "(SELECT/FROM/WHERE, simple JOIN + GROUP BY), and basic spreadsheet/BI familiarity,",
+        "so this semester can focus on formal stats for data, serious EDA with Python, intermediate",
+        "analytical SQL, and first ML models with Scikit‑learn."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Statistics & Mathematics for Data",
+          "hours": "14 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Descriptive Statistics & Random Variables – 6 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Mean, median, mode, variance, standard deviation.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Covariance, correlation (basic).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Random variables: discrete vs continuous, expectation and variance (informal level).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Distributions, Sampling & Estimation – 4 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Common distributions (normal, binomial, Poisson – conceptual).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Sampling, sample vs population, law of large numbers (intuitive).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Confidence intervals (idea, not proofs).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "Hypothesis Testing Overview – 2 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Null vs alternative hypotheses, type I/II errors.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "p‑value concept and basic test examples (mean difference, proportion).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "d",
+              "title": "Why This Math Matters for AI & ML – 2 h (conceptual)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Connect these topics to AI/ML practice:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "How distributions and variance affect model assumptions and uncertainty."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Why hypothesis testing and confidence intervals matter for A/B tests and model comparisons."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Short examples:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Evaluating whether a new ML model is significantly better than an old one."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Understanding model predictions as coming from distributions, not fixed values. Expected Outcome: Students see statistics not just as theory but as the basis of AI/ML models and evaluation, especially for Data Scientist and AI/ML Engineer roles."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Exploratory Data Analysis (EDA) with Python",
+          "hours": "14 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "EDA Fundamentals with Pandas – 6 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Loading data, inspecting structure, checking missing values and types.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Univariate analysis: histograms, boxplots, descriptive stats.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Bivariate analysis: scatterplots, group comparisons.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Data Cleaning & Outlier Handling – 4 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Strategies for missing data (drop vs impute).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Detecting and treating outliers (visual + rule‑of‑thumb).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Basic feature transformation (log transforms, simple encodings).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "Feature Understanding & Simple Feature Engineering – 2 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Correlation matrices and basic feature importance intuition.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Creating simple derived features (ratios, aggregates).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "d",
+              "title": "AI‑Assisted EDA & AutoML Awareness – 2 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Explain that EDA is a critical step before ML/AI, and many tools now provide AI‑powered EDA/AutoML.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Concepts:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "AI tools can auto‑summarize datasets, detect outliers, suggest transformations, and generate EDA reports."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Instructor demo (or conceptual walkthrough):",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Show how an AutoML/AI EDA tool could automatically produce summary stats, plots, and highlight suspicious patterns."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "Stress good practice:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Use AI EDA suggestions as starting points, but still manually interpret plots and verify that transformations make sense for the domain."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Expected Outcome: Students can run manual EDA with Python and understand the role of AI‑powered EDA/AutoML tools in speeding up, but not replacing, human-driven exploratory analysis."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "SQL for Analytics",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Advanced Querying Basics – 6 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Review joins (INNER/LEFT/RIGHT) with clear examples.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Common aggregation patterns (GROUP BY, HAVING).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Window functions: ROW_NUMBER, RANK, moving averages at beginner level.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "CTEs & Analytical Patterns – 3 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Writing CTEs for readability and step‑wise analysis.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Multi‑step analytical queries using CTEs and windows.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "AI‑Assisted SQL & “AI Data Analyst” Role – 1 h (awareness + demo/description)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Explain how AI tools help analysts craft and optimize SQL queries from natural language prompts (“show sales by region per month”).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Demonstrate or describe:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Turning a business question into SQL with the help of an AI assistant, then manually reviewing and fixing the query."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Connect to AI Data Analyst roles:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Analysts increasingly use AI assistants to speed up queries, but must still understand joins, windows, and logic to check correctness."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Expected Outcome: Students write complex analytical SQL themselves and understand how AI‑driven SQL assistants can support (but not replace) their analytical reasoning."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Introduction to Machine Learning",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "ML Foundations with Scikit‑learn – 6 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Supervised learning basics: input features X, target y.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Regression: e.g., Linear Regression on a simple dataset.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Classification: e.g., Logistic Regression or Decision Tree on labeled data.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "Train/test split and simple pipeline for training and prediction.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Overfitting & Evaluation – 3 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Overfitting vs underfitting; bias‑variance intuition.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Evaluation metrics: accuracy, precision, recall, F1, RMSE for regression.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Simple confusion matrix interpretation.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "Positioning ML within the AI/Data Science Pipeline – 1 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Show the full AI/Data Science pipeline:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Data collection → EDA → feature engineering → ML models → evaluation → deployment & monitoring."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Clarify roles:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Data Analyst – strong on SQL, Excel/BI, descriptive analytics."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Data Scientist / AI/ML Engineer – extend this with model development, tuning, deployment, and integration into applications."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Brief mention of AutoML:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Tools that automate model selection/tuning, and why understanding fundamentals (as taught here) is still crucial to use them responsibly."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Expected Outcome: Students can build basic ML models in Scikit‑learn and see where this fits within the broader AI and Data Science lifecycle, preparing them for deeper ML and AI/ML Engineer content in III‑II and beyond."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-II",
+      "semester_title": "Advanced Topics + Mini Capstone",
+      "hours": 48,
+      "description": "(Machine Learning and AI - 18h + Data Visualization and Storytelling - 10h + Big Data and Cloud for Data - 10h + Mini Project - 10h)",
+      "pre_requisites": [
+        "Students should be comfortable with Python for data work (Pandas/NumPy basics, EDA), core",
+        "statistics and probability (descriptive stats, common distributions, sampling ideas), intermediate",
+        "SQL for analytics (joins, GROUP BY, simple windows), and basic dashboarding in a BI tool, so",
+        "this semester can focus on training and evaluating ML models, advanced data storytelling, and",
+        "big‑data/cloud ML workflows with AI‑aware tooling."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Machine Learning & AI Deepening",
+          "hours": "18 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Supervised Models: Logistic, Trees, Random Forest – 10 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Logistic Regression for binary classification (with regularization idea).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Decision Trees: splitting criteria (Gini/entropy conceptually), interpretability.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Random Forest: ensembles, variance reduction, feature importance.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "Hands‑on with Scikit‑learn on 1–2 real datasets (classification focus).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Unsupervised: k‑means & Clustering Use Cases – 3 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "k‑means clustering: idea, distance measure, inertia.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Simple applications: customer segmentation, pattern discovery.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "Model Evaluation & Cross‑Validation – 3 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Confusion matrix, accuracy, precision, recall, F1.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "ROC curve & AUC (intuition and usage).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Train/validation/test splits and k‑fold cross‑validation for robust estimates.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "d",
+              "title": "Intro to Neural Networks & Deep Learning – 2 h (high level AI view)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Basic neural network concepts: layers, weights, activation functions.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Example applications: image classification, text classification.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Demo or conceptual overview using Keras (simple feedforward net on a tiny dataset).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "Position NN as the core of many modern AI systems (CV, NLP, LLMs). Expected Outcome: Students can train and evaluate tree‑based and linear models, plus a simple NN, and understand how these form the algorithmic core of many AI applications.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Data Visualization & Storytelling",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Dashboard Building with Power BI/Tableau – 6 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Connect to a realistic dataset (e.g., sales, HR, ed‑tech).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Design interactive dashboards: filters/slicers, drill‑downs, key KPI cards.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Best practices: layout, visual hierarchy, avoiding clutter.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Storytelling with Data – 3 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Story arc: context → insight → recommendation.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Choosing visuals that support the narrative (trend vs distribution vs comparison).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Adding annotations, tooltips, and narrative text to explain insights.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "AI Features in BI & Communicating AI Model Results – 1 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Many BI tools offer AI capabilities:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "“Quick insights”, “Explain this visual”, natural language query (NLQ)."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Brief demo or explanation:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Use an AI/NLQ feature (if available) to ask a question about the data and generate visual/insights; discuss accuracy and limitations."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Connecting to ML:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Show how model outputs (predictions, segment labels, risk scores) can be visualized and communicated to business stakeholders via dashboards."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Expected Outcome: Students can create clear, story‑driven dashboards and understand how to present AI/ML model results in a way decision‑makers can understand, including critically using AI features in BI tools."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Big Data & Cloud for Data",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Big Data Ecosystem Overview – 4 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Why big data: volume, velocity, variety.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Hadoop (HDFS, MapReduce idea) and Spark basics: distributed dataframes, transformations vs actions.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Concept of data lakes and lakehouses.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Cloud for Data & ML – 4 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Overview of Azure ML / AWS SageMaker / GCP AI Platform (choose one for examples):",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Managed notebooks, training jobs, and model deployment endpoints."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Show typical workflow:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Upload data → notebook/AutoML → train model → deploy as API."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "MLOps Touchpoint & AI in Production – 2 h (conceptual)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Introduce MLOps concepts at a high level:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Versioning data/models, deploying models, monitoring drift and performance."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Explain how cloud platforms support MLOps:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Pipelines, model registry, automated retraining."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Link back to previous topics:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Their ML models and EDA work in class are the building blocks; in industry, the same ideas scale on tools like Spark + SageMaker/Azure ML."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Expected Outcome: Students understand the big‑picture of AI/ML in the cloud, and how big data frameworks + managed ML services are used to scale and operationalize AI systems."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Mini Project",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Analytics Project (Data Analyst Focus)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Use a real‑world dataset (internal or public).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Deliverables:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Cleaned dataset with documented transformations."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "SQL/Excel/Python-based analysis answering 3–5 clear business questions."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Power BI/Tableau dashboard + 1–2 pages of narrative explaining insights and recommendations."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "AI‑aware element:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "At least one section discussing how AI features in BI tools or AI assistants could extend their analysis (e.g., automated anomaly detection, forecast suggestions)."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "ML Project (Data Scientist / AI/ML Focus)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Train at least one supervised model (classification/regression) or a clustering model on a real‑world dataset.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Deliverables:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Clearly defined problem (target variable, business context)."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "EDA summary, chosen features, model training with Scikit‑learn."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Evaluation using appropriate metrics (e.g., ROC/AUC, F1, RMSE) and cross‑validation."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Short note on possible next steps in MLOps (deployment, monitoring).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "Explicit AI Integration / Reflection (common to both options)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Students must include a short “AI Tools & Automation Reflection” (~½–1 page):",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Where could AI tools (AutoML, AI EDA, BI AI features, AI code assistants) help in their project?"
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Did they use any, and if yes, how did they validate their outputs?"
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "How would they scale this project in a real organization using cloud big data + managed ML services introduced earlier?",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "IV-I",
+      "semester_title": "Placement Readiness Program",
+      "hours": 72,
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Company Specific Practice Tests",
+          "hours": "48 h",
+          "topics": []
+        },
+        {
+          "module_number": "2",
+          "module_title": "Soft Skills",
+          "hours": "24 h",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}

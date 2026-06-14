@@ -1,0 +1,482 @@
+{
+  "track_name": "EV / Power Systems / Automation Engineer",
+  "semesters": [
+    {
+      "semester_code": "II-I",
+      "semester_title": "ECAD for Electrical & Electronics Engineers",
+      "hours": 48,
+      "pre_requisites": [
+        "Basic Electrical Engineering",
+        "Engineering Drawing fundamentals",
+        "Basics of electrical circuits and components"
+      ],
+      "expected_outcomes": [
+        "After completion of the course, students will be able to:",
+        "Develop electrical schematics using ECAD tools",
+        "Perform circuit simulation and analysis",
+        "Design basic PCB layouts",
+        "Prepare industrial electrical drawings and panel layouts",
+        "Apply ECAD tools for electrical and automation applications"
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Introduction to ECAD & Electrical Drafting",
+          "hours": "12 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Electrical symbols and standards",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Electrical schematic drawing basics",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Single-line diagrams (SLD)",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Wiring and ladder diagrams",
+              "details": []
+            },
+            {
+              "letter": "e",
+              "title": "Introduction to AutoCAD Electrical / ECAD software",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Circuit Design & Simulation (Analog Circuit Simulation)",
+          "hours": "12 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Digital circuit simulation",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "RLC circuit analysis",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Transient and frequency response analysis",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Introduction to simulation tools (Proteus/Multisim/MATLAB)",
+              "details": []
+            },
+            {
+              "letter": "e",
+              "title": "Troubleshooting using simulation software",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "PCB Design Fundamentals",
+          "hours": "12 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Introduction to PCB design",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Component footprints and libraries",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "PCB layout creation",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Routing techniques",
+              "details": []
+            },
+            {
+              "letter": "e",
+              "title": "Design Rule Check (DRC)",
+              "details": []
+            },
+            {
+              "letter": "f",
+              "title": "Gerber file generation",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Industrial Applications & Mini Project",
+          "hours": "12 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Electrical panel layout basics",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "PLC wiring diagrams",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Cable and terminal planning",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "BOM generation",
+              "details": []
+            },
+            {
+              "letter": "e",
+              "title": "Industrial automation drawing basics",
+              "details": []
+            },
+            {
+              "letter": "f",
+              "title": "Mini project using ECAD tools",
+              "details": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "II-II",
+      "semester_title": "PLC Programming & Industrial Automation",
+      "hours": 48,
+      "pre_requisites": [
+        "Students should have solid embedded programming skills (microcontroller GPIO, timers,",
+        "sensor/actuator interfacing from II-I), understanding of basic control concepts (ON/OFF control,",
+        "relay logic, feedback loops), familiarity with industrial sensors and actuators, and ability to read",
+        "circuit diagrams and logic diagrams, so this course can focus on PLC ladder logic, HMI design,",
+        "and industrial automation protocols."
+      ],
+      "expected_outcomes": [
+        "Students will be able to design and program PLC ladder logic for industrial automation tasks",
+        "(conveyor control, sorting systems, process control), configure basic HMI screens for operator",
+        "interface and monitoring, and implement industrial communication protocols (Modbus RTU) to",
+        "integrate sensors, actuators, and controllers in a simulated factory automation environment with",
+        "proper documentation and safety interlocks."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "PLC Fundamentals & Ladder Logic",
+          "hours": "24 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "PLC architecture and I/O modules – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Ladder logic programming basics (contacts, coils, timers, counters) – 8 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Industrial sensors and actuators integration – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Safety interlocks and emergency stops – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Hands-on: Conveyor belt control simulation – 4 h"
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "HMI Design & SCADA Basics",
+          "hours": "12 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "HMI screen design and navigation – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Alarm and trend visualization – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "PLC-HMI communication – 4 h"
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Industrial Protocols & Integration",
+          "hours": "12 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Modbus RTU/TCP protocol – 6 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Relay logic and control panel wiring basics – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Mini project: Multi-stage automation system with HMI – 2 h"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-I",
+      "semester_title": "EV Technologies & Power Electronics",
+      "hours": 48,
+      "pre_requisites": [
+        "Students should have strong automation and control knowledge (PLC programming, industrial",
+        "protocols, control loops from II-II), solid understanding of electrical machines and power circuits",
+        "(motor types, three-phase systems, inverters/rectifiers from academic courses), foundational",
+        "math and simulation skills (MATLAB basics, transfer functions, circuit simulation), and",
+        "technical documentation abilities, so this course can focus on EV powertrain components, power",
+        "electronics design, and EV system simulation."
+      ],
+      "expected_outcomes": [
+        "Students will be able to analyze and design EV powertrain components (motors, inverters,",
+        "chargers) using power electronics principles, simulate EV drive cycles and power conversion",
+        "systems in MATLAB/Simulink with efficiency calculations and thermal considerations, and",
+        "explain battery fundamentals and basic BMS architecture including SoC estimation, cell",
+        "balancing, and safety mechanisms for lithium-ion battery packs."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "EV Fundamentals & Powertrain Architecture",
+          "hours": "14 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "EV system overview (BEV, HEV, PHEV) – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Electric motors for EV (BLDC, PMSM, induction) – 6 h"
+            },
+            {
+              "type": "bullet",
+              "text": "EV performance metrics (range, efficiency, acceleration) – 4 h"
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Power Electronics for EV",
+          "hours": "20 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "DC-DC converters (buck, boost, buck-boost) – 6 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Inverters and motor drives (VSI, PWM techniques) – 8 h"
+            },
+            {
+              "type": "bullet",
+              "text": "EV charging systems (AC/DC chargers, fast charging) – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Power semiconductor devices (MOSFETs, IGBTs) – 2 h"
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Battery Basics & BMS Introduction",
+          "hours": "14 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Battery chemistry and characteristics (Li-ion cells) – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Battery pack design and configuration – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "BMS fundamentals (SoC, SoH, cell balancing basics) – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Hands-on: EV powertrain simulation in MATLAB/Simulink – 2 h"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-II",
+      "semester_title": "Advanced BMS, Industrial IoT & Integration Capstone",
+      "hours": 48,
+      "pre_requisites": [
+        "Students should have comprehensive EV and power electronics knowledge (motor drives,",
+        "inverters, battery fundamentals, basic BMS from III-I), strong embedded and automation",
+        "background (microcontroller programming, PLC, industrial protocols from II-I and II-II),",
+        "proficiency in simulation and analysis tools (MATLAB/Simulink, circuit analysis), and solid",
+        "technical project documentation and presentation skills, so this capstone course can focus on",
+        "advanced BMS algorithms, Industrial IoT integration, and end-to-end system design."
+      ],
+      "expected_outcomes": [
+        "Students will be able to design and implement advanced BMS algorithms (accurate SoC/SoH",
+        "estimation, active/passive balancing, thermal management with fault detection), integrate",
+        "Industrial IoT technologies (MQTT, edge computing, cloud dashboards) for real-time battery",
+        "monitoring and predictive maintenance, and deliver a complete capstone project integrating BMS",
+        "with IIoT connectivity and CAN bus communication that demonstrates industry-ready skills in",
+        "EV battery systems, data analytics, and remote monitoring with professional documentation and",
+        "live demonstration."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Advanced Battery Management Systems",
+          "hours": "22 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Advanced SoC estimation algorithms (Coulomb counting, Kalman filter) – 6 h"
+            },
+            {
+              "type": "bullet",
+              "text": "SoH estimation and aging models – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Cell balancing techniques (active vs passive) – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Thermal management and cooling strategies – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "BMS safety and fault diagnostics – 4 h"
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Industrial IoT for Smart Energy Systems",
+          "hours": "14 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "IIoT architecture and protocols (MQTT, OPC UA) – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Edge computing and sensor data acquisition – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Cloud platforms for battery monitoring (dashboards, analytics) – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Cybersecurity basics for IIoT – 2 h"
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "CAN Bus & System Integration Capstone",
+          "hours": "12 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "CAN protocol and automotive networks – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Capstone project: IIoT-enabled BMS prototype – 8 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Project scope: Design a BMS with real-time monitoring via MQTT, CAN bus integration, and cloud dashboard"
+            },
+            {
+              "type": "bullet",
+              "text": "Students work in teams to integrate hardware (microcontroller, battery simulator), software (BMS algorithms, IoT gateway), and analytics (visualization, alerts)"
+            },
+            {
+              "type": "bullet",
+              "text": "Deliverables: Working prototype, system architecture diagram, test results, and live demonstration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "IV-I",
+      "semester_title": "Placement Readiness Program",
+      "hours": 72,
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Company Specific Practice Tests",
+          "hours": "48 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Technical aptitude (electrical circuits, power electronics, control systems) – 16 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Domain-specific assessments (EV/BMS/automation case studies) – 16 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Coding and problem-solving for EEE roles – 16 h"
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Soft Skills",
+          "hours": "24 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Resume building and LinkedIn optimization – 4 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Group discussions and technical presentations – 8 h"
+            },
+            {
+              "type": "bullet",
+              "text": "Mock interviews (technical + HR rounds) – 12 h"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

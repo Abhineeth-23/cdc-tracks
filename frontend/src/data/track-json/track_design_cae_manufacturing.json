@@ -1,0 +1,613 @@
+{
+  "track_name": "Design / CAE / Manufacturing Engineer",
+  "semesters": [
+    {
+      "semester_code": "II-I",
+      "semester_title": "Fabrication and CAD Foundations",
+      "hours": 48,
+      "pre_requisites": [
+        "Students should have basic engineering drawing skills (reading simple 2D orthographic views",
+        "with basic dimensions/symbols), elementary workshop exposure (tolerances, surface finish,",
+        "safety norms), comfort with simple arithmetic and units, and general computer literacy",
+        "(files/folders, mouse navigation, basic 3D‑like interfaces) so this course can focus on CAD,",
+        "welding, and parametric modeling."
+      ],
+      "expected_outcomes": [
+        "Students will be able to explain and safely apply basic welding processes, create simple",
+        "parametric 3D parts and small assemblies in a modern CAD tool, and redesign components for",
+        "3D printing by applying core design‑for‑additive principles and understanding their impact on",
+        "quality, time, and cost."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Welding Technology & Fabrication Basics",
+          "hours": "18 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Welding processes (SMAW, GMAW, GTAW) – 8 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Joint design, symbols, quality, safety – 6 h",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Simple weld procedure + shop demo/videos – 4 h",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "CAD Foundations (Solid Modeling Mindset)",
+          "hours": "16 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "2D to 3D thinking, constraints, parametric modeling – 8 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Simple part + small assembly modeling in a chosen CAD (e.g., SolidWorks intro) – 8 h",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "3D Printing & Design for Additive",
+          "hours": "14 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "3D printing processes, materials, limitations – 6 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Basic design rules for AM (overhangs, support, wall thickness) – 4 h",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Mini exercise: redesign a simple bracket for printing – 4 h",
+              "details": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "II-II",
+      "semester_title": "SolidWorks and Ansys Foundations",
+      "hours": 48,
+      "pre_requisites": [
+        "Students should be comfortable with basic 3D CAD (extrude/revolve/cut/fillet and parametric",
+        "modeling in SolidWorks or similar), simple mechanical design concepts and GD&T notions,",
+        "foundational mechanics and math (statics, stress/strain, units, basic plot interpretation), and",
+        "general Windows/software literacy (installing, managing files, iterating on models and handling",
+        "tool warnings) so this course can focus on applying CAD and simulation tools for design and",
+        "analysis."
+      ],
+      "expected_outcomes": [
+        "Students will be able to create parametric parts, assemblies, and detailed drawings in SolidWorks",
+        "(including a small integrated design mini‑project with basic GD&T and simple automation via",
+        "macros) and set up, run, and interpret basic static structural simulations in Ansys Workbench,",
+        "using stress/displacement results and simple parameter studies to drive informed design",
+        "improvements."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "SolidWorks Core",
+          "hours": "28 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Sketches, features, parts – 10 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Assemblies, mates, exploded views – 8 h",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "2D drawings, basic GD&T symbols – 6 h",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Small design mini‑project – 4 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Include a short demonstration of macro recording / automation (within the mini‑project) to expose students to CAD scripting concepts.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Ansys Workbench Intro (FEA)",
+          "hours": "20 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Geometry import/cleanup, meshing – 6 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Static structural analysis steps – 8 h",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Interpreting results, simple design changes – 6 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Include a simple parametric study (e.g., 2–3 thickness or load variants) to illustrate the idea of repeated/batch runs and prepare students for scripted/automated analysis in III‑I.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-I",
+      "semester_title": "Advanced CAD/CAE and DFM",
+      "hours": 48,
+      "pre_requisites": [
+        "Students should have a strong command of SolidWorks (parts, assemblies, drawings, basic",
+        "GD&T, from the “SolidWorks and Ansys Foundations” level), prior Ansys Workbench",
+        "experience for static structural analysis, foundational manufacturing knowledge",
+        "(machining/welding/casting, tolerances and cost), and solid math/mechanics plus basic technical",
+        "report‑writing skills, so this course can focus on more advanced CAD/CAE applications and",
+        "engineering decision‑making."
+      ],
+      "expected_outcomes": [
+        "Students will be able to design and document configurable, manufacturable parts and assemblies",
+        "in SolidWorks (including weldments, sheet‑metal, design tables, BOMs, and exploded views), set",
+        "up and interpret modal/thermal analyses and parameter sweeps in Ansys to drive",
+        "simulation‑based design decisions, and apply DFM/DFA and cost‑awareness principles to choose",
+        "suitable processes and simplify designs for lower cost and higher reliability."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "SolidWorks Advanced",
+          "hours": "22 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Configurations, design tables – 6 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Top‑down assemblies, weldments/sheet metal – 10 h",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "BOMs, exploded views, drawing packs – 6 h",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Ansys Advanced",
+          "hours": "18 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Modal / simple thermal analysis – 8 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Design iteration based on results – 6 h",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Basic report creation – 4 h",
+              "details": [
+                {
+                  "type": "bullet",
+                  "text": "Embed a small data‑driven mini‑exercise: students run a short parameter sweep (mesh density, thickness, load or material) and include graphs/tables plus a 1‑page interpretation in the report."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "DFM / DFA & Cost Awareness",
+          "hours": "8 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Machining vs welding vs casting – 4 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Tolerancing and cost drivers – 4 h",
+              "details": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-II",
+      "semester_title": "Design and Simulation Capstone",
+      "hours": 48,
+      "pre_requisites": [
+        "Students should have a strong working knowledge of advanced SolidWorks and Ansys (up",
+        "through III‑I level: configurations, top‑down assemblies, weldments/sheet metal,",
+        "static/modal/thermal FEA with reporting), sound DFM/DFA and manufacturing awareness, and",
+        "solid technical communication skills (clear drawings, concise reports, presentations) along with",
+        "basic digital/AI literacy, so this capstone course can focus on higher‑level CAD/CAE design",
+        "decisions and engineering communication."
+      ],
+      "expected_outcomes": [
+        "Students will be able to convert functional requirements into manufacturable CAD/CAE designs",
+        "(full assemblies with drawings, BOMs, and simulation‑driven iterations), use basic automation",
+        "(macros/parameter studies) to reduce manual effort, and participate in industry‑style reviews with",
+        "a documented portfolio that transparently records and critically evaluates any AI‑assisted",
+        "ideation or checks used in their capstone project."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Capstone Project Work",
+          "hours": "32 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Concept + requirements – 4 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "CAD modeling & assemblies – 12 h",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "FEA runs & iterations – 10 h",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Manufacturing drawings & documentation – 6 h",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Industry Practices & Review Sessions",
+          "hours": "16 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Design reviews, critique sessions – 8 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Where possible, include reviews by external/industry experts and/or live problem statements from partner companies.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Basic portfolio creation (reports, screenshots, videos) – 4 h",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "AI‑assisted ideation / checks (with validation) – 4 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Structured AI use: 2 h on idea generation and concept refinement, 2 h on AI‑assisted checking of loads, constraints, failure modes, or documentation, with explicit human validation steps.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "IV-I",
+      "semester_title": "Industrial Engineering & OR + Placement Readiness",
+      "hours": 90,
+      "description": "Industrial Engineering & OR for Manufacturing – 60 h",
+      "pre_requisites": [
+        "Prior exposure to manufacturing processes (machining, welding, casting), basic plant",
+        "layout ideas, and DFM/DFA from III‑I.",
+        "Working knowledge of CAD/CAE workflows (SolidWorks and Ansys up to III‑II),",
+        "including how designs translate to fixtures, tooling, and operations.",
+        "Comfort with basic math (simultaneous equations, inequalities, graphs) to support linear",
+        "programming and simple quantitative models."
+      ],
+      "expected_outcomes": [
+        "Explain and apply key Industrial Engineering concepts such as PPC, work study, and",
+        "waste elimination to real or simulated manufacturing systems.",
+        "Formulate and solve basic optimization problems (linear programming and transportation",
+        "models) to support decisions in production, logistics, and layout.",
+        "Conduct a simplified method and time study on a selected operation, identify",
+        "non‑value‑added activities, and recommend changes to reduce cycle time and fatigue.",
+        "Relate IE & OR decisions to design/CAE choices (fixtures, line balancing, buffer sizing)",
+        "and communicate their impact on efficiency, cost, and quality."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Industrial Engineering Overview & Role in Design/Manufacturing",
+          "hours": "4 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Evolution and scope of Industrial Engineering: productivity, ergonomics, cost, quality.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Interface with Design, CAE, and Manufacturing Engineering (how design affects methods, times, and layouts).",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Introduction to Operations Research as a decision‑making toolkit in manufacturing.",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Production Planning and Control (PPC) & MRP",
+          "hours": "12 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "PPC functions: forecasting link, planning, routing, scheduling, loading, dispatching, follow‑up, and feedback.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Material Requirement Planning (MRP): BOM, dependent demand, lead times, safety stock, and planned orders.",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Simple scheduling and sequencing: Gantt idea, job sequencing rules and their effect on waiting time and utilization.",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Mini‑exercise: Create a simple MRP table for a small assembly based on a CAD BOM.",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Work Study: Method Study",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Objectives and steps of method study: select, record, examine, develop, define, install, maintain.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Recording techniques: operation process chart, flow process chart, two‑hand process chart, and basic flow diagrams.",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Application to manufacturing cells: identifying avoidable movements, transport, and delays.",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Lab‑style activity: Map the method for a small assembly or lab process and propose an improved method.",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Work Study: Time Study and Time–Motion Analysis",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Purpose and procedure of time study: selecting the job, breaking into elements, timing, performance rating, allowances, and standard time.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Time and motion study together: analyzing motions to simplify work, reduce fatigue, and improve ergonomics.",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Using time study data for line balancing, manpower planning, and setting realistic production targets.",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Lab‑style activity: Conduct a basic time study for a repetitive task (manual or simulated video) and compute standard time.",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "5",
+          "module_title": "Optimization Tools: Linear Programming & Transportation Models",
+          "hours": "12 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Basics of linear programming (LP): decision variables, objective function, constraints, feasible region.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Simple LP problems in manufacturing: product mix selection, capacity allocation, and blending examples (graphical method for 2‑variable problems).",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Transportation model: structure, cost matrix, feasibility, and interpretation in production and distribution networks.",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Exercises: Formulate and solve (manually or with a simple solver) 1–2 LP and 1 transportation problem relevant to manufacturing/logistics.",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "6",
+          "module_title": "Simulation & Basic Queueing Ideas in Manufacturing",
+          "hours": "6 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Concept of discrete‑event simulation: events, entities, queues, and servers in a production context.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Typical applications: evaluating layouts, buffer sizes, and scheduling rules without disturbing the real plant.",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Simple queueing ideas: arrival and service concepts, intuitive impact of utilization on waiting time.",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Demonstration: Walkthrough of a simple manufacturing line simulation (spreadsheet or educational tool) and discussion.",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "7",
+          "module_title": "Waste Elimination, Lean Thinking, and Cycle Time Reduction",
+          "hours": "6 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Types of waste in manufacturing (overproduction, waiting, transport, extra processing, inventory, motion, defects) and mapping NVA vs VA activities.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Using work study and PPC data to target waste: examples of layout change, method improvement, and batch size optimization.",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Case snippets: Published examples where cycle time reduction led to higher throughput and better quality.",
+              "details": []
+            },
+            {
+              "letter": "d",
+              "title": "Mini‑exercise: Identify NVA activities from a time‑study log and propose a new sequence to cut cycle time.",
+              "details": []
+            }
+          ]
+        },
+        {
+          "module_number": "8",
+          "module_title": "Integrative Mini‑Project (Team‑based)",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Problem framing: Choose a small product or sub‑assembly and define production requirements and constraints.",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Apply PPC + work study + optimization:",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Prepare a simple PPC/MRP view,",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Carry out a basic method/time study (real or video),",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Suggest at least one LP or transportation‑type model relevant to the case.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "Deliverables: Short report (3–5 pages) and a brief presentation highlighting impact on cycle time, cost, and quality, linking back to CAD/CAE design choices. Company Specific Practice Tests – 12 h",
+              "details": []
+            },
+            {
+              "letter": "a",
+              "title": "Domain‑focused tests on mechanics, strength of materials, thermodynamics, and manufacturing fundamentals – 6 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Company‑oriented caselets in CAD/CAE/manufacturing and IE (simple PPC, work study, or optimization scenarios) – 6 h Soft Skills – 18 h",
+              "details": []
+            },
+            {
+              "letter": "a",
+              "title": "Resume building and LinkedIn optimization – 4 h",
+              "details": []
+            },
+            {
+              "letter": "b",
+              "title": "Group discussions and technical presentations (with focus on explaining IE/CAE projects clearly) – 6 h",
+              "details": []
+            },
+            {
+              "letter": "c",
+              "title": "Mock interviews (technical + HR rounds, including questions on IE, PPC, work study, and projects) – 8 h",
+              "details": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

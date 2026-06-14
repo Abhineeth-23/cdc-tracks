@@ -1,0 +1,1115 @@
+{
+  "track_name": "Cloud Engineer / DevOps Engineer / Cyber Security Engineer",
+  "semesters": [
+    {
+      "semester_code": "II-I",
+      "semester_title": "Common Foundation for All",
+      "hours": 48,
+      "focus": "Programming Foundations + DSA Basics + Git + Web Introduction",
+      "objective": "By the end of II‑I, every student can write basic programs in Python/Java/C, understand fundamental DSA, use Git/GitHub, and have a taste of HTML/CSS/JS.",
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Core Programming Foundations",
+          "hours": "20 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Language: Python"
+            },
+            {
+              "type": "bullet",
+              "text": "Topics:"
+            },
+            {
+              "type": "bullet",
+              "text": "Syntax, variables, conditionals, loops, functions, I/O."
+            },
+            {
+              "type": "bullet",
+              "text": "Basic OOP: classes, objects, methods, constructors."
+            },
+            {
+              "type": "bullet",
+              "text": "Error handling, debugging practices."
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "DSA Basics",
+          "hours": "10 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Arrays, strings, recursion ideas."
+            },
+            {
+              "type": "bullet",
+              "text": "Time and space complexity intuition (Big‑O at a high level)."
+            },
+            {
+              "type": "bullet",
+              "text": "Simple problems from platforms (2 h of guided practice)."
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Git & GitHub Version Control",
+          "hours": "6 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Git basics: init, add, commit, log, branch, merge."
+            },
+            {
+              "type": "bullet",
+              "text": "Remote repositories: clone, push, pull, pull request workflow."
+            },
+            {
+              "type": "bullet",
+              "text": "Classroom activity: students push a small programming assignment repo."
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Web Basics",
+          "hours": "8 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "HTML fundamentals: structure, forms, common tags."
+            },
+            {
+              "type": "bullet",
+              "text": "CSS essentials: selectors, box model, basic layout."
+            },
+            {
+              "type": "bullet",
+              "text": "JavaScript intro: variables, functions, DOM basics, events."
+            },
+            {
+              "type": "bullet",
+              "text": "One simple static webpage mini‑task."
+            }
+          ]
+        },
+        {
+          "module_number": "5",
+          "module_title": "Software Engineering & Agile Overview",
+          "hours": "4 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "SDLC models; emphasis on Agile/Scrum basics (roles, ceremonies, user stories)."
+            },
+            {
+              "type": "bullet",
+              "text": "Versioning + issue tracking (GitHub Issues, basic Kanban). Deliverables by end of II‑I:"
+            },
+            {
+              "type": "bullet",
+              "text": "A GitHub profile with at least 2 small coding repos and 1 static portfolio page."
+            }
+          ]
+        }
+      ],
+      "post_assessment": "Baseline coding test to decide who leans to SE/FSD vs Data vs Cloud/DevOps/Security."
+    },
+    {
+      "semester_code": "II-II",
+      "semester_title": "Core DSA + Databases + Early Specialization",
+      "hours": 48,
+      "focus": "Strengthen DSA + Teach SQL + Start Track‑oriented modules",
+      "split_info": "Common Modules - 24 h + Track Specific Modules - 24 h",
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Common Modules",
+          "hours": "24 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Data Structures & Algorithms Core – 14 h",
+              "details": [
+                {
+                  "type": "bullet",
+                  "text": "Data structures: arrays, linked lists, stacks, queues, hash maps, basic trees."
+                },
+                {
+                  "type": "bullet",
+                  "text": "Algorithms: searching, sorting, introduction to recursion and greedy ideas."
+                },
+                {
+                  "type": "bullet",
+                  "text": "4–6 h of problem‑solving labs (LeetCode/GFG‑style curated sets)."
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Relational Databases & SQL – 10 h",
+              "details": [
+                {
+                  "type": "bullet",
+                  "text": "ER modeling basics."
+                },
+                {
+                  "type": "bullet",
+                  "text": "SQL: CREATE, SELECT, INSERT, UPDATE, DELETE, WHERE, JOINS, GROUP BY, HAVING."
+                },
+                {
+                  "type": "bullet",
+                  "text": "Simple lab: design and query a mini student‑course database."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Track Introduction Modules (Cloud / DevOps / Security)",
+          "hours": "24 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Linux Basics – 10 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Shell & File System",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Linux shell usage (bash), directory structure, navigation.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Working with files and directories (create, move, delete, view).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Permissions & Ownership",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Users, groups, file permissions (r/w/x).",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Changing permissions and ownership (chmod, chown, chgrp).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "Basic Process Management",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Viewing processes (ps, top, htop), killing processes.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Basic service management (start/stop/status where allowed). AI-awareness hook (conceptual, 10–15 mins inside this block):",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Explanation on how logs from Linux systems (auth logs, syslogs, process logs) become input data for AI/ML-based security monitoring – e.g., anomaly detection on login behavior or unusual process activity. Expected Outcome: Students comfortably use Linux and understand that system activity and logs they work with are later used by AI-based SOC tools and SIEMs for detection."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Networking Fundamentals – 8 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Core Networking Concepts",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "IP addressing (IPv4 basics), ports and services.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "DNS concept, how domain names resolve to IPs.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "TCP vs UDP behavior, common application protocols (HTTP/HTTPS, DNS, SSH).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Security-relevant Networking",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "High-level view of firewalls, basic packet flow.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "What it means for ports to be open/closed/filtered, relation to attack surface. AI-awareness hook (20–30 mins inside this block):",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Discussion at a conceptual level on how network flows (source IP, destination IP, ports, protocol, packet counts/bytes) are used as features for ML models that perform:"
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Intrusion Detection / Intrusion Prevention (IDS/IPS)."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Anomaly detection (identifying unusual traffic patterns)."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Example: “If you captured NetFlow data from routers, those fields become columns in a dataset used by an ML model to classify Benign vs Attack.” Expected Outcome: Students understand networking both as a connectivity concept and as a data source for AI‑driven threat detection."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "Cloud Concepts Overview – 6 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "What is Cloud Computing?",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Characteristics: on-demand, scalable, pay-as-you-go.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Service models: IaaS, PaaS, SaaS.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Core Cloud Services (across AWS/Azure/GCP)",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Compute: EC2/VMs or their equivalents.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Storage: S3/Blob storage basics.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Databases: RDS/managed DB concept.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iv",
+                      "title": "IAM (Identity and Access Management) foundational ideas: users, roles, policies.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "Cloud Security Basics",
+                  "details": [
+                    {
+                      "roman_numeral": "i",
+                      "title": "Shared responsibility model (what cloud secures vs what customer secures).",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Simple examples of misconfigurations (public S3 bucket, weak IAM policies). AI-awareness hook (20–30 mins inside this block):",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Introduction on AI in cloud security, at a conceptual level:"
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Cloud providers offer AI-based security services (e.g., anomaly detection in cloud logs, intelligent threat detection in accounts)."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Explanation on cloud logs (CloudTrail, activity logs, access logs) are fed into AI/ML services for:"
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Detecting unusual login/access behavior."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Spotting misconfigurations and suspicious activities automatically."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Briefly mentioning that later (III year), the students will see how such AI-driven security ideas can be prototyped using ML libraries on log/traffic datasets. Expected Outcome: Students see cloud not only as infrastructure but also as a platform that provides AI-powered security monitoring and anomaly detection services."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "pre_requisites": [
+        "(Linux Basics - 10 h + Networking Fundamentals - 8 h + Cloud Concepts Overview - 6 h) Pre-requisites: Students should be comfortable with basic computer usage and OS concepts, simple command‑line work (any OS), and introductory networking ideas (what is an IP address, what is a website/server), plus have very basic programming literacy (at least one language at “hello‑world, variables, loops” level) so that this module can focus on hands‑on Linux shell usage, foundational networking, and cloud/security concepts with AI‑aware examples."
+      ]
+    },
+    {
+      "semester_code": "III-I",
+      "semester_title": "Deep Tech - Cloud / DevOps / Security Track",
+      "hours": 48,
+      "description": "(Cloud Engineer Foundation - 18 h + Linux & Scripting – 10 h + DevOps Essentials – 10 h + Security Fundamentals – 10 h)",
+      "pre_requisites": [
+        "Students should be comfortable with basic programming (any language, at",
+        "“variables–loops–functions” level), general OS/computer use and simple command‑line work,",
+        "introductory networking ideas (IP, ports, what a server is), and have seen at least one basic",
+        "web/DB‑backed app or cloud overview, so this semester can focus on hands‑on cloud resource",
+        "management, Linux scripting, DevOps pipelines, and security basics with AI‑aware monitoring",
+        "concepts."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Cloud Engineer Foundations",
+          "hours": "18 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Cloud Core Services (8 h)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Choose one primary cloud (AWS or Azure or GCP) for labs.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Compute: EC2/VMs – provisioning, basic configurations.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Storage: S3/Blob – buckets/containers, permissions, basic lifecycle.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "Networking: VPC/VNet – subnets, security groups/NSGs, basic routing.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "v",
+                  "title": "Hands-on lab: deploy a simple VM + attach storage + secure with security group rules.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "IAM & Security Basics (6 h)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "IAM concepts: users, roles, groups, policies.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Principle of least privilege, importance for Cloud/DevSecOps.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Common misconfigurations (over-permissive roles, public buckets, exposed keys).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "Lab: create a role/user with limited permissions and test access.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "AI in Cloud Security – Conceptual Session (4 h)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "How cloud providers embed AI/ML into security services:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Examples: AI-driven anomaly detection on CloudTrail / activity logs, login patterns, and API usage."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Concept of AI-based Intrusion Prevention/Detection Systems (AI‑IPS/AI‑IDS) in cloud:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Analyzing traffic across VPC/VNet for unusual patterns."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Mapping earlier knowledge:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Show that metrics students see (IP, ports, bytes, requests, log entries) become features for ML models in real tools (e.g., AI‑IPS, AIOps tools analysing cloud metrics)."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "Short case discussion:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Example scenario where an AI-based service flags anomalous API calls or lateral movement in the cloud. Expected Outcome: Students understand not just how to deploy resources, but how those resources are monitored using AI-driven security services in production cloud environments."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Linux & Scripting",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Linux Review & Logs (4 h)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Quick recap of Linux essentials: file system, permissions, processes.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Focus on log files: auth logs, syslog, web server logs.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "How logs are collected and shipped (high level) to centralized systems.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "AI-awareness note: these logs are primary input to AI-based SIEM and anomaly detection tools used by DevSecOps and SOC teams.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Bash Scripting / Python Scripting for Automation (6 h)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Writing simple scripts to:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Rotate logs, parse basic log entries, extract IPs/counts."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Schedule tasks (cron introduction)."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Short exercise: script that counts failed login attempts or unusual IP hits from logs.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Link to AI: explain that automation scripts help prepare data pipelines, and in real organizations this kind of data stream is fed to AI/ML-based monitoring engines. Expected Outcome: Students gain practical skill in automation and see their scripts/log parsing as a pre-step towards AI-driven analytics (even if AI models are not built here).",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "DevOps Essentials",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Git & Branching Strategies (4 h)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Git workflows (feature branches, pull requests, code reviews).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Branching models (GitFlow, trunk-based development).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Emphasize secure practices: code review, commit signing basics.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "CI/CD Fundamentals (4 h)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "CI concepts: automated build, test, and basic security checks.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Simple pipeline design with GitHub Actions / Jenkins / GitLab CI.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Example: pipeline that runs tests and a basic static analysis tool on each commit.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "AI-Driven Monitoring in CI/CD (2 h – conceptual)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "How AI/ML is used in DevSecOps to:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Analyze code changes, build logs, deployment metrics, and flag anomalous or risky patterns."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Real-world examples:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Tools that use AI to detect unusual commit patterns or potential malicious commits before merge."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "AI-driven monitoring tools that look at CI/CD logs to detect suspicious deployment behaviors or configuration drifts."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Place this as “what industry tools do behind the scenes” – no need to implement AI here, but students must understand that CI/CD pipelines are now augmented with AI-based security controls. Expected Outcome: Students understand CI/CD not only as automation, but as a data-rich pipeline where AI can continuously observe and improve security and reliability.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Security Fundamentals",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Core Security Principles (CIA + Beyond) – 4 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Confidentiality, Integrity, Availability (CIA).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Authentication, authorization, non-repudiation.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Basic threat modeling: assets, threats, vulnerabilities, risk.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Network & System Security Basics – 4 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Firewalls: packet filtering, stateful inspection.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "IDS/IPS overview:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Signature-based vs anomaly-based detection."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Placement in network (edge, host-based)."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Secure configuration concepts: hardening OS, disabling unused services.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "AI-Driven IDS/IPS & AIOps Concepts – 2 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "How AI Intrusion Prevention Systems (AI‑IPS) work:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Use ML and behavior analytics to detect and prevent threats by analyzing patterns in traffic and logs."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Advantages over traditional signature-based tools: adaptability, fewer false positives (if designed well), ability to detect novel attacks.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Short case example:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "AI‑based system monitoring internal East‑West traffic and automatically isolating compromised endpoints when anomalous lateral movement is detected."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "Tie back to earlier: logs, flows, metrics students see are the inputs for these AI systems. Expected Outcome: Students can clearly articulate the difference between traditional IDS/IPS and AI-driven IDS/IPS, and see where AI fits into SecOps and cloud security operations.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-II",
+      "semester_title": "Advanced Topics + Mini Capstone",
+      "hours": 48,
+      "description": "(DevOps Advanced - 16 h + Cloud Architecture & MLOps Touchpoint – 10 h + Security Engineering Essentials – 12 h + Mini Project – 10 h)",
+      "pre_requisites": [
+        "Students should be comfortable with Linux basics (shell, files, permissions), Git and simple",
+        "CI/CD pipelines, core cloud services on at least one provider (VM, storage, security groups/IAM",
+        "basics), container fundamentals (Docker), and have built/deployed at least one small DB‑backed",
+        "app, so this semester can focus on Infrastructure‑as‑Code, full DevSecOps pipelines,",
+        "cloud‑native architecture with containers/Kubernetes and MLOps touchpoints, and security",
+        "engineering with AI‑augmented monitoring."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "DevOps Advanced",
+          "hours": "16 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Infrastructure as Code (IaC) – 8 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Overview of Terraform / CloudFormation / Ansible concepts.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Writing simple IaC definitions for:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "A VM, security group, and storage."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Applying, updating, and destroying infrastructure via code.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "Basic security best practices in IaC: least privilege IAM, avoiding hard‑coded secrets.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "v",
+                  "title": "AI awareness in IaC (conceptual):",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "How AI-powered IaC review tools can scan Terraform/templates to detect risky patterns (public resources, overly broad IAM policies)."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Full CI/CD Pipeline – 8 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Designing a full pipeline (e.g., GitHub Actions/Jenkins/GitLab CI) for a sample app:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Stages: build → test → security checks → deploy."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Integrating basic security gates: SAST/DAST tool invocation in the pipeline.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "AI-driven DevSecOps concept (2–3 h inside this block):",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "How AI/ML is increasingly embedded into CI/CD pipelines to: ○ Analyze build/test logs for anomalies and failure patterns. ○ Flag suspicious commits or dependency changes automatically."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "Example discussion: AI agents suggesting fixes for security findings or blocking risky merges (code or config). Expected Outcome: Students can build a basic DevSecOps pipeline and understand how AI can be integrated into IaC review and CI/CD monitoring to strengthen security and efficiency."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Cloud Architecture & MLOps Touchpoint",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Cloud-Native Architecture – 5 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Designing highly available systems: multi‑AZ/multi‑region basics.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Autoscaling and load balancing concepts:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Horizontal vs vertical scaling, health checks, failover."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Logging and monitoring basics (cloud metrics, alerts).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Containers & Kubernetes Basics – 3 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Container concepts (Docker images/containers).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Basic Kubernetes objects: Pod, Deployment, Service.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Deploying a simple containerized app to a cluster (demo/guided).",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "MLOps & AI-Workload Awareness – 2 h (touchpoint only)",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Where AI/ML workloads sit in cloud architectures:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Containerized ML services, model endpoints, batch vs real‑time inference."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Basics of MLOps:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Versioning models, deploying models using CI/CD, monitoring drift at a high level."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Security angle:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Concept that DevOps/Cloud engineers must help secure ML pipelines, including protecting data, models, and endpoints. Expected Outcome: Students can reason about cloud architectures that host both traditional and AI/ML workloads, and understand their role in securing and operating such systems."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Security Engineering Essentials",
+          "hours": "12 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Vulnerability Scanning & Analysis – 6 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Recap of Nmap; intro to Nessus/other scanners (demo level).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Running a basic scan on a lab target; interpreting severity, CVSS scores.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Exporting reports and prioritizing remediation.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iv",
+                  "title": "New AI concept:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Explain how AI can assist in triaging and correlating vulnerability scan results with other signals (logs, config, exploit feeds) to prioritize what matters most."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Web Application Security Overview – 4 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Quick recap of OWASP Top 10, tying back to earlier semesters.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "Emphasize secure coding patterns and configuration in cloud-native apps.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Brief view on API security in microservices architectures.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "AI-Driven Threat Detection & DevSecOps Practices – 2 h",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Discuss AI-driven security controls that integrate into DevOps:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "AI-based SAST/DAST augmentation (prioritizing findings, auto‑suggesting fixes)."
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "AI‑driven anomaly detection in cloud runtime (containers & Kubernetes clusters)."
+                    }
+                  ]
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "High-level view of agentic AI in security (copilots for security engineers, AI assistance in runbooks/incident response). Expected Outcome: Students not only know traditional scanning and OWASP fundamentals, but also how AI enhances vulnerability management and runtime threat detection in modern DevSecOps setups.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Mini Project",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Teams design and implement an Infrastructure + Deployment project that must include:",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "IaC (Terraform/CloudFormation/Ansible or similar) for core infra.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "A containerized application deployed via a CI/CD pipeline.",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "iii",
+                  "title": "Basic security controls (restricted security groups, least‑privilege IAM, basic scanning in pipeline). AI-integrated options:",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "AI‑aware DevSecOps Pipeline Option",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Integrate a step (even if simulated/demo) where:",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "The pipeline exports logs/artifacts that would be consumed by AI‑based analysis tools, or"
+                    },
+                    {
+                      "type": "bullet",
+                      "text": "A “dummy” AI check step is documented in the pipeline (students describe how, in industry, this would be an AI-based risk analysis or anomaly detection step)."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "AI-Assisted IaC Review / Threat Detection Option",
+              "details": [
+                {
+                  "roman_numeral": "i",
+                  "title": "Document how IaC templates and config files would be passed to an AI‑powered IaC security tool (conceptual flow).",
+                  "details": []
+                },
+                {
+                  "roman_numeral": "ii",
+                  "title": "OR produce a short report discussing how AI could improve their project’s vulnerability triage, alert correlation, or incident response automation.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "IV-I",
+      "semester_title": "Placement Readiness Program",
+      "hours": 72,
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Company Specific Practice Tests",
+          "hours": "48 h",
+          "topics": []
+        },
+        {
+          "module_number": "2",
+          "module_title": "Soft Skills",
+          "hours": "24 h",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}

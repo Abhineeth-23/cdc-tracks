@@ -1,0 +1,442 @@
+{
+  "track_name": "VLSI / Semiconductor Engineer",
+  "semesters": [
+    {
+      "semester_code": "II-I",
+      "semester_title": "Industrial Training Level#1",
+      "hours": 48,
+      "model": "Instructor led 8-days (48 Hours) training",
+      "methodology": "Theory (50%) and Practice Labs (50%)",
+      "days": [
+        {
+          "day_number": 1,
+          "day_title": "Analog Front-End Design and Simulation",
+          "topics": [
+            "Introduction to Fabless Semiconductor Design and EDA Platforms: Concept to Silicon and Applications (CSA)",
+            "Front-end design flow using schematic Interface: Spice Simulation",
+            "Schematic Basics and Understanding of Netlist Fundamentals",
+            "RC circuits and Transient Analysis"
+          ]
+        },
+        {
+          "day_number": 2,
+          "day_title": "Device-Level Circuit Simulation and Analysis",
+          "topics": [
+            "Simulation Fundamentals - Parameters and Characteristics",
+            "Circuit Simulation Fundamentals: Simulation Types and Sources",
+            "PN-Junction and Diode circuits",
+            "Transistor and MOSFET Fundamentals – Circuit Design and Analysis"
+          ]
+        },
+        {
+          "day_number": 3,
+          "day_title": "CMOS Digital Logic Verification",
+          "topics": [
+            "Advance Concepts for Netlist: Sources (Voltage and Current sources, Simulation commands)",
+            "Switching Characteristics of MOSFET and CMOS Fundamentals • Logic Gates and Boolean Functions – Functional Verification"
+          ]
+        },
+        {
+          "day_number": 4,
+          "day_title": "Device Modeling and EDA Automation",
+          "topics": [
+            "Introduction to Scripting and Programing Language for Process Automation",
+            "Creating RC Models",
+            "Creating Diode and MOSFET models"
+          ]
+        },
+        {
+          "day_number": 5,
+          "day_title": "PCB Schematic Design",
+          "topics": [
+            "Introduction to PCB designing concepts",
+            "PCB Manufacturing Process",
+            "CAD-based Schematic Design"
+          ]
+        },
+        {
+          "day_number": 6,
+          "day_title": "PCB Layout and Routing",
+          "topics": [
+            "Component introduction and their categories",
+            "Auto routing",
+            "Introduction to Development Tools",
+            "PCB Designing Practices"
+          ]
+        },
+        {
+          "day_number": 7,
+          "day_title": "PCB Fabrication and Multi-Layer Design",
+          "topics": [
+            "Detailed description and practical of PCB designing - PCB Designing Flow Chart",
+            "Post Designing & PCB Fabrication Process",
+            "Detailed description and practical of PCB designing - Description of PCB Layers"
+          ]
+        },
+        {
+          "day_number": 8,
+          "day_title": "Product Specification and Implementation",
+          "topics": [
+            "Specification understanding",
+            "Product Requirement",
+            "Implementation Process CAD Tools: LTSpice/ TINA Spice/ NG-Spice/ Eagle"
+          ]
+        }
+      ],
+      "implementations": [
+        "Biasing circuit design",
+        "Understanding Simulation Fundamentals",
+        "Scripting and process automation",
+        "Audio Frequency filter application - Circuit design and analysis",
+        "PCB design and HW characterization"
+      ]
+    },
+    {
+      "semester_code": "II-II",
+      "semester_title": "Industrial Training Level#2",
+      "hours": 48,
+      "model": "Instructor led 8-days (48 Hours) training",
+      "methodology": "Theory (50%) and Practice Labs (50%)",
+      "pre_requisites": [
+        "Proficiency in Verilog HDL for digital logic design (dataflow, structural, behavioral models),",
+        "testbench verification, FSM implementation, EDA tool flows, and introductory protocol design",
+        "guidelines."
+      ],
+      "days": [
+        {
+          "day_number": 1,
+          "day_title": "Digital Logic and HDL Design",
+          "topics": [
+            "Digital Logic Design",
+            "Basic building blocks",
+            "Introduction to Hardware Description Language (HDL)"
+          ]
+        },
+        {
+          "day_number": 2,
+          "day_title": "Verilog Dataflow Modeling",
+          "topics": [
+            "Verilog HDL Syntax - Logic Design",
+            "EDA Tools and basic flow",
+            "Verilog Models – Dataflow model, Datatypes and Operators"
+          ]
+        },
+        {
+          "day_number": 3,
+          "day_title": "Verilog Structural Modeling",
+          "topics": [
+            "Structural model",
+            "Port mapping and instantiation process",
+            "Use of primitives"
+          ]
+        },
+        {
+          "day_number": 4,
+          "day_title": "Digital Verification Testbench",
+          "topics": [
+            "Testbench method for verification",
+            "Verification constructs"
+          ]
+        },
+        {
+          "day_number": 5,
+          "day_title": "Verilog Behavioral Modeling",
+          "topics": [
+            "Behavioural model - Conditional statements and blocking and non-blocking assignments",
+            "Sequential coding guidelines",
+            "Design of counters, shift registers, and memories"
+          ]
+        },
+        {
+          "day_number": 6,
+          "day_title": "Advanced Digital Testbench Development",
+          "topics": [
+            "Advanced verification constructs - loops",
+            "Display, monitors and build-in functions",
+            "Clock generation, Reset and control signal"
+          ]
+        },
+        {
+          "day_number": 7,
+          "day_title": "FSM Design and Verilog Implementation",
+          "topics": [
+            "Architecture and Micro-architectures",
+            "FSM-based logic implementation",
+            "FSM and Verilog codes"
+          ]
+        },
+        {
+          "day_number": 8,
+          "day_title": "Hardware Protocol Design",
+          "topics": [
+            "Introduction to protocols",
+            "Protocol Design guidelines CAD Tools: TINA TI/ LT Spice/ Cadence Xcelium/ Synopsys VCS/ EDA Playground/ Intel Quartus/ VIVADO"
+          ]
+        }
+      ],
+      "implementations": [
+        "Digital Track",
+        "Processing Elements for ALU design",
+        "Floating-point Arithmetic operations (IEEE-754)",
+        "Mini-processor design (4-bit Operation)"
+      ]
+    },
+    {
+      "semester_code": "III-I",
+      "semester_title": "Industrial Training Level#3",
+      "hours": 48,
+      "model": "Instructor led 8-days (48 Hours) training",
+      "methodology": "Theory (40%) and Practice Labs (60%)",
+      "pre_requisites": [
+        "Proficiency in SystemVerilog for verification (fundamentals, data types, tasks/functions,",
+        "interfaces, OOPs, randomization/constraints), testbench development, and block-level",
+        "verification environments including AMBA protocol basics."
+      ],
+      "days": [
+        {
+          "day_number": 1,
+          "day_title": "SystemVerilog Fundamentals and Testbench Basics",
+          "topics": [
+            "Introduction to Design and Verification",
+            "System Verilog Fundamentals and Verification Constructs",
+            "Module definition and testbench",
+            "Lexical Conventions",
+            "Data Types"
+          ]
+        },
+        {
+          "day_number": 2,
+          "day_title": "Control Flow and Loops in SystemVerilog",
+          "topics": [
+            "Control flow",
+            "Loops"
+          ]
+        },
+        {
+          "day_number": 3,
+          "day_title": "Tasks, Functions, and Calling Mechanisms",
+          "topics": [
+            "Tasks",
+            "Functions",
+            "Function Call process"
+          ]
+        },
+        {
+          "day_number": 4,
+          "day_title": "Processes, Structures, and Assignments",
+          "topics": [
+            "Process",
+            "Structure",
+            "Blocking and Non-blocking"
+          ]
+        },
+        {
+          "day_number": 5,
+          "day_title": "Interprocess Communication and Interfaces",
+          "topics": [
+            "Interprocess communication",
+            "Interface"
+          ]
+        },
+        {
+          "day_number": 6,
+          "day_title": "OOPs Constructs for Verification",
+          "topics": [
+            "Class-based verification constructs",
+            "OOPs Fundamentals",
+            "Inheritance, Polymorphism"
+          ]
+        },
+        {
+          "day_number": 7,
+          "day_title": "Randomization and Constraints",
+          "topics": [
+            "Randomization",
+            "Constraints"
+          ]
+        },
+        {
+          "day_number": 8,
+          "day_title": "D-FF Verification Case Study and AMBA Basics",
+          "topics": [
+            "Case Study – Verification Environment for Synchronous D-FF",
+            "AMBA Protocol basics",
+            "Block-level Verification CAD Tools: Cadence Xcelium/ Synopsys VCS/ EDA Playground/ Intel Quartus/ VIVADO Digital Track"
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-II",
+      "semester_title": "Industrial Training Level#4",
+      "hours": 48,
+      "model": "Instructor led 8-days (48 Hours) training",
+      "methodology": "Theory (40%) and Practice Labs (60%)",
+      "pre_requisites": [
+        "Proficiency in FPGA design/implementation, SDC/XDC constraints, logic synthesis (Cadence",
+        "Genus), PPA analysis, STA (setup/hold fixes), Linux/TCL scripting, bit-file generation, and",
+        "ASIC synthesis flows."
+      ],
+      "days": [
+        {
+          "day_number": 1,
+          "day_title": "FPGA Design Introduction and Device Families",
+          "topics": [
+            "Introduction to FPGA Design",
+            "FPGA family and devices"
+          ]
+        },
+        {
+          "day_number": 2,
+          "day_title": "FPGA Architecture and Design Constraints (SDC/XDC)",
+          "topics": [
+            "FPGA architecture",
+            "Synopsys Design Constraint (SDC)/ Xilinx Design Constraint (XDC)"
+          ]
+        },
+        {
+          "day_number": 3,
+          "day_title": "Logic Synthesis and Cadence Genus Flow",
+          "topics": [
+            "Logic Synthesis",
+            "Cadence Genus Synthesis Flow",
+            "Library/ PDK",
+            "FPGA-Based synthesis and Implementation"
+          ]
+        },
+        {
+          "day_number": 4,
+          "day_title": "PPA Reports, Bit-File Generation, and FPGA Validation",
+          "topics": [
+            "Power, Performance, and Area (PPA) Report",
+            "Bit-File Generation and FPGA Validation"
+          ]
+        },
+        {
+          "day_number": 5,
+          "day_title": "Linux Utilities and Shell Scripting/TCL Basics",
+          "topics": [
+            "Introduction to Linux utilities",
+            "Shell Scripting/ TCL"
+          ]
+        },
+        {
+          "day_number": 6,
+          "day_title": "Static Timing Analysis and PPA Quality Reports",
+          "topics": [
+            "Static Timing Analysis",
+            "Quality of Report - Power, Performance and Area"
+          ]
+        },
+        {
+          "day_number": 7,
+          "day_title": "Setup/Hold Analysis and Timing Fixes",
+          "topics": [
+            "Setup and Hold analysis",
+            "Fixes"
+          ]
+        },
+        {
+          "day_number": 8,
+          "day_title": "ASIC Synthesis Flow Overview",
+          "topics": [
+            "ASIC Synthesis Flow CAD Tools: Cadence Genus/ Synopsys DC/ Cadence Conformal LEC/ VIVADO Digital Track",
+            "Block-level design and verification",
+            "Prototype Development"
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "IV-I",
+      "semester_title": "Industrial Training Level#5",
+      "hours": 72,
+      "model": "Instructor led 12-days (72 Hours) training",
+      "methodology": "Theory (40%) and Practice Labs (60%)",
+      "pre_requisites": [
+        "Proficiency in physical design flow, layout basics (DRC/LVS/parasitic extraction), standard",
+        "cell/analog layout guidelines (symmetry, matching, resistors/capacitors/active devices), FSM",
+        "design, and protocol basics (I2C/AXI timing/architecture/spec extraction)."
+      ],
+      "days": [
+        {
+          "day_number": 1,
+          "day_title": "Physical Design Flow and Layout Guidelines",
+          "topics": [
+            "Physical Design Flow",
+            "Layout Design and Guidelines"
+          ]
+        },
+        {
+          "day_number": 2,
+          "day_title": "DRC, LVS, Parasitic Extraction, and Post-Layout Verification",
+          "topics": [
+            "Design Rule Check (DRC)",
+            "LVS",
+            "Parasitic Extraction and Post-Layout Verification"
+          ]
+        },
+        {
+          "day_number": 3,
+          "day_title": "Standard Cell Design Guidelines",
+          "topics": [
+            "Standard Cell Design Guidelines"
+          ]
+        },
+        {
+          "day_number": 4,
+          "day_title": "Analog Layout Basics, Symmetry, and Matching",
+          "topics": [
+            "Analog Layout Basics",
+            "Symmetry",
+            "Matching Concepts"
+          ]
+        },
+        {
+          "day_number": 5,
+          "day_title": "6 - Resistor and Capacitor Layout Design",
+          "topics": [
+            "Passive Elements – Resistor and Capacitor Layout"
+          ]
+        },
+        {
+          "day_number": 7,
+          "day_title": "8 - FSM Design (Mealy and Moore Machines)",
+          "topics": [
+            "FSM-Based design – Mealy and Moore machines"
+          ]
+        },
+        {
+          "day_number": 9,
+          "day_title": "12 - I2C/AXI Protocol Basics, Timing, Architecture, and Spec Extraction",
+          "topics": [
+            "Protocol Basics – I2C/ AXI",
+            "Timing and Operation",
+            "Architecture understanding",
+            "Extracting Features from Specification CAD Tools: Cadence Virtuoso/ Xcelium/ PVS Implementation",
+            "“Made by HITAM” Chip using funds.",
+            "Image processing algorithms",
+            "Low-power and high-performance MACs for AI-based precision agriculture",
+            "Early prediction and detection of community diseases in the industrial region – air and water-based solutions"
+          ]
+        }
+      ],
+      "placement_support": [
+        "1:1 mock interviews",
+        "VLSIPro will hire the students for internal customer projects",
+        "VLSIPro Technologies will refer trained and evaluated profiles to the partner companies",
+        "(Synopsys/ VVDN/ MosChip and others).",
+        "Engineering Roles",
+        "After graduating students will be fit for the following engineering roles in semiconductor design",
+        "industries.",
+        "1. Circuit Design Verification Engineer",
+        "2. FPGA Design and Validation Engineer",
+        "3. RTL Design Engineer",
+        "4. Design Verification Engineer",
+        "5. Physical Design Engineer",
+        "6. Layout Engineer",
+        "7. PCB Designer"
+      ]
+    }
+  ]
+}

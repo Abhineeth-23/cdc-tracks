@@ -1,0 +1,1600 @@
+{
+  "track_name": "Full Stack Developer",
+  "semesters": [
+    {
+      "semester_code": "II-I",
+      "semester_title": "Common Foundation for All",
+      "hours": 48,
+      "focus": "Programming Foundations + DSA Basics + Git + Web Introduction",
+      "objective": "By the end of II‑I, every student can write basic programs in Python/Java/C, understand fundamental DSA, use Git/GitHub, and have a taste of HTML/CSS/JS.",
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Core Programming Foundations",
+          "hours": "20 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Language: Python"
+            },
+            {
+              "type": "bullet",
+              "text": "Topics:"
+            },
+            {
+              "type": "bullet",
+              "text": "Syntax, variables, conditionals, loops, functions, I/O."
+            },
+            {
+              "type": "bullet",
+              "text": "Basic OOP: classes, objects, methods, constructors."
+            },
+            {
+              "type": "bullet",
+              "text": "Error handling, debugging practices."
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "DSA Basics",
+          "hours": "10 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Arrays, strings, recursion ideas."
+            },
+            {
+              "type": "bullet",
+              "text": "Time and space complexity intuition (Big‑O at a high level)."
+            },
+            {
+              "type": "bullet",
+              "text": "Simple problems from platforms (2 h of guided practice)."
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Git & GitHub Version Control",
+          "hours": "6 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Git basics: init, add, commit, log, branch, merge."
+            },
+            {
+              "type": "bullet",
+              "text": "Remote repositories: clone, push, pull, pull request workflow."
+            },
+            {
+              "type": "bullet",
+              "text": "Classroom activity: students push a small programming assignment repo."
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "Web Basics",
+          "hours": "8 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "HTML fundamentals: structure, forms, common tags."
+            },
+            {
+              "type": "bullet",
+              "text": "CSS essentials: selectors, box model, basic layout."
+            },
+            {
+              "type": "bullet",
+              "text": "JavaScript intro: variables, functions, DOM basics, events."
+            },
+            {
+              "type": "bullet",
+              "text": "One simple static webpage mini‑task."
+            }
+          ]
+        },
+        {
+          "module_number": "5",
+          "module_title": "Software Engineering & Agile Overview",
+          "hours": "4 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "SDLC models; emphasis on Agile/Scrum basics (roles, ceremonies, user stories)."
+            },
+            {
+              "type": "bullet",
+              "text": "Versioning + issue tracking (GitHub Issues, basic Kanban)."
+            },
+            {
+              "type": "bullet",
+              "text": "Deliverables by end of II‑I: A GitHub profile with at least 2 small coding repos and 1 static portfolio page."
+            }
+          ]
+        }
+      ],
+      "post_assessment": "Baseline coding test to decide who leans to SE/FSD vs Data vs Cloud/DevOps/Security."
+    },
+    {
+      "semester_code": "II-II",
+      "semester_title": "Core DSA + Databases + Early Specialization",
+      "hours": 48,
+      "focus": "Strengthen DSA + Teach SQL + Start Track‑oriented modules",
+      "split_info": "Common Modules – 24 h + Track Specific Modules – 24 h",
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Common Modules",
+          "hours": "24 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "Data Structures & Algorithms Core – 14 h",
+              "details": [
+                {
+                  "type": "bullet",
+                  "text": "Data structures: arrays, linked lists, stacks, queues, hash maps, basic trees."
+                },
+                {
+                  "type": "bullet",
+                  "text": "Algorithms: searching, sorting, introduction to recursion and greedy ideas."
+                },
+                {
+                  "type": "bullet",
+                  "text": "4–6 h of problem‑solving labs (LeetCode/GFG‑style curated sets)."
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Relational Databases & SQL – 10 h",
+              "details": [
+                {
+                  "type": "bullet",
+                  "text": "ER modeling basics."
+                },
+                {
+                  "type": "bullet",
+                  "text": "SQL: CREATE, SELECT, INSERT, UPDATE, DELETE, WHERE, JOINS, GROUP BY, HAVING."
+                },
+                {
+                  "type": "bullet",
+                  "text": "Production DB Basics"
+                },
+                {
+                  "type": "bullet",
+                  "text": "Why production DB ≠ classroom CRUD table (multiple applications, concurrent users, performance expectations)."
+                },
+                {
+                  "type": "bullet",
+                  "text": "Index basics: what an index is, how it speeds up WHERE/JOIN, and trade‑offs (faster reads, slower writes)."
+                },
+                {
+                  "type": "bullet",
+                  "text": "Very high‑level view of:"
+                },
+                {
+                  "type": "bullet",
+                  "text": "Connection pooling (many app requests reuse a small pool of DB connections)."
+                },
+                {
+                  "type": "bullet",
+                  "text": "Backups and migrations (schema changes safely applied over time)."
+                },
+                {
+                  "type": "bullet",
+                  "text": "Simple lab: design and query a mini student‑course database."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Track Intro Modules (SE/SD/FSD)",
+          "hours": "24 h",
+          "topics": [
+            {
+              "letter": "a",
+              "title": "OOP & Java/Python for SE – 10 h",
+              "details": [
+                {
+                  "letter": "A",
+                  "title": "Core OOP Concepts (6 h)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Classes, objects, constructors.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Inheritance, polymorphism, interfaces/abstract classes (Java) / abstract base classes (Python).",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Encapsulation, basic design for small problems.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Exception Handling & Collections (3 h)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Try–catch / try–except, finally; custom exceptions (basic).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Collections: lists/arrays, maps/dictionaries, sets; typical usage patterns.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "AI‑Assisted Development & Code Quality (1 h – conceptual + demo)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "How software engineers use AI tools (e.g., code assistants, linters augmented by AI) to:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Generate boilerplate code, refactor small pieces, and get suggestions.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Good practices when using AI for coding:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Still understanding the OOP concepts, reading and reviewing AI‑generated code, not copy‑pasting blindly.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Short in‑class demonstration (faculty‑driven):",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Take a simple OOP class design (e.g., Library / Student / Course) and show how an AI assistant can help generate unit tests or alternative implementations, and how to review them.",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Expected Outcome: Students learn solid OOP fundamentals and also see that AI is a collaborator, not a substitute, in software engineering workflows.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "b",
+              "title": "Frontend Foundation Deepening – 8 h",
+              "details": [
+                {
+                  "letter": "A",
+                  "title": "HTML/CSS/JS Deepening & Responsive Design (4 h)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Semantic HTML, layout (flexbox/grid basics).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Responsive design: media queries, mobile‑first thinking.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Forms and client‑side validation using JavaScript.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Small Multi‑page Static Site – Project (3 h)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Build a 3–4 page static website (e.g., portfolio, small product/info site).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Include: navigation, forms, responsive layout, basic JS interactions.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "AI in Frontend Workflow (1 h – awareness + small activity)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Discuss how AI tools help frontend developers:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Generating layout ideas, HTML/CSS snippets, and accessibility suggestions.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Mention AI in the browser / UI conceptually:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Chat widgets, recommendation sections, or “smart search” boxes powered by back‑end AI services (students just need conceptual awareness now).",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Optional short activity:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Students can ask an AI assistant to suggest improvements to their site’s HTML/CSS (better semantics, accessibility text) and then manually apply/review them. Expected Outcome: Students strengthen frontend fundamentals and understand where AI can assist in design, code suggestions, and UX enhancements, while still being able to hand‑code core pieces.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "c",
+              "title": "API Fundamentals – 6 h",
+              "details": [
+                {
+                  "letter": "A",
+                  "title": "HTTP & REST Basics (2 h)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "HTTP methods (GET, POST, PUT, DELETE), status codes (2xx, 4xx, 5xx).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "JSON basics: structure, arrays/objects, parsing.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Request/response cycle from browser and via code.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Consuming a Public REST API (2 h)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Using JavaScript (fetch/axios) or Python (requests) to call a simple public API (e.g., weather, quotes, public data).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Handling responses, displaying data on a webpage or console.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "Introduction to AI/LLM APIs (2 h – conceptual + very light demo)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Concept of AI/ML as a service via APIs:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Many AI providers (e.g., LLM APIs, vision APIs) expose REST endpoints similar to any other API.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Show one simple example URL/flow (no keys or paid usage required in classroom design):",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Explain: “If this were an AI text API, you would send JSON with a prompt and receive a JSON response with generated text.”",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Discuss basic use cases:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Adding a chatbot, content suggestion, sentiment analysis, or recommendation section to a web app by calling an AI API from backend/frontend.",
+                      "details": []
+                    },
+                    {
+                      "letter": "d",
+                      "title": "Emphasize good practices:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Never expose keys in frontend code, handle errors, and keep humans in the loop for critical decisions.",
+                      "details": []
+                    },
+                    {
+                      "letter": "e",
+                      "title": "Safe AI usage basics:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Never expose API keys in frontend or public repos.",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Do not paste secrets or personal data into public AI tools (“sanitize before you synthesize”).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Always validate and log AI responses; humans remain in the loop for important decisions.",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "f",
+                      "title": "Prompt engineering basics (one simple slide + 1–2 examples):",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Clear instruction, provide context, ask for specific format (e.g., JSON), give an example, then test and refine prompts. Expected Outcome:Students understand REST and JSON well enough to see that AI/LLM APIs are “just APIs” from a full‑stack perspective, enabling them to later plug intelligent features into apps without being ML experts. Students understand AI APIs as normal REST APIs and know basic prompt design and safety practices.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "pre_requisites": [
+        "(OOPs and Java/Python for SE – 10 h + Frontend Foundation – 8 h + API Fundamentals – 6 h) Pre-requisites: Students should be comfortable with basic programming (in C++/Java/Python or similar: variables, conditionals, loops, simple functions), have very basic HTML/CSS/JS exposure, and a conceptual understanding of how websites and HTTP requests work, so this module can focus on formal OOP in Java/Python, strengthening frontend foundations, and introducing REST/JSON and AI/LLM APIs."
+      ]
+    },
+    {
+      "semester_code": "III-I",
+      "semester_title": "Deep Tech (FSD)",
+      "hours": 48,
+      "description": "(Frontend Framework – 20 h + Backend Basics – 16 h + Database Integration – 8 h + UI/UX Fundamentals – 4 h)",
+      "pre_requisites": [
+        "Students should already be comfortable hand‑coding small static sites with HTML/CSS/vanilla",
+        "JavaScript (multi‑page, basic forms and DOM manipulation), have prior exposure to OOP and at",
+        "least one backend language (JavaScript/Node or Python) at “functions + simple routes/APIs”",
+        "level, and understand basic relational DB CRUD concepts, so this semester can focus on modern",
+        "frontend frameworks (React/Angular), real REST backends with DB integration, and UI/UX",
+        "fundamentals with AI‑aware features."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Frontend Framework (React or Angular)",
+          "hours": "20 h",
+          "topics": [
+            {
+              "letter": "A",
+              "title": "Core Framework Concepts – 10 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Components (functional / class as per chosen framework).",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "Props and one‑way data flow.",
+                  "details": []
+                },
+                {
+                  "letter": "c",
+                  "title": "State management basics (local state with useState / component state).",
+                  "details": []
+                },
+                {
+                  "letter": "d",
+                  "title": "Routing (React Router / Angular Router): navigation, route params.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "B",
+              "title": "API Integration & State – 6 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Calling REST APIs using fetch/axios (React) or HttpClient (Angular).",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "Handling loading, success, error states.",
+                  "details": []
+                },
+                {
+                  "letter": "c",
+                  "title": "Rendering lists, detailed views, and basic pagination.",
+                  "details": []
+                },
+                {
+                  "letter": "d",
+                  "title": "Performance & Resilience",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Use pagination parameters instead of loading huge lists.",
+                  "details": [
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Cache results in state where appropriate; avoid unnecessary API calls on each render.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Show simple error and loading states (helps observability at the UI layer)",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "AI‑Powered Frontend Workflow & Features – 4 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "AI‑assisted frontend development (awareness + practice):",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "How developers use AI tools to generate UI snippets, suggest styles, or refactor components, and how to review those suggestions.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "AI features in the UI (conceptual):",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Examples: smart search, recommendations, chat widgets, content suggestions integrated via backend AI APIs.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Short guided exercise (low‑risk):",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Take a simple React/Angular component and use an AI tool to suggest accessibility improvements, better naming, or small refactors, then manually review and apply changes. Expected Outcome: Students can build SPA frontends with API calls, and understand both how AI assists their coding and how intelligent features appear in UIs, even if they’re powered by back‑end AI services.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Backend Basics (Node.js/Express or Python/Flask/Django)",
+          "hours": "16 h",
+          "topics": [
+            {
+              "letter": "A",
+              "title": "RESTful API Creation – 10 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Setting up a Node.js/Express or Python/Flask/Django project.",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "Defining routes/endpoints following REST conventions.",
+                  "details": []
+                },
+                {
+                  "letter": "c",
+                  "title": "Implementing CRUD operations for a core resource (e.g., users, products, tasks).",
+                  "details": []
+                },
+                {
+                  "letter": "d",
+                  "title": "Input validation and basic error handling.",
+                  "details": []
+                },
+                {
+                  "letter": "e",
+                  "title": "API Design & System View",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Request lifecycle: browser → frontend → backend → DB → response.",
+                  "details": [
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Simple system diagram: SPA, API server, DB.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Explain routes, controllers, and how different services talk (e.g., separate auth service vs main API)",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Authentication Basics – 4 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Conceptual understanding of sessions vs JWT.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Implementing a simple login flow (session‑based or token‑based, even if minimal).",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Discussing secure password handling (hashing) at a conceptual level.",
+                      "details": []
+                    },
+                    {
+                      "letter": "d",
+                      "title": "Security basics:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Password hashing with salt (never store plain passwords).",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "JWT expiry and refresh at conceptual level.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Input validation to prevent injection, basic CORS idea (only allow trusted origins).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iv",
+                          "title": "Introduce rate limiting conceptually",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "AI‑Enhanced Backend Patterns – 2 h (awareness + design)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "How AI fits in backend services:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Calling third‑party AI APIs (LLM, vision, recommendation) from backend routes, treating them as normal REST integrations.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Backend as an orchestrator:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Receives requests from frontend, enriches them with AI API calls, returns results in a safe, controlled way.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "High‑level discussion of:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Rate limiting, caching, and error handling for AI/API calls (timeouts, degraded mode). Expected Outcome: Students can build clean REST APIs with basic auth, and conceptually know how to integrate AI services on the server‑side, exposing them safely to the frontend. Students understand password hashing, token expiry, input validation, basic CORS and rate limiting as standard backend security hygiene.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Database Integration",
+          "hours": "8 h",
+          "topics": [
+            {
+              "letter": "A",
+              "title": "Relational / NoSQL Integration – 6 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Setting up connection from backend to MySQL/PostgreSQL or MongoDB.",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "Implementing basic CRUD DB operations via an ORM/ODM or query builder.",
+                  "details": []
+                },
+                {
+                  "letter": "c",
+                  "title": "Handling common errors (connection issues, validation errors).",
+                  "details": []
+                },
+                {
+                  "letter": "d",
+                  "title": "Production‑style DB Usage",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Indexes in practice: choose index for common search fields (e.g., email on users, product_id on orders).",
+                  "details": []
+                },
+                {
+                  "letter": "e",
+                  "title": "Simple performance patterns:",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Limit and offset for pagination.",
+                  "details": [
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Avoid N+1 queries and unnecessary API calls.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "f",
+                  "title": "Production DB concepts at verbal level:",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Connection pooling.",
+                  "details": [
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Primary DB and read replicas for read‑heavy workloads.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Backups and basic idea of replication",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Data for Personalization & AI Use Cases – 2 h (design‑level)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Discuss how user interaction data (clicks, views, ratings, search queries) stored in DBs becomes input for AI‑driven personalization and recommendations later.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Simple schema design discussion:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "What data would you store if you wanted, in future, to add “users also liked…” recommendations or personalized content sections?",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Emphasize logging/events as part of data foundation for AI features (even if AI models are built later by a Data/ML team). Expected Outcome: Students integrate their backend with a DB and design schemas that support future AI/personalization features, understanding that today’s data design shapes tomorrow’s AI capabilities. Students can implement CRUD and describe why indexing, pooling and read replicas matter in production.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "4",
+          "module_title": "UI/UX Fundamentals",
+          "hours": "4 h",
+          "topics": [
+            {
+              "letter": "A",
+              "title": "Core UI/UX Concepts – 3 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Basic visual design principles: hierarchy, alignment, contrast, consistency.",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "Wireframing a simple app flow (using paper or a simple tool).",
+                  "details": []
+                },
+                {
+                  "letter": "c",
+                  "title": "Accessibility basics: semantic HTML, color contrast, keyboard navigation.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "B",
+              "title": "AI & Personalization in UX – 1 h (conceptual)",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "How AI impacts UX in modern web apps:",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Personalized recommendations, adaptive layouts, and context‑aware content.",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "Design considerations for AI‑driven personalization:",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Transparency (letting users know why they see certain content).",
+                  "details": [
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Controls (allowing users to opt‑out or adjust personalization).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "c",
+                  "title": "Case‑based discussion:",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Look at an example of a site/app that uses AI for personalization (e.g., feed ranking, product suggestions), and identify UI patterns that support/communicate that. Expected Outcome: Students not only grasp general UI/UX principles, but also understand how to design for AI‑powered personalization and transparency, which is increasingly important in modern products.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "III-II",
+      "semester_title": "Advanced Topics + Mini Capstone",
+      "hours": 48,
+      "description": "(Full Stack Advanced – 24 h + DevOps for FSD – 10 h + Capstone Web App – 14 h)",
+      "pre_requisites": [
+        "Students should be comfortable building and deploying a basic full‑stack app (SPA frontend +",
+        "simple REST backend + DB CRUD) with hand‑coded HTML/CSS/JS, a framework like",
+        "React/Angular at beginner level, a backend in Node/Express or Python framework, and basic Git",
+        "usage, so this semester can focus on advanced state management and auth, production‑style",
+        "logging, Docker + CI/CD, and a realistic AI‑aware full‑stack capstone."
+      ],
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Full Stack Advanced",
+          "hours": "24 h",
+          "topics": [
+            {
+              "letter": "A",
+              "title": "Frontend Advanced (State & Guards) – 12 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Advanced State Management – 8 h",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Redux / Context / equivalent (depending on framework):",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Store, actions, reducers (Redux) OR Context providers/consumers."
+                    },
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Managing global state (auth state, cart, user profile).",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Handling side effects (e.g., thunk/async calls) at a conceptual level.",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "b",
+                  "title": "Routing Guards & Protected Routes – 4 h",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Implementing protected routes (only accessible when authenticated).",
+                  "details": [
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Redirecting unauthenticated users to login.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Role‑based access concepts (admin vs normal user).",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iv",
+                      "title": "A brief demo of testing one protected route with React Testing Library/Angular testing tools (e.g., check redirect when unauthenticated).",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "v",
+                  "title": "AI‑aware angle (embedded explanation, no extra time):",
+                  "details": [
+                    {
+                      "type": "bullet",
+                      "text": "Emphasize that auth state and user context are key building blocks when adding AI‑based personalized experiences, because personalization is typically applied on authenticated user data"
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Backend Advanced (Auth, Upload, Logging) – 12 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "JWT Authentication & Authorization – 5 h",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Implement JWT‑based auth in chosen stack (Node/Express or Python framework).",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Token creation, verification, and secure storage practices (conceptual).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Role‑based access checks in APIs.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iv",
+                          "title": "Authorization and secrets:",
+                          "details": [
+                            {
+                              "type": "bullet",
+                              "text": "Authorization checks in protected endpoints (admin vs user)."
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "v",
+                      "title": "Secret management via environment variables (e.g., JWT_SECRET, DB_URL).",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "File Upload & Pagination – 4 h",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Implement file uploads (images/docs) with basic validation.",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Pagination in APIs for large lists (limit/offset or page/size pattern).",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Basic Logging & Error Handling – 3 h",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Structured logging (log levels, log formats).",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Centralizing error handling, returning meaningful HTTP responses.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Logs: log levels (info, warn, error), structured logs (JSON).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iv",
+                          "title": "Health checks: a /health endpoint returning app status.",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "v",
+                      "title": "Simple metrics concept: count requests, error rate, latency (even if just printed/logged).",
+                      "details": []
+                    },
+                    {
+                      "letter": "d",
+                      "title": "Testing basics (spread across backend labs, 1–1.5 h)",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Show unit test for a pure function (e.g., utility function) using Jest/PyTest.",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Show one simple API test (Postman collection or supertest/requests).",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "e",
+                      "title": "AI‑aware angle (embedded):",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Highlight that clean logs and structured API responses are crucial when later connecting to AI‑powered observability/AIOps tools that analyze logs and metrics for anomalies.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "DevOps for FSD",
+          "hours": "10 h",
+          "topics": [
+            {
+              "letter": "A",
+              "title": "Docker & Containerization – 5 h",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Dockerfile basics for frontend & backend.",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "Building images and running containers.",
+                  "details": []
+                },
+                {
+                  "letter": "c",
+                  "title": "Docker Compose (or equivalent) to run a multi‑container full stack app.",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "frontend container, backend container, database container.",
+                  "details": [
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Service names, ports, volumes, environment variables (e.g., DB_URL, JWT_SECRET) and how containers discover each other by service name.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Show a basic multi‑container diagram and a short debugging scenario: backend cannot reach DB due to wrong host name",
+                      "details": []
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Simple CI/CD Pipeline – 5 h",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Pipeline steps: build → test → (basic checks) → deploy.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Use GitHub Actions/GitLab CI/Jenkins to automate build/deploy to a cloud target.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Git Workflow & CI",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Branching model (feature branches, main).",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Pull requests, code review basics, resolving merge conflicts.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Connect Git workflow to CI: tests and lint run on PRs",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "New AI‑aware component (within the 10 h, 1–2 h conceptual):",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Explain how DevOps for web apps increasingly uses AI/AIOps to:",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Monitor application health and detect anomalies in performance or errors.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Analyze CI/CD runs for flaky tests or unusual failure patterns and suggest fixes.",
+                      "details": []
+                    },
+                    {
+                      "letter": "d",
+                      "title": "Position this as: your pipeline and containers produce data (logs, metrics) that can be consumed by AI‑driven DevOps/observability services.",
+                      "details": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "letter": "D",
+              "title": "Agent‑style development (AGENTS.md / SKILLS.md)",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Introduce the idea of project‑local agent instruction files:",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "AGENTS.md: project rules, coding standards, safety constraints for AI assistants.",
+                  "details": []
+                },
+                {
+                  "letter": "c",
+                  "title": "SKILLS.md: what the project does, where key components live, how to run tests and builds.",
+                  "details": []
+                }
+              ]
+            },
+            {
+              "letter": "E",
+              "title": "For capstone teams, make it a requirement to include one AGENTS.md file with:",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Allowed and disallowed actions for AI tools (e.g., can run tests, ask before changing CI).",
+                  "details": []
+                },
+                {
+                  "letter": "b",
+                  "title": "Naming conventions, framework versions, key scripts/commands. Expected Outcome: Students can containerize and pipeline a full stack app, and understand that AI can sit on top of their DevOps workflows for smarter monitoring and faster incident handling. Students have seen examples of unit and simple integration tests on both frontend and backend. Students understand logs, health checks and basic metrics as core observability tools. Students use branches and PRs, and understand how CI runs checks on each PR before merge. Students experience agent‑style development by guiding AI tools through project‑level instruction files.",
+                  "details": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "module_number": "3",
+          "module_title": "Capstone Web App",
+          "hours": "14 h",
+          "topics": [
+            {
+              "letter": "A",
+              "title": "Core Capstone Requirements",
+              "details": [
+                {
+                  "letter": "a",
+                  "title": "Teams must build a production‑like full stack application, e.g. e‑commerce, LMS, job portal, ticketing, or internal tool, with:",
+                  "details": []
+                },
+                {
+                  "letter": "i",
+                  "title": "Frontend: SPA using React/Angular (or similar), routing, protected routes.",
+                  "details": [
+                    {
+                      "roman_numeral": "ii",
+                      "title": "Backend: REST APIs with CRUD and JWT‑based auth in Node/Express or Python framework.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iii",
+                      "title": "Database: MySQL/PostgreSQL or MongoDB with meaningful schema and relationships.",
+                      "details": []
+                    },
+                    {
+                      "roman_numeral": "iv",
+                      "title": "DevOps:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Containerized services (Docker/Docker Compose)."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "CI checks on GitHub/GitLab (build + tests + linters)"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "AI Integration Options (encouraged, not mandatory for all teams to implement fully)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Teams must at least design, and optionally implement, one of these:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "AI/LLM API‑powered Feature (preferred if infra allows) Example features:",
+                      "details": [
+                        {
+                          "type": "bullet",
+                          "text": "Chat assistant: e.g., FAQ/chatbot for the app domain (LMS tutor chat, shopping assistant)."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Smart search / summarization: search with relevance improvements using AI API or summarizing long content."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Content helper: automatic description suggestions for products/courses, with human edit. Integration expectations (even if mocked):"
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Backend route that calls an AI/LLM API (or simulated stub) and returns processed results to frontend."
+                        },
+                        {
+                          "type": "bullet",
+                          "text": "Proper handling of errors and fallbacks if AI service fails"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "AI‑Aware Personalization/Data Design Option",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "If live AI API integration isn’t possible, teams should:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Design and implement data capture and schema to support future AI personalization (click logs, view history, ratings, searches).",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Document, in their project report, how this data would later feed an AI model for recommendations or personalization (e.g., “users also viewed”, recommended courses)",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "D",
+                  "title": "Architecture documentation (mandatory)",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Each team must submit, in their repo:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "System diagram: frontend, backend, DB, external AI/APIs, and optional third‑party services.",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "API contract: for example, a Postman collection or OpenAPI/Swagger spec covering all main endpoints.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "Database schema diagram.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iv",
+                          "title": "Environment setup: list of environment variables, Docker Compose services, and how to run locally.",
+                          "details": []
+                        }
+                      ]
+                    },
+                    {
+                      "letter": "v",
+                      "title": "Security section: password hashing approach, JWT expiry, input validation and rate limiting, handling of secrets.",
+                      "details": [
+                        {
+                          "roman_numeral": "vi",
+                          "title": "AI usage section: where AI was used (features or development), and where intentionally not used (with reason)",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "E",
+                  "title": "Testing & observability requirements",
+                  "details": [
+                    {
+                      "letter": "i",
+                      "title": "Minimum: unit tests for core business logic, at least one API endpoint test.",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Basic logging enabled, one /health endpoint, and a simple dashboard/log view if feasible",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "F",
+                  "title": "AI‑Assisted Development & DevOps Documentation",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Teams explicitly record where they used AI tools in the project lifecycle:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "UI code snippets, validation logic, test case generation, Dockerfile/pipeline templates.",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "They must also describe how they validated and adjusted AI‑generated code, focusing on correctness, security, and readability.",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iii",
+                          "title": "In pipeline design, they add a conceptual “AI analysis” stage (even if not implemented) that could, in a real system, run AI‑based checks on logs or code (AIOps/AI code review).",
+                          "details": []
+                        },
+                        {
+                          "roman_numeral": "iv",
+                          "title": "Teams must note:",
+                          "details": [
+                            {
+                              "type": "bullet",
+                              "text": "Where AI assistants helped (e.g., test cases, doc drafts, refactors)."
+                            },
+                            {
+                              "type": "bullet",
+                              "text": "How they reviewed output (manual code review, testing, security checks)"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "letter": "G",
+                  "title": "Project Management & Quality Practices",
+                  "details": [
+                    {
+                      "letter": "a",
+                      "title": "Use GitHub (or similar) with issues, branches, and pull requests.",
+                      "details": []
+                    },
+                    {
+                      "letter": "b",
+                      "title": "Basic documentation: README, API endpoints, architecture diagram.",
+                      "details": []
+                    },
+                    {
+                      "letter": "c",
+                      "title": "Short project presentation that explains:",
+                      "details": []
+                    },
+                    {
+                      "letter": "i",
+                      "title": "Core functionality.",
+                      "details": [
+                        {
+                          "roman_numeral": "ii",
+                          "title": "Where AI is used or planned, and how they ensured human oversight. Expected Outcome: Students complete a realistic full stack capstone and demonstrate understanding of how to embed or prepare for AI capabilities (features, personalization, AIOps) within a modern web application.",
+                          "details": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester_code": "IV-I",
+      "semester_title": "Placement Readiness Program",
+      "hours": 72,
+      "modules": [
+        {
+          "module_number": "1",
+          "module_title": "Company Specific Practice Tests",
+          "hours": "48 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Company‑patterned coding rounds, full stack scenarios, and MCQs."
+            },
+            {
+              "type": "bullet",
+              "text": "System design at student level (request flow, DB choices, basic scaling story)."
+            },
+            {
+              "type": "bullet",
+              "text": "Security, testing, observability and DevOps readiness checks aligned with current full stack roles."
+            }
+          ]
+        },
+        {
+          "module_number": "2",
+          "module_title": "Soft Skills",
+          "hours": "24 h",
+          "topics": [
+            {
+              "type": "bullet",
+              "text": "Communication for tech interviews (explain your project, walk through code, defend design choices)."
+            },
+            {
+              "type": "bullet",
+              "text": "Group discussions, HR interviews, presentation skills using the capstone as anchor."
+            },
+            {
+              "type": "bullet",
+              "text": "Written communication: email etiquette, documentation quality, and GitHub readme polishing. Cross‑cutting: AI‑assisted development, prompt engineering and agents AI usage guidelines (15‑minute briefing wherever AI is first used each semester) Core points (instructor re‑emphasises whenever AI comes up):"
+            },
+            {
+              "type": "bullet",
+              "text": "AI as collaborator, not replacement:"
+            },
+            {
+              "type": "bullet",
+              "text": "Use for boilerplate, refactors, tests, documentation suggestions, UX copy, debugging hints."
+            },
+            {
+              "type": "bullet",
+              "text": "Always understand generated code before merging."
+            },
+            {
+              "type": "bullet",
+              "text": "Safe usage:"
+            },
+            {
+              "type": "bullet",
+              "text": "No secrets, PII or internal exam material in prompts."
+            },
+            {
+              "type": "bullet",
+              "text": "Treat AI output as untrusted until reviewed and tested."
+            },
+            {
+              "type": "bullet",
+              "text": "Prompt engineering basics:"
+            },
+            {
+              "type": "bullet",
+              "text": "Clear role and task (“You are reviewing my Express API for security issues”)."
+            },
+            {
+              "type": "bullet",
+              "text": "Provide context (framework, constraints, existing code)."
+            },
+            {
+              "type": "bullet",
+              "text": "Ask for structured output (e.g., markdown checklist, JSON test cases)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
