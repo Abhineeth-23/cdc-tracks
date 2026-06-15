@@ -379,10 +379,10 @@ const TrackDetails = ({ user }) => {
               <button
                 onClick={handleCommit}
                 disabled={loadingAction}
-                className={`px-5 py-3 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-sm cursor-pointer ${
+                className={`px-5 py-3 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-sm cursor-pointer border ${
                   isCommitted
-                    ? 'bg-green-600 hover:bg-green-700 text-white shadow-green-500/10'
-                    : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-500/10'
+                    ? 'border-blue-600 text-blue-600 bg-white hover:bg-blue-50/50'
+                    : 'border-transparent bg-blue-600 hover:bg-blue-700 text-white shadow-blue-500/10'
                 }`}
               >
                 {isCommitted ? <CheckCircle2 size={18} /> : <Target size={18} />}
