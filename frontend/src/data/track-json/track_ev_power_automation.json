@@ -49,6 +49,14 @@
               "title": "Introduction to AutoCAD Electrical / ECAD software",
               "details": []
             }
+          ],
+          "brief": "Introduction to electrical drafting, CAD environments, single-line diagrams, and wiring schematics.",
+          "keywords": [
+            "ECAD Tools",
+            "Single Line Diagrams",
+            "AutoCAD Electrical",
+            "Ladder Diagrams",
+            "Drafting Standards"
           ]
         },
         {
@@ -81,6 +89,14 @@
               "title": "Troubleshooting using simulation software",
               "details": []
             }
+          ],
+          "brief": "Analog and digital circuit simulation fundamentals, schematic capture, and transient/frequency analysis using SPICE tools.",
+          "keywords": [
+            "Circuit Design",
+            "SPICE Simulation",
+            "Transient Analysis",
+            "AC Sweep",
+            "LTspice"
           ]
         },
         {
@@ -118,6 +134,14 @@
               "title": "Gerber file generation",
               "details": []
             }
+          ],
+          "brief": "Designing printed circuit board schematics, creating component footprints, layout routing, and Gerber generation.",
+          "keywords": [
+            "PCB Schematic",
+            "Footprints",
+            "Component Libraries",
+            "Trace Routing",
+            "Gerber Files"
           ]
         },
         {
@@ -155,6 +179,14 @@
               "title": "Mini project using ECAD tools",
               "details": []
             }
+          ],
+          "brief": "Designing electrical panel layouts, PLC wiring diagrams, Bill of Materials, and completing a mini-project.",
+          "keywords": [
+            "Electrical Panel",
+            "PLC Wiring",
+            "Cable Planning",
+            "BOM Generation",
+            "ECAD CAD Tools"
           ]
         }
       ]
@@ -203,6 +235,14 @@
               "type": "bullet",
               "text": "Hands-on: Conveyor belt control simulation – 4 h"
             }
+          ],
+          "brief": "PLC hardware configuration, ladder logic programming, sensor integration, and safety interlock design.",
+          "keywords": [
+            "PLC Architecture",
+            "Ladder Logic",
+            "Timers & Counters",
+            "Safety Interlocks",
+            "Conveyor Control"
           ]
         },
         {
@@ -222,6 +262,14 @@
               "type": "bullet",
               "text": "PLC-HMI communication – 4 h"
             }
+          ],
+          "brief": "Designing operator interface (HMI) screens, alarm logging, and connecting HMIs to PLCs.",
+          "keywords": [
+            "HMI Screens",
+            "SCADA Integration",
+            "Alarm Logging",
+            "Modbus Communication",
+            "PLC-HMI Tagging"
           ]
         },
         {
@@ -241,6 +289,14 @@
               "type": "bullet",
               "text": "Mini project: Multi-stage automation system with HMI – 2 h"
             }
+          ],
+          "brief": "Industrial communication protocols (Modbus), relay logic controls, and control panel wiring.",
+          "keywords": [
+            "Modbus RTU",
+            "Modbus TCP",
+            "Relay Control",
+            "Panel Wiring",
+            "Control Circuits"
           ]
         }
       ]
@@ -282,6 +338,14 @@
               "type": "bullet",
               "text": "EV performance metrics (range, efficiency, acceleration) – 4 h"
             }
+          ],
+          "brief": "Overview of electric vehicle types, BLDC and PMSM motors, powertrain design, and performance metrics.",
+          "keywords": [
+            "BEV/HEV/PHEV",
+            "Electric Motors",
+            "BLDC/PMSM",
+            "Powertrain Design",
+            "EV Metrics"
           ]
         },
         {
@@ -305,6 +369,14 @@
               "type": "bullet",
               "text": "Power semiconductor devices (MOSFETs, IGBTs) – 2 h"
             }
+          ],
+          "brief": "Power converters, inverter motor drives, PWM generation, and EV battery charging topologies.",
+          "keywords": [
+            "DC-DC Converters",
+            "Inverters",
+            "PWM Control",
+            "EV Chargers",
+            "Semiconductors"
           ]
         },
         {
@@ -328,6 +400,14 @@
               "type": "bullet",
               "text": "Hands-on: EV powertrain simulation in MATLAB/Simulink – 2 h"
             }
+          ],
+          "brief": "Understanding Lithium-ion battery packs, basic BMS architecture, cell configurations, and SoC/SoH estimation.",
+          "keywords": [
+            "Battery Chemistry",
+            "BMS Architecture",
+            "SoC Basics",
+            "Cell Configuration",
+            "Li-ion Pack"
           ]
         }
       ]
@@ -379,6 +459,14 @@
               "type": "bullet",
               "text": "BMS safety and fault diagnostics – 4 h"
             }
+          ],
+          "brief": "Advanced BMS topics including SoC/SoH estimation algorithms, active/passive cell balancing, and safety/fault diagnostics.",
+          "keywords": [
+            "BMS Algorithms",
+            "SoC/SoH Estimation",
+            "Cell Balancing",
+            "Thermal Management",
+            "Fault Diagnostics"
           ]
         },
         {
@@ -402,6 +490,14 @@
               "type": "bullet",
               "text": "Cybersecurity basics for IIoT – 2 h"
             }
+          ],
+          "brief": "Connecting energy assets to cloud monitoring systems using MQTT, edge controllers, and cloud dashboard telemetry.",
+          "keywords": [
+            "MQTT Protocol",
+            "OPC UA",
+            "Edge Computing",
+            "Cloud Dashboards",
+            "IoT Security"
           ]
         },
         {
@@ -429,6 +525,14 @@
               "type": "bullet",
               "text": "Deliverables: Working prototype, system architecture diagram, test results, and live demonstration"
             }
+          ],
+          "brief": "Capstone integration of BMS with CAN bus communications, MQTT IIoT cloud dashboards, and physical hardware.",
+          "keywords": [
+            "CAN Protocol",
+            "Automotive Networks",
+            "System Integration",
+            "MQTT IIoT",
+            "Hardware Prototype"
           ]
         }
       ]
@@ -455,6 +559,14 @@
               "type": "bullet",
               "text": "Coding and problem-solving for EEE roles – 16 h"
             }
+          ],
+          "brief": "Preparing for campus placements with company-specific mock tests, technical aptitude drills, and MCQ reviews.",
+          "keywords": [
+            "Technical Aptitude",
+            "Mock Tests",
+            "Coding Practice",
+            "Domain MCQ",
+            "Placement Tests"
           ]
         },
         {
@@ -474,6 +586,14 @@
               "type": "bullet",
               "text": "Mock interviews (technical + HR rounds) – 12 h"
             }
+          ],
+          "brief": "Improving placement readiness with professional resumes, mock interviews, and group discussion drills.",
+          "keywords": [
+            "Resume Writing",
+            "LinkedIn Profile",
+            "Mock Interviews",
+            "Group Discussions",
+            "Presentations"
           ]
         }
       ]

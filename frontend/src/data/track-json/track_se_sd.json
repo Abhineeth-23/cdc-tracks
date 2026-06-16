@@ -33,6 +33,14 @@
               "type": "bullet",
               "text": "Error handling, debugging practices."
             }
+          ],
+          "brief": "Fundamentals of programming in Python including syntax, conditionals, functions, object-oriented concepts, and debugging.",
+          "keywords": [
+            "Python Syntax",
+            "OOP Principles",
+            "Error Handling",
+            "Control Flow",
+            "File I/O"
           ]
         },
         {
@@ -52,6 +60,13 @@
               "type": "bullet",
               "text": "Simple problems from platforms (2 h of guided practice)."
             }
+          ],
+          "brief": "Introduction to basic data structures (arrays, strings), recursion ideas, and Big-O runtime analysis.",
+          "keywords": [
+            "Arrays & Strings",
+            "Big-O Notation",
+            "Recursion",
+            "Complexity Intuition"
           ]
         },
         {
@@ -71,6 +86,14 @@
               "type": "bullet",
               "text": "Classroom activity: students push a small programming assignment repo."
             }
+          ],
+          "brief": "Version control essentials with Git, remote repositories on GitHub, and pull request workflows.",
+          "keywords": [
+            "Git Commits",
+            "Branching",
+            "Merging",
+            "Remote Repo",
+            "Pull Requests"
           ]
         },
         {
@@ -94,6 +117,14 @@
               "type": "bullet",
               "text": "One simple static webpage mini‑task."
             }
+          ],
+          "brief": "Foundational web skills: HTML5 markup structure, CSS selectors/layouts, and basic JavaScript page interactivity.",
+          "keywords": [
+            "HTML5 Tags",
+            "CSS Layout",
+            "JS DOM",
+            "Events",
+            "Static Webpage"
           ]
         },
         {
@@ -109,6 +140,14 @@
               "type": "bullet",
               "text": "Versioning + issue tracking (GitHub Issues, basic Kanban)."
             }
+          ],
+          "brief": "Software development lifecycles, Agile/Scrum framework roles, issue tracking, and versioning standards.",
+          "keywords": [
+            "SDLC Models",
+            "Agile & Scrum",
+            "Kanban Boards",
+            "GitHub Issues",
+            "Agile Ceremonies"
           ]
         }
       ],
@@ -188,6 +227,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Deep dive into advanced data structures and algorithm analysis with hands-on competitive programming practice.",
+              "keywords": [
+                "Data Structures",
+                "Algorithms",
+                "Problem Solving",
+                "Complexity Analysis",
+                "Optimization"
               ]
             },
             {
@@ -233,6 +280,13 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Applying SOLID design principles and standard software design patterns to architect robust systems.",
+              "keywords": [
+                "Design Patterns",
+                "SOLID Principles",
+                "System Architecture",
+                "UML Modeling"
               ]
             },
             {
@@ -273,6 +327,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Deep dive into relational database design, query optimization, ACID transactions, and indexing structures.",
+              "keywords": [
+                "ACID Properties",
+                "Indexing",
+                "Query Optimization",
+                "Normalization",
+                "Transactions"
               ]
             },
             {
@@ -313,6 +375,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Overview of containerization (Docker), continuous integration/continuous deployment (CI/CD), and cloud-native hosting.",
+              "keywords": [
+                "CI/CD Pipelines",
+                "Docker Containers",
+                "Cloud Deployments",
+                "GitHub Actions",
+                "Trunk-based Dev"
               ]
             }
           ]
@@ -398,6 +468,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Deep dive into advanced data structures and algorithm analysis with hands-on competitive programming practice.",
+              "keywords": [
+                "Data Structures",
+                "Algorithms",
+                "Problem Solving",
+                "Complexity Analysis",
+                "Optimization"
               ]
             },
             {
@@ -443,6 +521,13 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Applying SOLID design principles and standard software design patterns to architect robust systems.",
+              "keywords": [
+                "Design Patterns",
+                "SOLID Principles",
+                "System Architecture",
+                "UML Modeling"
               ]
             },
             {
@@ -488,6 +573,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Deep dive into relational database design, query optimization, ACID transactions, and indexing structures.",
+              "keywords": [
+                "ACID Properties",
+                "Indexing",
+                "Query Optimization",
+                "Normalization",
+                "Transactions"
               ]
             },
             {
@@ -546,6 +639,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Overview of containerization (Docker), continuous integration/continuous deployment (CI/CD), and cloud-native hosting.",
+              "keywords": [
+                "CI/CD Pipelines",
+                "Docker Containers",
+                "Cloud Deployments",
+                "GitHub Actions",
+                "Trunk-based Dev"
               ]
             }
           ]
@@ -654,6 +755,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Deep dive into advanced data structures and algorithm analysis with hands-on competitive programming practice.",
+              "keywords": [
+                "Data Structures",
+                "Algorithms",
+                "Problem Solving",
+                "Complexity Analysis",
+                "Optimization"
               ]
             },
             {
@@ -725,6 +834,13 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Applying SOLID design principles and standard software design patterns to architect robust systems.",
+              "keywords": [
+                "Design Patterns",
+                "SOLID Principles",
+                "System Architecture",
+                "UML Modeling"
               ]
             },
             {
@@ -780,6 +896,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Deep dive into relational database design, query optimization, ACID transactions, and indexing structures.",
+              "keywords": [
+                "ACID Properties",
+                "Indexing",
+                "Query Optimization",
+                "Normalization",
+                "Transactions"
               ]
             },
             {
@@ -841,6 +965,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Overview of containerization (Docker), continuous integration/continuous deployment (CI/CD), and cloud-native hosting.",
+              "keywords": [
+                "CI/CD Pipelines",
+                "Docker Containers",
+                "Cloud Deployments",
+                "GitHub Actions",
+                "Trunk-based Dev"
               ]
             }
           ]
@@ -931,6 +1063,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Deep dive into advanced data structures and algorithm analysis with hands-on competitive programming practice.",
+              "keywords": [
+                "Data Structures",
+                "Algorithms",
+                "Problem Solving",
+                "Complexity Analysis",
+                "Optimization"
               ]
             },
             {
@@ -987,6 +1127,13 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Applying SOLID design principles and standard software design patterns to architect robust systems.",
+              "keywords": [
+                "Design Patterns",
+                "SOLID Principles",
+                "System Architecture",
+                "UML Modeling"
               ]
             },
             {
@@ -1032,6 +1179,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Deep dive into relational database design, query optimization, ACID transactions, and indexing structures.",
+              "keywords": [
+                "ACID Properties",
+                "Indexing",
+                "Query Optimization",
+                "Normalization",
+                "Transactions"
               ]
             },
             {
@@ -1089,6 +1244,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Overview of containerization (Docker), continuous integration/continuous deployment (CI/CD), and cloud-native hosting.",
+              "keywords": [
+                "CI/CD Pipelines",
+                "Docker Containers",
+                "Cloud Deployments",
+                "GitHub Actions",
+                "Trunk-based Dev"
               ]
             }
           ]
@@ -1244,6 +1407,13 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Intensive problem-solving sessions on key DSA concepts, interview patterns, and LeetCode-style challenges.",
+              "keywords": [
+                "LeetCode Problems",
+                "Interview Coding",
+                "Optimal Complexity",
+                "Problem Solving Patterns"
               ]
             },
             {
@@ -1320,6 +1490,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Advanced software development topics including multi-threading, concurrency control, caching strategies, and system optimization.",
+              "keywords": [
+                "Concurrency",
+                "Multithreading",
+                "Caching",
+                "Performance Tuning",
+                "Distributed Systems"
               ]
             },
             {
@@ -1408,6 +1586,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Applying semester concepts to build, document, and present a functional technical project prototype.",
+              "keywords": [
+                "Project Planning",
+                "Execution",
+                "Presentation",
+                "Code Review",
+                "Prototyping"
               ]
             }
           ]
@@ -1539,6 +1725,13 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Intensive problem-solving sessions on key DSA concepts, interview patterns, and LeetCode-style challenges.",
+              "keywords": [
+                "LeetCode Problems",
+                "Interview Coding",
+                "Optimal Complexity",
+                "Problem Solving Patterns"
               ]
             },
             {
@@ -1612,6 +1805,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Advanced software development topics including multi-threading, concurrency control, caching strategies, and system optimization.",
+              "keywords": [
+                "Concurrency",
+                "Multithreading",
+                "Caching",
+                "Performance Tuning",
+                "Distributed Systems"
               ]
             },
             {
@@ -1690,6 +1891,14 @@
                     }
                   ]
                 }
+              ],
+              "brief": "Applying semester concepts to build, document, and present a functional technical project prototype.",
+              "keywords": [
+                "Project Planning",
+                "Execution",
+                "Presentation",
+                "Code Review",
+                "Prototyping"
               ]
             }
           ]
@@ -1705,13 +1914,29 @@
           "module_number": "1",
           "module_title": "Company Specific Practice Tests",
           "hours": "48 h",
-          "topics": []
+          "topics": [],
+          "brief": "Preparing for campus placements with company-specific mock tests, technical aptitude drills, and MCQ reviews.",
+          "keywords": [
+            "Technical Aptitude",
+            "Mock Tests",
+            "Coding Practice",
+            "Domain MCQ",
+            "Placement Tests"
+          ]
         },
         {
           "module_number": "2",
           "module_title": "Soft Skills",
           "hours": "24 h",
-          "topics": []
+          "topics": [],
+          "brief": "Improving placement readiness with professional resumes, mock interviews, and group discussion drills.",
+          "keywords": [
+            "Resume Writing",
+            "LinkedIn Profile",
+            "Mock Interviews",
+            "Group Discussions",
+            "Presentations"
+          ]
         }
       ]
     }

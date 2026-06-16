@@ -33,6 +33,14 @@
               "type": "bullet",
               "text": "Error handling, debugging practices."
             }
+          ],
+          "brief": "Fundamentals of programming in Python including syntax, conditionals, functions, object-oriented concepts, and debugging.",
+          "keywords": [
+            "Python Syntax",
+            "OOP Principles",
+            "Error Handling",
+            "Control Flow",
+            "File I/O"
           ]
         },
         {
@@ -52,6 +60,13 @@
               "type": "bullet",
               "text": "Simple problems from platforms (2 h of guided practice)."
             }
+          ],
+          "brief": "Introduction to basic data structures (arrays, strings), recursion ideas, and Big-O runtime analysis.",
+          "keywords": [
+            "Arrays & Strings",
+            "Big-O Notation",
+            "Recursion",
+            "Complexity Intuition"
           ]
         },
         {
@@ -71,6 +86,14 @@
               "type": "bullet",
               "text": "Classroom activity: students push a small programming assignment repo."
             }
+          ],
+          "brief": "Version control essentials with Git, remote repositories on GitHub, and pull request workflows.",
+          "keywords": [
+            "Git Commits",
+            "Branching",
+            "Merging",
+            "Remote Repo",
+            "Pull Requests"
           ]
         },
         {
@@ -94,6 +117,14 @@
               "type": "bullet",
               "text": "One simple static webpage mini‑task."
             }
+          ],
+          "brief": "Foundational web skills: HTML5 markup structure, CSS selectors/layouts, and basic JavaScript page interactivity.",
+          "keywords": [
+            "HTML5 Tags",
+            "CSS Layout",
+            "JS DOM",
+            "Events",
+            "Static Webpage"
           ]
         },
         {
@@ -113,6 +144,14 @@
               "type": "bullet",
               "text": "Deliverables by end of II‑I: A GitHub profile with at least 2 small coding repos and 1 static portfolio page."
             }
+          ],
+          "brief": "Software development lifecycles, Agile/Scrum framework roles, issue tracking, and versioning standards.",
+          "keywords": [
+            "SDLC Models",
+            "Agile & Scrum",
+            "Kanban Boards",
+            "GitHub Issues",
+            "Agile Ceremonies"
           ]
         }
       ],
@@ -190,6 +229,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Core semester modules covering data structures & algorithms (DSA) and relational database management (SQL).",
+          "keywords": [
+            "DSA Core",
+            "Databases",
+            "SQL Queries",
+            "ER Modeling",
+            "Searching & Sorting"
           ]
         },
         {
@@ -481,6 +528,13 @@
                 }
               ]
             }
+          ],
+          "brief": "Introduction to specialization domains: software engineering, DevOps pipelines, or security concepts.",
+          "keywords": [
+            "Intro to SE",
+            "Track Specialization",
+            "DevOps Intro",
+            "Security Intro"
           ]
         }
       ],
@@ -611,6 +665,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Building single page applications using React, covering props, state, routing, and fetch/axios API calls.",
+          "keywords": [
+            "React.js",
+            "Components",
+            "State & Props",
+            "React Router",
+            "API Integration"
           ]
         },
         {
@@ -748,6 +810,15 @@
                 }
               ]
             }
+          ],
+          "brief": "Foundations of REST API creation using Node.js/Express or Python/Flask, HTTP methods, and route controllers.",
+          "keywords": [
+            "REST APIs",
+            "Node.js",
+            "Express",
+            "Python Flask",
+            "Routing",
+            "HTTP Methods"
           ]
         },
         {
@@ -849,6 +920,15 @@
                 }
               ]
             }
+          ],
+          "brief": "Connecting backend applications to SQL (MySQL) and NoSQL (MongoDB) databases using ORM/ODM libraries.",
+          "keywords": [
+            "ORM/ODM",
+            "MySQL",
+            "MongoDB",
+            "Mongoose",
+            "Sequelize",
+            "Database Connections"
           ]
         },
         {
@@ -919,6 +999,14 @@
                 }
               ]
             }
+          ],
+          "brief": "User interface and experience design workflows, wireframing, high-fidelity layouts, and Figma prototyping.",
+          "keywords": [
+            "Figma Design",
+            "Wireframes",
+            "User Personas",
+            "Prototyping",
+            "UI Components"
           ]
         }
       ]
@@ -1123,6 +1211,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Advanced full-stack topics including global state management, real-time communications, and performance tuning.",
+          "keywords": [
+            "Redux State",
+            "WebSocket",
+            "GraphQL",
+            "Performance Tuning",
+            "Redis Caching"
           ]
         },
         {
@@ -1267,6 +1363,15 @@
                 }
               ]
             }
+          ],
+          "brief": "DevOps workflows for full-stack developers including containerization, server configuration, SSL, and hosting.",
+          "keywords": [
+            "Web Deployment",
+            "Docker",
+            "CI/CD",
+            "Nginx",
+            "SSL Certificates",
+            "Cloud Hosting"
           ]
         },
         {
@@ -1507,6 +1612,14 @@
                 }
               ]
             }
+          ],
+          "brief": "End-to-end development, hosting, and deployment of a production-ready full-stack web application.",
+          "keywords": [
+            "Full Stack App",
+            "Deployment",
+            "Cloud Hosting",
+            "Authentication",
+            "Production DB"
           ]
         }
       ]
@@ -1533,6 +1646,14 @@
               "type": "bullet",
               "text": "Security, testing, observability and DevOps readiness checks aligned with current full stack roles."
             }
+          ],
+          "brief": "Preparing for campus placements with company-specific mock tests, technical aptitude drills, and MCQ reviews.",
+          "keywords": [
+            "Technical Aptitude",
+            "Mock Tests",
+            "Coding Practice",
+            "Domain MCQ",
+            "Placement Tests"
           ]
         },
         {
@@ -1592,6 +1713,14 @@
               "type": "bullet",
               "text": "Ask for structured output (e.g., markdown checklist, JSON test cases)."
             }
+          ],
+          "brief": "Improving placement readiness with professional resumes, mock interviews, and group discussion drills.",
+          "keywords": [
+            "Resume Writing",
+            "LinkedIn Profile",
+            "Mock Interviews",
+            "Group Discussions",
+            "Presentations"
           ]
         }
       ]

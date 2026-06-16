@@ -28,7 +28,6 @@ const tracksWithSlugs = rawTracks.map(track => ({
   slug: generateSlug(track.track_name)
 }));
 
-// 4. Function for the 'Explore Tracks' page (High-level summary array)
 export const getAllTracksSummary = () => {
   return tracksWithSlugs.map(track => {
     // Because your schema is polymorphic (Type A, B, C), we extract a primary 
@@ -42,7 +41,8 @@ export const getAllTracksSummary = () => {
       track_name: track.track_name,
       slug: track.slug,
       total_semesters: track.semesters?.length || 0,
-      primary_focus: primaryFocus
+      primary_focus: primaryFocus,
+      preferred_branch: getPreferredBranchForTrack(track.slug)
     };
   });
 };
@@ -51,4 +51,41 @@ export const getAllTracksSummary = () => {
 export const getTrackBySlug = (slug) => {
   const foundTrack = tracksWithSlugs.find(track => track.slug === slug);
   return foundTrack || null; // Returns null if someone types a bad URL
+};
+
+// 6. Branch and Track Mappings & Helpers
+export const getBranchDisplayName = (dbBranch) => {
+  if (!dbBranch) return '';
+  const mapping = {
+    'CSE': 'CSE',
+    'CSE AI/ML': 'CSM',
+    'CSE Data Science': 'CSD',
+    'MECH': 'Mech',
+    'EEE': 'EEE',
+    'ECE': 'ECE'
+  };
+  return mapping[dbBranch] || dbBranch;
+};
+
+export const getPreferredBranchForTrack = (slug) => {
+  const mapping = {
+    'vlsi-semiconductor-engineer': 'ECE',
+    'software-engineer-software-developer': 'CSE, CSM, CSD',
+    'full-stack-developer': 'CSE, CSM, CSD',
+    'ev-power-systems-automation-engineer': 'EEE',
+    'design-cae-manufacturing-engineer': 'Mech',
+    'data-analyst-data-scientist-ai-ml-engineer': 'CSM, CSD, CSE',
+    'cloud-engineer-devops-engineer-cyber-security-engineer': 'CSE, CSM, CSD'
+  };
+  return mapping[slug] || '';
+};
+
+export const isTrackPreferredForBranch = (slug, dbBranch) => {
+  const preferredBranchStr = getPreferredBranchForTrack(slug);
+  const studentBranchDisplay = getBranchDisplayName(dbBranch);
+  
+  if (!preferredBranchStr || !studentBranchDisplay) return false;
+  
+  const preferredBranches = preferredBranchStr.split(',').map(b => b.trim());
+  return preferredBranches.includes(studentBranchDisplay);
 };

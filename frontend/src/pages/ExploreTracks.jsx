@@ -1,10 +1,10 @@
 // src/pages/ExploreTracks.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, ArrowRight, Layers, Search, XCircle } from 'lucide-react';
-import { getAllTracksSummary } from '../utils/trackLoader';
+import { BookOpen, ArrowRight, Layers, Search, XCircle, Award } from 'lucide-react';
+import { getAllTracksSummary, isTrackPreferredForBranch } from '../utils/trackLoader';
 
-const ExploreTracks = () => {
+const ExploreTracks = ({ user }) => {
   // Fetch our high-level summary array
   const tracks = getAllTracksSummary();
   
@@ -69,7 +69,7 @@ const ExploreTracks = () => {
                   </h2>
                 </div>
                 
-                <div className="space-y-3 mt-6">
+                <div className="space-y-4 mt-6">
                   <div className="flex items-start gap-2 text-sm text-slate-600">
                     <Layers size={16} className="mt-0.5 shrink-0 text-slate-400" />
                     <span className="line-clamp-2">
@@ -78,9 +78,22 @@ const ExploreTracks = () => {
                     </span>
                   </div>
                   
-                  <div className="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold">
-                    {track.total_semesters} {track.total_semesters === 1 ? 'Semester' : 'Semesters'}
+                  <div className="flex items-center justify-between flex-wrap gap-2 pt-1 border-t border-slate-100/50">
+                    <div className="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold">
+                      {track.total_semesters} {track.total_semesters === 1 ? 'Semester' : 'Semesters'}
+                    </div>
+                    
+                    <span className="text-xs font-medium text-slate-500">
+                      Preferably for: <strong className="text-blue-600 font-bold">{track.preferred_branch}</strong>
+                    </span>
                   </div>
+
+                  {user && isTrackPreferredForBranch(track.slug, user.branch) && (
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-100 w-full justify-center mt-2 animate-pulse">
+                      <Award size={13} className="shrink-0" />
+                      Recommended for your branch
+                    </div>
+                  )}
                 </div>
               </div>
 

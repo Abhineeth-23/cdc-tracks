@@ -1,12 +1,13 @@
 // src/pages/TrackDetails.jsx
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Target, Clock, CheckCircle2, GraduationCap, ArrowRight, ChevronDown, ChevronUp, Calendar, Wrench, Briefcase, Zap, GitMerge, Bookmark } from 'lucide-react';
-import { getTrackBySlug } from '../utils/trackLoader';
+import { ArrowLeft, Target, Clock, CheckCircle2, GraduationCap, ArrowRight, ChevronDown, Calendar, Wrench, Briefcase, Zap, GitMerge, Bookmark, Award } from 'lucide-react';
+import { getTrackBySlug, getPreferredBranchForTrack, isTrackPreferredForBranch } from '../utils/trackLoader';
 import axios from 'axios';
 
 
 // --- SUB-COMPONENT 1: The Deep-Dive Accordion (Type A) ---
+
 const ModuleAccordion = ({ modules }) => {
   const [openModuleIndex, setOpenModuleIndex] = useState(null);
 
@@ -74,9 +75,23 @@ const ModuleAccordion = ({ modules }) => {
                 <div className="bg-blue-100 text-blue-700 font-bold w-8 h-8 rounded-md flex items-center justify-center shrink-0">
                   {mod.module_number}
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-800">{mod.module_title}</h3>
-                  {mod.hours && <span className="text-xs text-slate-500 font-medium">{mod.hours}</span>}
+                <div className="space-y-1 overflow-hidden">
+                  <div className="flex flex-wrap items-baseline gap-2">
+                    <h3 className="text-base md:text-lg font-bold text-slate-800">{mod.module_title}</h3>
+                    {mod.hours && (
+                      <span className="text-[10px] md:text-xs text-slate-400 font-medium bg-slate-100 px-2 py-0.5 rounded-full shrink-0">
+                        {mod.hours}
+                      </span>
+                    )}
+                  </div>
+                  {mod.keywords && mod.keywords.length > 0 && (
+                    <p 
+                      className="text-xs text-slate-500 font-medium leading-relaxed line-clamp-1 max-w-xl md:max-w-2xl mt-0.5"
+                      title={mod.brief}
+                    >
+                      {mod.keywords.join(' • ')}
+                    </p>
+                  )}
                 </div>
               </div>
               <ChevronDown className={`shrink-0 transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-180 text-blue-500' : 'text-slate-400'}`} />
@@ -368,6 +383,17 @@ const TrackDetails = ({ user }) => {
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
             {track.track_name}
           </h1>
+          <div className="flex flex-wrap items-center gap-3 mb-3">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-100 shadow-sm">
+              Preferably for {getPreferredBranchForTrack(track.slug)} students
+            </span>
+            {user && isTrackPreferredForBranch(track.slug, user.branch) && (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-100 shadow-sm animate-pulse">
+                <Award size={12} className="shrink-0" />
+                Matches your branch
+              </span>
+            )}
+          </div>
           <p className="text-lg text-slate-600">Select a semester below to view its curriculum and objectives.</p>
         </div>
         

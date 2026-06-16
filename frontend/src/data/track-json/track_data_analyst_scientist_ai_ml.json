@@ -39,6 +39,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Fundamentals of programming in Python including syntax, conditionals, functions, object-oriented concepts, and debugging.",
+          "keywords": [
+            "Python Syntax",
+            "OOP Principles",
+            "Error Handling",
+            "Control Flow",
+            "File I/O"
           ]
         },
         {
@@ -61,6 +69,13 @@
               "title": "Simple problems from platforms (2 h of guided practice).",
               "details": []
             }
+          ],
+          "brief": "Introduction to basic data structures (arrays, strings), recursion ideas, and Big-O runtime analysis.",
+          "keywords": [
+            "Arrays & Strings",
+            "Big-O Notation",
+            "Recursion",
+            "Complexity Intuition"
           ]
         },
         {
@@ -83,6 +98,14 @@
               "title": "Classroom activity: students push a small programming assignment repo.",
               "details": []
             }
+          ],
+          "brief": "Version control essentials with Git, remote repositories on GitHub, and pull request workflows.",
+          "keywords": [
+            "Git Commits",
+            "Branching",
+            "Merging",
+            "Remote Repo",
+            "Pull Requests"
           ]
         },
         {
@@ -110,6 +133,14 @@
               "title": "One simple static webpage mini‑task.",
               "details": []
             }
+          ],
+          "brief": "Foundational web skills: HTML5 markup structure, CSS selectors/layouts, and basic JavaScript page interactivity.",
+          "keywords": [
+            "HTML5 Tags",
+            "CSS Layout",
+            "JS DOM",
+            "Events",
+            "Static Webpage"
           ]
         },
         {
@@ -132,6 +163,14 @@
               "title": "A GitHub profile with at least 2 small coding repos and 1 static portfolio page.",
               "details": []
             }
+          ],
+          "brief": "Software development lifecycles, Agile/Scrum framework roles, issue tracking, and versioning standards.",
+          "keywords": [
+            "SDLC Models",
+            "Agile & Scrum",
+            "Kanban Boards",
+            "GitHub Issues",
+            "Agile Ceremonies"
           ]
         }
       ],
@@ -191,6 +230,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Core semester modules covering data structures & algorithms (DSA) and relational database management (SQL).",
+          "keywords": [
+            "DSA Core",
+            "Databases",
+            "SQL Queries",
+            "ER Modeling",
+            "Searching & Sorting"
           ]
         },
         {
@@ -442,6 +489,13 @@
                 }
               ]
             }
+          ],
+          "brief": "Introduction to specialization domains: software engineering, DevOps pipelines, or security concepts.",
+          "keywords": [
+            "Intro to SE",
+            "Track Specialization",
+            "DevOps Intro",
+            "Security Intro"
           ]
         }
       ],
@@ -559,6 +613,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Mathematical foundations for data science, statistics, probability, linear algebra matrices, and hypothesis tests.",
+          "keywords": [
+            "Descriptive Stats",
+            "Probability",
+            "Linear Algebra",
+            "Calculus",
+            "Hypothesis Testing"
           ]
         },
         {
@@ -669,6 +731,15 @@
                 }
               ]
             }
+          ],
+          "brief": "Cleaning, manipulating, and analyzing datasets using Python data libraries (Pandas/NumPy) and plotting libraries.",
+          "keywords": [
+            "Pandas",
+            "NumPy",
+            "Matplotlib",
+            "Seaborn",
+            "Data Cleaning",
+            "Outlier Detection"
           ]
         },
         {
@@ -748,6 +819,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Writing queries in SQL, database joins, grouping/aggregations, and database schemas.",
+          "keywords": [
+            "SQL SELECT",
+            "Table Joins",
+            "Aggregations",
+            "Subqueries",
+            "Database Design"
           ]
         },
         {
@@ -846,6 +925,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Fundamentals of machine learning, training regression and classification models using Scikit-Learn.",
+          "keywords": [
+            "Supervised Learning",
+            "Regression",
+            "Classification",
+            "Scikit-Learn",
+            "Model Evaluation"
           ]
         }
       ]
@@ -957,6 +1044,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Expanding machine learning skills into deep learning, neural networks, computer vision, and NLP.",
+          "keywords": [
+            "Deep Learning",
+            "Neural Networks",
+            "NLP Basics",
+            "TensorFlow",
+            "Computer Vision"
           ]
         },
         {
@@ -1046,6 +1141,15 @@
                 }
               ]
             }
+          ],
+          "brief": "Building interactive dashboards and using data visualization tools (Tableau/Power BI) to tell compelling stories.",
+          "keywords": [
+            "Tableau",
+            "Power BI",
+            "Data Dashboards",
+            "KPIs",
+            "Storytelling",
+            "Data Insights"
           ]
         },
         {
@@ -1140,6 +1244,15 @@
                 }
               ]
             }
+          ],
+          "brief": "Introduction to big data processing frameworks (Hadoop/Spark) and cloud data warehousing models.",
+          "keywords": [
+            "Hadoop",
+            "Spark",
+            "Data Pipelines",
+            "Cloud Storage",
+            "ETL",
+            "Data Lakes"
           ]
         },
         {
@@ -1245,6 +1358,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Applying semester concepts to build, document, and present a functional technical project prototype.",
+          "keywords": [
+            "Project Planning",
+            "Execution",
+            "Presentation",
+            "Code Review",
+            "Prototyping"
           ]
         }
       ]
@@ -1258,13 +1379,29 @@
           "module_number": "1",
           "module_title": "Company Specific Practice Tests",
           "hours": "48 h",
-          "topics": []
+          "topics": [],
+          "brief": "Preparing for campus placements with company-specific mock tests, technical aptitude drills, and MCQ reviews.",
+          "keywords": [
+            "Technical Aptitude",
+            "Mock Tests",
+            "Coding Practice",
+            "Domain MCQ",
+            "Placement Tests"
+          ]
         },
         {
           "module_number": "2",
           "module_title": "Soft Skills",
           "hours": "24 h",
-          "topics": []
+          "topics": [],
+          "brief": "Improving placement readiness with professional resumes, mock interviews, and group discussion drills.",
+          "keywords": [
+            "Resume Writing",
+            "LinkedIn Profile",
+            "Mock Interviews",
+            "Group Discussions",
+            "Presentations"
+          ]
         }
       ]
     }

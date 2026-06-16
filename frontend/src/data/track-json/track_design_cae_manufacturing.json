@@ -39,6 +39,13 @@
               "title": "Simple weld procedure + shop demo/videos – 4 h",
               "details": []
             }
+          ],
+          "brief": "Introduction to welding procedures, metal joint configurations, fabrication hand tools, and workshop safety.",
+          "keywords": [
+            "Welding Processes",
+            "Fabrication Tools",
+            "Workshop Safety",
+            "Sheet Metal Basics"
           ]
         },
         {
@@ -56,6 +63,14 @@
               "title": "Simple part + small assembly modeling in a chosen CAD (e.g., SolidWorks intro) – 8 h",
               "details": []
             }
+          ],
+          "brief": "Building solid modeling mindsets, sketching basics, constraints, and parametric design workflows.",
+          "keywords": [
+            "CAD Design",
+            "Solid Modeling",
+            "Sketching",
+            "Parametric Design",
+            "2D/3D Orthographic"
           ]
         },
         {
@@ -78,6 +93,14 @@
               "title": "Mini exercise: redesign a simple bracket for printing – 4 h",
               "details": []
             }
+          ],
+          "brief": "Introduction to 3D printing technologies, design rules for additive manufacturing, slicing parameters, and FDM printing.",
+          "keywords": [
+            "3D Printing",
+            "Additive Manufacturing",
+            "FDM",
+            "Slicing",
+            "Material Selection"
           ]
         }
       ]
@@ -133,6 +156,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Core SolidWorks skills including 2D sketching, basic 3D features, standard drawing views, and assemblies.",
+          "keywords": [
+            "SolidWorks Sketcher",
+            "Part Modeling",
+            "Extrude & Revolve",
+            "Drawing Views",
+            "Assembly Basics"
           ]
         },
         {
@@ -161,6 +192,13 @@
                 }
               ]
             }
+          ],
+          "brief": "Introduction to FEA modeling, boundary conditions, and static structural simulations in Ansys Workbench.",
+          "keywords": [
+            "Ansys Workbench",
+            "FEA Basics",
+            "Structural Simulation",
+            "Boundary Conditions"
           ]
         }
       ]
@@ -205,6 +243,13 @@
               "title": "BOMs, exploded views, drawing packs – 6 h",
               "details": []
             }
+          ],
+          "brief": "Advanced part and assembly modeling, surfacing design, sheet metal fabrication prep, and weldments.",
+          "keywords": [
+            "SolidWorks Assembly",
+            "Surface Modeling",
+            "Sheet Metal Design",
+            "Weldments"
           ]
         },
         {
@@ -232,6 +277,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Advanced structural and thermal simulations, high-quality meshing techniques, and nonlinear static analysis in Ansys.",
+          "keywords": [
+            "Ansys FEA",
+            "Dynamic Analysis",
+            "Nonlinear Analysis",
+            "Meshing",
+            "Static Structural"
           ]
         },
         {
@@ -249,6 +302,14 @@
               "title": "Tolerancing and cost drivers – 4 h",
               "details": []
             }
+          ],
+          "brief": "Design for Manufacturing and Assembly principles, tolerance analysis, and cost-efficient product design.",
+          "keywords": [
+            "DFM Guidelines",
+            "DFA Assembly",
+            "Cost Estimation",
+            "Tolerance Stack-up",
+            "Manufacturing Constraints"
           ]
         }
       ]
@@ -298,6 +359,14 @@
               "title": "Manufacturing drawings & documentation – 6 h",
               "details": []
             }
+          ],
+          "brief": "Collaborative project work covering detailed engineering design, simulation, prototyping, and testing.",
+          "keywords": [
+            "Project Planning",
+            "Prototyping",
+            "Hardware Design",
+            "Testing",
+            "Product Specification"
           ]
         },
         {
@@ -332,6 +401,13 @@
                 }
               ]
             }
+          ],
+          "brief": "Applying Geometric Dimensioning and Tolerancing (GD&T), reviewing drawings, and project evaluations.",
+          "keywords": [
+            "GD&T Specs",
+            "Drawing Standards",
+            "Design Reviews",
+            "Project Presentations"
           ]
         }
       ]
@@ -380,6 +456,13 @@
               "title": "Introduction to Operations Research as a decision‑making toolkit in manufacturing.",
               "details": []
             }
+          ],
+          "brief": "Overview of plant layouts, materials handling, and the role of industrial engineering in manufacturing systems.",
+          "keywords": [
+            "Industrial Systems",
+            "Productivity",
+            "Plant Layout",
+            "Facilities Design"
           ]
         },
         {
@@ -407,6 +490,14 @@
               "title": "Mini‑exercise: Create a simple MRP table for a small assembly based on a CAD BOM.",
               "details": []
             }
+          ],
+          "brief": "Operations management covering PPC workflows, Master Production Scheduling, MRP calculations, and capacity planning.",
+          "keywords": [
+            "PPC Systems",
+            "MRP Operations",
+            "Scheduling",
+            "Inventory Control",
+            "Capacity Planning"
           ]
         },
         {
@@ -434,6 +525,13 @@
               "title": "Lab‑style activity: Map the method for a small assembly or lab process and propose an improved method.",
               "details": []
             }
+          ],
+          "brief": "Work study methodologies, constructing process charts, flow diagrams, and motion economy principles.",
+          "keywords": [
+            "Method Study",
+            "Process Charts",
+            "Flow Diagrams",
+            "Motion Study"
           ]
         },
         {
@@ -461,6 +559,13 @@
               "title": "Lab‑style activity: Conduct a basic time study for a repetitive task (manual or simulated video) and compute standard time.",
               "details": []
             }
+          ],
+          "brief": "Conducting time studies, rating operator performance, calculating allowances, and standard work time.",
+          "keywords": [
+            "Time Study",
+            "Work Measurement",
+            "Standard Time",
+            "Allowance Factors"
           ]
         },
         {
@@ -488,6 +593,13 @@
               "title": "Exercises: Formulate and solve (manually or with a simple solver) 1–2 LP and 1 transportation problem relevant to manufacturing/logistics.",
               "details": []
             }
+          ],
+          "brief": "Solving linear programming, transportation, and assignment problems for optimal resource allocation.",
+          "keywords": [
+            "Linear Programming",
+            "Transportation Models",
+            "Solver Tools",
+            "Resource Allocation"
           ]
         },
         {
@@ -515,6 +627,13 @@
               "title": "Demonstration: Walkthrough of a simple manufacturing line simulation (spreadsheet or educational tool) and discussion.",
               "details": []
             }
+          ],
+          "brief": "Modeling manufacturing systems using simulation tools, queueing theory formulas, and identifying system bottlenecks.",
+          "keywords": [
+            "Queueing Models",
+            "Arena Simulation",
+            "Bottleneck Analysis",
+            "Cycle Time"
           ]
         },
         {
@@ -542,6 +661,14 @@
               "title": "Mini‑exercise: Identify NVA activities from a time‑study log and propose a new sequence to cut cycle time.",
               "details": []
             }
+          ],
+          "brief": "Lean thinking framework, identifying the 7 wastes, Kaizen improvement cycles, and value stream mapping.",
+          "keywords": [
+            "Lean Manufacturing",
+            "5S",
+            "Kaizen",
+            "Value Stream Mapping",
+            "Seven Wastes"
           ]
         },
         {
@@ -605,6 +732,13 @@
               "title": "Mock interviews (technical + HR rounds, including questions on IE, PPC, work study, and projects) – 8 h",
               "details": []
             }
+          ],
+          "brief": "Team-based integration project applying optimization tools and simulation to manufacturing challenges.",
+          "keywords": [
+            "Manufacturing Design",
+            "Process Optimization",
+            "Simulation Project",
+            "Team Collaboration"
           ]
         }
       ]

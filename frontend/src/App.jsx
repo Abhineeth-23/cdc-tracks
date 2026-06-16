@@ -1,5 +1,5 @@
 // src/App.jsx
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import TopNav from './components/layout/TopNav';
 import ExploreTracks from './pages/ExploreTracks';
@@ -9,11 +9,6 @@ import Dashboard from './pages/Dashboard';
 
 // A beautifully styled profile card for the Profile route
 const Profile = ({ user, onLogout }) => {
-  const formatYear = (yr) => {
-    const map = { 1: '1st Year', 2: '2nd Year', 3: '3rd Year', 4: '4th Year' };
-    return map[yr] || `${yr}th Year`;
-  };
-
   return (
     <div className="max-w-xl mx-auto py-10 px-4 animate-fade-in">
       <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-md relative overflow-hidden">
@@ -61,7 +56,7 @@ const Profile = ({ user, onLogout }) => {
           </div>
           <div className="flex justify-between py-2">
             <span className="text-sm font-semibold text-slate-500">Expected Graduation</span>
-            <span className="text-sm font-semibold text-slate-800">{user.graduation_year}</span>
+            <span className="text-semibold text-slate-800">{user.graduation_year}</span>
           </div>
         </div>
 
@@ -79,23 +74,15 @@ const Profile = ({ user, onLogout }) => {
 };
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // Load session from localStorage on initial render
-  useEffect(() => {
+  const [user, setUser] = useState(() => {
     try {
       const saved = localStorage.getItem('student_profile');
-      if (saved) {
-        setUser(JSON.parse(saved));
-      }
+      return saved ? JSON.parse(saved) : null;
     } catch (e) {
       console.error("Failed to load saved profile:", e);
-    } finally {
-      setLoading(false);
+      return null;
     }
-  }, []);
-
+  });
   const handleLoginSuccess = (profile) => {
     setUser(profile);
     localStorage.setItem('student_profile', JSON.stringify(profile));
@@ -106,14 +93,6 @@ function App() {
     localStorage.removeItem('student_profile');
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-      </div>
-    );
-  }
-
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans pb-12">
@@ -121,7 +100,7 @@ function App() {
         <main className="max-w-7xl mx-auto pt-6 px-4 sm:px-6 lg:px-8">
           <Routes>
             {/* Explore page remains public */}
-            <Route path="/" element={<ExploreTracks />} />
+            <Route path="/" element={<ExploreTracks user={user} />} />
             
             {/* Login Route */}
             <Route 

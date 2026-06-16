@@ -33,6 +33,14 @@
               "type": "bullet",
               "text": "Error handling, debugging practices."
             }
+          ],
+          "brief": "Fundamentals of programming in Python including syntax, conditionals, functions, object-oriented concepts, and debugging.",
+          "keywords": [
+            "Python Syntax",
+            "OOP Principles",
+            "Error Handling",
+            "Control Flow",
+            "File I/O"
           ]
         },
         {
@@ -52,6 +60,13 @@
               "type": "bullet",
               "text": "Simple problems from platforms (2 h of guided practice)."
             }
+          ],
+          "brief": "Introduction to basic data structures (arrays, strings), recursion ideas, and Big-O runtime analysis.",
+          "keywords": [
+            "Arrays & Strings",
+            "Big-O Notation",
+            "Recursion",
+            "Complexity Intuition"
           ]
         },
         {
@@ -71,6 +86,14 @@
               "type": "bullet",
               "text": "Classroom activity: students push a small programming assignment repo."
             }
+          ],
+          "brief": "Version control essentials with Git, remote repositories on GitHub, and pull request workflows.",
+          "keywords": [
+            "Git Commits",
+            "Branching",
+            "Merging",
+            "Remote Repo",
+            "Pull Requests"
           ]
         },
         {
@@ -94,6 +117,14 @@
               "type": "bullet",
               "text": "One simple static webpage mini‑task."
             }
+          ],
+          "brief": "Foundational web skills: HTML5 markup structure, CSS selectors/layouts, and basic JavaScript page interactivity.",
+          "keywords": [
+            "HTML5 Tags",
+            "CSS Layout",
+            "JS DOM",
+            "Events",
+            "Static Webpage"
           ]
         },
         {
@@ -113,6 +144,14 @@
               "type": "bullet",
               "text": "A GitHub profile with at least 2 small coding repos and 1 static portfolio page."
             }
+          ],
+          "brief": "Software development lifecycles, Agile/Scrum framework roles, issue tracking, and versioning standards.",
+          "keywords": [
+            "SDLC Models",
+            "Agile & Scrum",
+            "Kanban Boards",
+            "GitHub Issues",
+            "Agile Ceremonies"
           ]
         }
       ],
@@ -166,6 +205,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Core semester modules covering data structures & algorithms (DSA) and relational database management (SQL).",
+          "keywords": [
+            "DSA Core",
+            "Databases",
+            "SQL Queries",
+            "ER Modeling",
+            "Searching & Sorting"
           ]
         },
         {
@@ -381,6 +428,13 @@
                 }
               ]
             }
+          ],
+          "brief": "Introductory modules on Linux command line, networking foundations, and cloud computing service models.",
+          "keywords": [
+            "Linux Basics",
+            "Networking Fundamentals",
+            "Cloud Concepts",
+            "IP Addressing"
           ]
         }
       ],
@@ -510,6 +564,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Provisioning secure cloud infrastructure including VMs, storage buckets, custom networks, and IAM roles.",
+          "keywords": [
+            "VPC Networking",
+            "EC2 Compute",
+            "IAM Policies",
+            "Cloud Security",
+            "S3 Storage"
           ]
         },
         {
@@ -573,6 +635,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Linux system administration basics, system log analysis, and automation using Bash/Python scripting.",
+          "keywords": [
+            "Bash Scripting",
+            "System Logs",
+            "Automation Tasks",
+            "Cron Jobs",
+            "Log Parsing"
           ]
         },
         {
@@ -657,6 +727,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Building automated build, test, and release pipelines using GitHub Actions or Jenkins.",
+          "keywords": [
+            "Git Branching",
+            "CI/CD Pipelines",
+            "GitHub Actions",
+            "Build Automation",
+            "Static Analysis"
           ]
         },
         {
@@ -751,6 +829,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Foundations of security systems, CIA triad, firewalls, and signature vs anomaly intrusion detection.",
+          "keywords": [
+            "Security Triad",
+            "Firewalls",
+            "IDS/IPS",
+            "System Hardening",
+            "Risk Management"
           ]
         }
       ]
@@ -850,6 +936,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Advanced DevOps practices using Infrastructure as Code (Terraform) and container orchestration (Kubernetes).",
+          "keywords": [
+            "Infrastructure as Code",
+            "Terraform",
+            "Docker",
+            "Kubernetes",
+            "Container Orchestration"
           ]
         },
         {
@@ -940,6 +1034,15 @@
                 }
               ]
             }
+          ],
+          "brief": "Designing scalable cloud microservices, load balancing strategies, and introducing MLOps pipelines.",
+          "keywords": [
+            "Cloud Native",
+            "MLOps",
+            "Microservices",
+            "Scalability",
+            "Load Balancing",
+            "Docker"
           ]
         },
         {
@@ -1024,6 +1127,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Implementing secure architectures, IAM audits, system vulnerability scanning, and secure coding practices.",
+          "keywords": [
+            "IAM Best Practices",
+            "Vulnerability Scanning",
+            "Encryption",
+            "OWASP Top 10",
+            "SecOps"
           ]
         },
         {
@@ -1088,6 +1199,14 @@
                 }
               ]
             }
+          ],
+          "brief": "Applying semester concepts to build, document, and present a functional technical project prototype.",
+          "keywords": [
+            "Project Planning",
+            "Execution",
+            "Presentation",
+            "Code Review",
+            "Prototyping"
           ]
         }
       ]
@@ -1101,13 +1220,29 @@
           "module_number": "1",
           "module_title": "Company Specific Practice Tests",
           "hours": "48 h",
-          "topics": []
+          "topics": [],
+          "brief": "Preparing for campus placements with company-specific mock tests, technical aptitude drills, and MCQ reviews.",
+          "keywords": [
+            "Technical Aptitude",
+            "Mock Tests",
+            "Coding Practice",
+            "Domain MCQ",
+            "Placement Tests"
+          ]
         },
         {
           "module_number": "2",
           "module_title": "Soft Skills",
           "hours": "24 h",
-          "topics": []
+          "topics": [],
+          "brief": "Improving placement readiness with professional resumes, mock interviews, and group discussion drills.",
+          "keywords": [
+            "Resume Writing",
+            "LinkedIn Profile",
+            "Mock Interviews",
+            "Group Discussions",
+            "Presentations"
+          ]
         }
       ]
     }

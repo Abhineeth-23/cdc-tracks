@@ -1,8 +1,9 @@
 // src/pages/Dashboard.jsx
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, User, Calendar, Award, GraduationCap, ChevronRight, Bookmark, AlertCircle, Compass, ArrowRight } from 'lucide-react';
+import { BookOpen, Award, ChevronRight, Bookmark, AlertCircle, Compass, ArrowRight, Sparkles } from 'lucide-react';
 import axios from 'axios';
+import { getAllTracksSummary, getBranchDisplayName, isTrackPreferredForBranch } from '../utils/trackLoader';
 
 const Dashboard = ({ user }) => {
   const [data, setData] = useState(null);
@@ -70,6 +71,10 @@ const Dashboard = ({ user }) => {
   const currentYear = data?.current_year || 1;
   const selectedTrack = data?.selected_track;
   const bookmarkedTracks = data?.bookmarked_tracks_data || [];
+
+  const allTracks = getAllTracksSummary();
+  const recommendedTracks = allTracks.filter(t => isTrackPreferredForBranch(t.slug, student.branch));
+  const branchDisplayName = getBranchDisplayName(student.branch);
 
   // Convert current year integer to ordinal word (e.g. 1 -> 1st Year)
   const formatYear = (yr) => {
@@ -222,6 +227,46 @@ const Dashboard = ({ user }) => {
                   <ArrowRight size={16} />
                 </Link>
               </div>
+            )}
+          </div>
+
+          {/* Recommended Tracks Section */}
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h2 className="text-lg font-bold text-slate-800 flex items-center gap-2.5 pb-4 border-b border-slate-100 mb-6">
+              <Sparkles size={18} className="text-emerald-600 animate-pulse" />
+              Recommended Tracks for Your Branch ({branchDisplayName})
+            </h2>
+
+            {recommendedTracks.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {recommendedTracks.map((bk) => (
+                  <Link
+                    key={bk.slug}
+                    to={`/track/${bk.slug}`}
+                    className="flex flex-col justify-between p-4 border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-md hover:bg-emerald-50/10 transition-all duration-300 group"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex items-center gap-3">
+                        <div className="bg-emerald-50 p-2 rounded-lg text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                          <BookOpen size={18} />
+                        </div>
+                        <span className="font-bold text-slate-700 text-sm group-hover:text-emerald-800 transition-colors">
+                          {bk.track_name}
+                        </span>
+                      </div>
+                      <ChevronRight size={16} className="text-slate-400 mt-1 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all shrink-0" />
+                    </div>
+                    
+                    <div className="text-[11px] text-slate-500 mt-3 font-medium">
+                      Focus: {bk.primary_focus}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <p className="text-slate-500 text-sm italic py-2">
+                No custom recommendations available for branch {branchDisplayName}.
+              </p>
             )}
           </div>
 

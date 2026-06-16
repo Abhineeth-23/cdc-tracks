@@ -1,7 +1,7 @@
 // src/pages/Login.jsx
 import { useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
-import { ShieldAlert, BookOpen, GraduationCap, ArrowRight, UserCheck } from 'lucide-react';
+import { ShieldAlert, GraduationCap, ArrowRight, UserCheck } from 'lucide-react';
 import axios from 'axios';
 
 // Helper to decode JWT without a library
