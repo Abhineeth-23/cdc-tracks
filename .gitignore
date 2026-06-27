@@ -24,6 +24,8 @@ lerna-debug.log*
 !.env.example
 backend/.env
 frontend/.env
+service_account.json
+backend/service_account.json
 
 # Python / Virtual Environment
 .venv/

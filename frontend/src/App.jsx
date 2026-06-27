@@ -6,6 +6,7 @@ import ExploreTracks from './pages/ExploreTracks';
 import TrackDetails from './pages/TrackDetails';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import CDCDashboard from './pages/CDCDashboard';
 
 // A beautifully styled profile card for the Profile route
 const Profile = ({ user, onLogout }) => {
@@ -116,6 +117,10 @@ function App() {
             <Route 
               path="/dashboard" 
               element={user ? <Dashboard user={user} /> : <Navigate to="/login" replace />} 
+            />
+            <Route 
+              path="/cdc-dashboard" 
+              element={user ? <CDCDashboard user={user} /> : <Navigate to="/login" replace />} 
             />
             <Route 
               path="/profile" 

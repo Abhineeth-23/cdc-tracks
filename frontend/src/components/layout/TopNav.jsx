@@ -1,6 +1,6 @@
 // src/components/layout/TopNav.jsx
 import { NavLink, Link } from 'react-router-dom';
-import { Home, Compass, LayoutDashboard, User, LogOut, LogIn } from 'lucide-react';
+import { Home, Compass, LayoutDashboard, User, LogOut, LogIn, Award } from 'lucide-react';
 
 const TopNav = ({ user, onLogout }) => {
   // Helper function to dynamically apply Tailwind classes based on active state
@@ -39,7 +39,11 @@ const TopNav = ({ user, onLogout }) => {
                 {/* Authenticated Links */}
                 <NavLink to="/dashboard" className={navLinkClass}>
                   <LayoutDashboard size={16} />
-                  <span>Dashboard</span>
+                  <span>Curriculum</span>
+                </NavLink>
+                <NavLink to="/cdc-dashboard" className={navLinkClass}>
+                  <Award size={16} />
+                  <span>CDC Performance</span>
                 </NavLink>
                 <NavLink to="/profile" className={navLinkClass}>
                   {user.picture ? (

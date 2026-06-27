@@ -6,6 +6,7 @@ from typing import Optional
 from app.database import get_db
 from app.models import User, Track
 from app.utils import calculate_current_year
+from app.services.cdc_service import get_cdc_performance_by_roll
 
 router = APIRouter(prefix="/api/student", tags=["Student Profile & Tracks"])
 
@@ -157,3 +158,55 @@ def get_dashboard_data(
         "selected_track": selected_track_data,
         "bookmarked_tracks_data": bookmarked_summaries
     }
+
+@router.get("/cdc-dashboard-data")
+def get_cdc_dashboard_data(
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    cdc_record = get_cdc_performance_by_roll(db, user.roll_number, user.email)
+    
+    if not cdc_record:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No CDC Performance record found for roll number '{user.roll_number}' or email '{user.email}'."
+        )
+        
+    return {
+        "student": {
+            "name": cdc_record.name or user.name,
+            "roll_number": cdc_record.roll_number,
+            "branch": cdc_record.branch or user.branch,
+            "email": cdc_record.email or user.email,
+            "batch_year": cdc_record.batch_year
+        },
+        "overall": {
+            "cdc_band": cdc_record.cdc_band,
+            "cdc_rank": cdc_record.cdc_rank,
+            "cdc_grade_score": cdc_record.cdc_grade_score,
+            "avg_performance": cdc_record.avg_performance,
+            "consistency_score": cdc_record.consistency_score,
+            "participation": cdc_record.participation,
+            "cie_score": cdc_record.cie_score
+        },
+        "post_assessments": cdc_record.post_assessments,
+        "domain_tracks": cdc_record.domain_tracks,
+        "test_scores": cdc_record.test_scores
+    }
+
+class SyncSheetsRequest(BaseModel):
+    sheet1_id: str
+    sheet2_id: str
+
+@router.post("/sync-google-sheets")
+def trigger_google_sheets_sync(
+    payload: SyncSheetsRequest,
+    db: Session = Depends(get_db)
+):
+    from app.services.google_sheets_sync import sync_live_google_sheets
+    res = sync_live_google_sheets(db, payload.sheet1_id, payload.sheet2_id)
+    if not res["success"]:
+        raise HTTPException(status_code=400, detail=res["message"])
+    return res
+
+

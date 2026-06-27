@@ -57,6 +57,21 @@ def startup_event():
     except Exception:
         db.rollback()
         
+    # 1.6 Seed CDC Performance data
+    try:
+        from app.services.cdc_service import seed_cdc_performance_data
+        seed_cdc_performance_data(db)
+        
+        # Also attempt live Google Sheets sync if credentials exist
+        from app.services.google_sheets_sync import sync_live_google_sheets
+        s1 = os.getenv("GOOGLE_SHEET_1_URL", "https://docs.google.com/spreadsheets/d/1U5X1r6ZQv4LH2WEEvmh3bEE4voOdqsIw3YG7DbpivAc/edit?gid=0#gid=0")
+        s2 = os.getenv("GOOGLE_SHEET_2_URL", "https://docs.google.com/spreadsheets/d/1yEZgkE2egyQqF67Vzh6LGdjTgh1zXqyjhNcQV38JUTU/edit?gid=0#gid=0")
+        res = sync_live_google_sheets(db, s1, s2)
+        print(f"Startup Google Sheets sync result: {res}")
+    except Exception as e:
+        print(f"CDC seeding notice: {e}")
+        db.rollback()
+        
     # 2. Seed Track data from frontend JSON files
     try:
         # Determine the relative path to frontend track JSON files

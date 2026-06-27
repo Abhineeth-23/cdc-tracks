@@ -1,5 +1,5 @@
 # backend/app/models.py
-from sqlalchemy import Column, Integer, String, JSON
+from sqlalchemy import Column, Integer, String, JSON, Float
 from app.database import Base
 
 class User(Base):
@@ -23,3 +23,29 @@ class Track(Base):
     id = Column(String, primary_key=True, index=True) # The track slug
     track_name = Column(String, nullable=False)
     data = Column(JSON, nullable=False) # Stores the complete curriculum JSON structure
+
+class CDCPerformance(Base):
+    __tablename__ = "cdc_performance"
+
+    id = Column(Integer, primary_key=True, index=True)
+    roll_number = Column(String, unique=True, index=True, nullable=False)
+    batch_year = Column(String, default="2024-2028", nullable=False)
+    name = Column(String, nullable=True)
+    branch = Column(String, nullable=True)
+    email = Column(String, nullable=True)
+    mobile = Column(String, nullable=True)
+    
+    # Aggregated metrics
+    participation = Column(Integer, default=0)
+    consistency_score = Column(Float, default=0.0)
+    avg_performance = Column(Float, default=0.0)
+    cdc_grade_score = Column(Float, default=0.0)
+    cie_score = Column(Float, default=0.0)
+    cdc_rank = Column(Integer, nullable=True)
+    cdc_band = Column(String, nullable=True) # A, B, C, D
+    
+    # Detailed dynamic fields
+    test_scores = Column(JSON, default=dict)       # e.g. {"Test 1": 80.0, ...}
+    post_assessments = Column(JSON, default=dict)  # e.g. {"Post Assessment II-I": 82.86, ...}
+    domain_tracks = Column(JSON, default=dict)     # e.g. {"I-II": {"domain": "Aptitude and Reasoning", "performance": 60}, ...}
+
