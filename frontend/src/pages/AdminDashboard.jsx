@@ -1,5 +1,6 @@
 // src/pages/AdminDashboard.jsx
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import axios from 'axios';
 import { 
   Users, Award, BookOpen, Search, Filter, RefreshCw, 
@@ -967,10 +968,10 @@ const AdminDashboard = ({ user }) => {
 
 
       {/* Full Student Detailed CDC Dashboard Modal View */}
-      {selectedStudentRoll && (
+      {selectedStudentRoll && createPortal(
         <div 
           onClick={handleBackdropClick}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 animate-fade-in"
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-sm animate-fade-in"
         >
           <div 
             onClick={(e) => e.stopPropagation()}
@@ -1030,8 +1031,10 @@ const AdminDashboard = ({ user }) => {
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
+
 
 
     </div>
