@@ -1,8 +1,9 @@
 // src/pages/Login.jsx
 import { useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
-import { ShieldAlert, GraduationCap, ArrowRight, UserCheck } from 'lucide-react';
+import { ShieldAlert, ArrowRight, UserCheck } from 'lucide-react';
 import axios from 'axios';
+import cdcLogo from '../assets/CDC-logo.png';
 
 // Helper to decode JWT without a library
 const decodeGoogleCredential = (token) => {
@@ -87,10 +88,12 @@ const Login = ({ onLoginSuccess }) => {
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600"></div>
 
         {/* Branding & Header */}
-        <div className="text-center">
-          <div className="inline-flex bg-blue-50 p-4 rounded-2xl text-blue-600 mb-4 ring-8 ring-blue-50/50">
-            <GraduationCap size={40} />
-          </div>
+        <div className="text-center flex flex-col items-center">
+          <img 
+            src={cdcLogo} 
+            alt="CDC Logo" 
+            className="h-20 w-auto object-contain mb-4 drop-shadow-sm" 
+          />
           <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
             CDC Explorer
           </h2>

@@ -2,6 +2,8 @@
 import { NavLink, Link } from 'react-router-dom';
 import { Home, Compass, LayoutDashboard, User, LogOut, LogIn, Award } from 'lucide-react';
 
+import cdcLogo from '../../assets/CDC-logo.png';
+
 const TopNav = ({ user, onLogout }) => {
   // Helper function to dynamically apply Tailwind classes based on active state
   const navLinkClass = ({ isActive }) =>
@@ -17,10 +19,12 @@ const TopNav = ({ user, onLogout }) => {
         <div className="flex justify-between items-center h-16">
           
           {/* Brand / Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="bg-blue-600 p-2 rounded-lg group-hover:bg-blue-700 transition-colors shadow-sm shadow-blue-500/20">
-              <Home size={18} className="text-white" />
-            </div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img 
+              src={cdcLogo} 
+              alt="CDC Logo" 
+              className="h-10 w-auto object-contain transition-transform group-hover:scale-105" 
+            />
             <span className="font-extrabold text-xl text-slate-900 tracking-tight">
               CDC Explorer
             </span>
