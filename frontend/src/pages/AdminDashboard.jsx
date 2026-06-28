@@ -623,7 +623,7 @@ const AdminDashboard = ({ user }) => {
               {isSuperAdmin ? 'Full Access Admin' : `Branch Administrator (${user?.assigned_branch})`}
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-              CDC Intelligence Dashboard
+              CDC Overview Dashboard
             </h1>
             <p className="text-slate-300 text-sm max-w-2xl">
               Real-time academic & Career Development Center performance monitoring, branch aggregations, and student level insights.

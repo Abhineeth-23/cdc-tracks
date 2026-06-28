@@ -40,7 +40,7 @@ const TopNav = ({ user, onLogout }) => {
                 {user.role === 'super_admin' || user.role === 'branch_admin' ? (
                   <NavLink to="/admin-dashboard" className={navLinkClass}>
                     <LayoutDashboard size={16} />
-                    <span>Admin Dashboard</span>
+                    <span>Overview</span>
                   </NavLink>
                 ) : (
                   <>
