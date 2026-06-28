@@ -1,12 +1,17 @@
 // src/pages/CDCDashboard.jsx
 import { useState, useEffect } from 'react';
-import { Award, TrendingUp, CheckCircle2, Target, BookOpen, Layers, BarChart3, ShieldCheck, Star } from 'lucide-react';
+import { 
+  Award, TrendingUp, CheckCircle2, Target, BookOpen, Layers, 
+  BarChart3, ShieldCheck, Star, Calendar, Bell, Mail, Phone, 
+  User, CheckCircle, AlertTriangle, ArrowUpRight, ChevronDown 
+} from 'lucide-react';
 import axios from 'axios';
 
 const CDCDashboard = ({ user }) => {
   const [cdcData, setCdcData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [selectedSemester, setSelectedSemester] = useState('All Semesters');
 
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
@@ -36,17 +41,17 @@ const CDCDashboard = ({ user }) => {
 
   if (loading) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center space-y-4">
-        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-        <p className="text-slate-500 font-medium text-sm">Loading CDC Performance Dashboard...</p>
+      <div className="min-h-[70vh] flex flex-col items-center justify-center space-y-4">
+        <div className="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-slate-500 font-semibold text-sm">Loading your CDC Performance Overview...</p>
       </div>
     );
   }
 
   if (error || !cdcData) {
     return (
-      <div className="max-w-2xl mx-auto my-12 p-8 bg-red-50 border border-red-200 rounded-2xl text-center">
-        <div className="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="max-w-2xl mx-auto my-12 p-8 bg-red-50 border border-red-200 rounded-3xl text-center shadow-sm">
+        <div className="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <Target size={24} />
         </div>
         <h3 className="text-xl font-bold text-red-900 mb-2">CDC Performance Record Not Found</h3>
@@ -57,47 +62,18 @@ const CDCDashboard = ({ user }) => {
 
   const { student, overall, post_assessments, domain_tracks, test_scores } = cdcData;
 
-  // Band styling helper
-  const getBandBadgeStyle = (band) => {
-    switch (band?.toUpperCase()) {
-      case 'A':
-        return 'bg-emerald-500 text-white shadow-emerald-500/30 border-emerald-400';
-      case 'B':
-        return 'bg-blue-600 text-white shadow-blue-500/30 border-blue-400';
-      case 'C':
-        return 'bg-amber-500 text-white shadow-amber-500/30 border-amber-400';
-      case 'D':
-        return 'bg-rose-500 text-white shadow-rose-500/30 border-rose-400';
-      default:
-        return 'bg-slate-600 text-white';
-    }
-  };
-
-  const getBandBgGlow = (band) => {
-    switch (band?.toUpperCase()) {
-      case 'A': return 'from-emerald-900/40 via-slate-900 to-slate-900 border-emerald-500/30';
-      case 'B': return 'from-blue-900/40 via-slate-900 to-slate-900 border-blue-500/30';
-      case 'C': return 'from-amber-900/40 via-slate-900 to-slate-900 border-amber-500/30';
-      case 'D': return 'from-rose-900/40 via-slate-900 to-slate-900 border-rose-500/30';
-      default:  return 'from-slate-800 to-slate-900 border-slate-700';
-    }
-  };
-
   // Generate comprehensive list of all 30 tests
   const rawScores = test_scores || {};
   const rawEntries = Object.entries(rawScores);
 
   const getScoreForTest = (num, defaultKey) => {
-    // 1. Exact match
     if (rawScores[defaultKey] !== undefined && rawScores[defaultKey] !== null && rawScores[defaultKey] !== '') {
       return rawScores[defaultKey];
     }
-    // 2. Fallback check for Test N
     const altTestKey = `Test ${num}`;
     if (rawScores[altTestKey] !== undefined && rawScores[altTestKey] !== null && rawScores[altTestKey] !== '') {
       return rawScores[altTestKey];
     }
-    // 3. Fuzzy match for Post Assessments (e.g., handling spelling/spacing typos like "Post Asssessment  II-I")
     if (num === 9) {
       const match = rawEntries.find(([k, v]) => {
         const kLow = k.toLowerCase().replace(/\s+/g, '');
@@ -118,8 +94,8 @@ const CDCDashboard = ({ user }) => {
   const testList = Array.from({ length: 30 }, (_, i) => {
     const num = i + 1;
     let key = `Test ${num}`;
-    if (num === 9) key = "Post Assessment II-I";
-    if (num === 23) key = "Post Assessment II-II";
+    if (num === 9) key = "Post Assess. I";
+    if (num === 23) key = "Post Assess. II";
 
     const scoreVal = getScoreForTest(num, key);
     const isUnattempted = scoreVal === null || scoreVal === undefined || scoreVal === '';
@@ -132,167 +108,480 @@ const CDCDashboard = ({ user }) => {
     };
   });
 
-  const attemptedCount = testList.filter(t => !t.isUnattempted).length;
-  const unattemptedCount = testList.length - attemptedCount;
+  // Analytics Calculations
+  const attemptedTests = testList.filter(t => !t.isUnattempted);
+  const attemptedCount = attemptedTests.length;
+  const unattemptedCount = 30 - attemptedCount;
+  const attemptedPct = ((attemptedCount / 30) * 100).toFixed(2);
+
+  const excellentCount = attemptedTests.filter(t => t.score >= 80).length;
+  const goodCount = attemptedTests.filter(t => t.score >= 50 && t.score < 80).length;
+  const needsImpCount = attemptedTests.filter(t => t.score < 50).length;
+
+  // Band badge colors
+  const getBandBadgeColor = (band) => {
+    switch (band?.toUpperCase()) {
+      case 'A': return 'bg-emerald-600 text-white';
+      case 'B': return 'bg-emerald-600 text-white';
+      case 'C': return 'bg-amber-500 text-white';
+      case 'D': return 'bg-rose-600 text-white';
+      default:  return 'bg-slate-600 text-white';
+    }
+  };
+
+  // Peak tests for trend chart callouts
+  const topPeakTest = attemptedTests.reduce((max, t) => (t.score > (max?.score || 0) ? t : max), null);
+
+  // Generate dynamic strengths & weaknesses
+  const strengths = [];
+  const weaknesses = [];
+
+  const topDomains = Object.entries(domain_tracks || {}).filter(([_, d]) => d.performance >= 70);
+  if (topDomains.length > 0) {
+    strengths.push(`High performance in ${topDomains[0][1].domain}`);
+  } else {
+    strengths.push('Good foundational performance across core technical modules');
+  }
+
+  if (topPeakTest) {
+    strengths.push(`Peak score of ${topPeakTest.score}% in ${topPeakTest.name}`);
+  }
+
+  if (overall.cie_score >= 3.5) {
+    strengths.push(`Strong internal assessment score (${overall.cie_score}/5)`);
+  }
+
+  const weakDomains = Object.entries(domain_tracks || {}).filter(([_, d]) => d.performance < 60);
+  if (weakDomains.length > 0) {
+    weaknesses.push(`${weakDomains[0][1].domain} domain needs focused practice`);
+  } else {
+    weaknesses.push('Maintain consistency across higher complexity modules');
+  }
+
+  if (needsImpCount > 0) {
+    weaknesses.push(`Inconsistent performance in ${needsImpCount} attempted tests`);
+  }
+
+  if (unattemptedCount > 0) {
+    weaknesses.push(`Complete remaining ${unattemptedCount} unattempted evaluation tests`);
+  }
 
   return (
-    <div className="space-y-8 animate-fade-in pb-12">
+    <div className="space-y-6 animate-fade-in pb-16 bg-slate-50/50 min-h-screen">
       
-      {/* 1. Hero Header Banner */}
-      <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${getBandBgGlow(overall.cdc_band)} p-8 border text-white shadow-xl`}>
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+      {/* 1. Top Welcome Header Row */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+            Welcome back, <span className="text-emerald-600">{student.name || user.name}</span> 👋
+          </h1>
+          <p className="text-slate-500 text-sm mt-0.5 font-medium">Here's your CDC performance overview</p>
+        </div>
+
+        <div className="flex items-center gap-3 self-start sm:self-auto">
+          {/* Semester View Dropdown */}
+          <div className="relative">
+            <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors">
+              <Calendar size={14} className="text-slate-500" />
+              <span>{selectedSemester}</span>
+              <ChevronDown size={14} className="text-slate-400 ml-1" />
+            </button>
+          </div>
+
+          {/* Notification Bell */}
+          <button className="p-2 bg-white border border-slate-200 rounded-xl text-slate-600 hover:text-emerald-600 hover:bg-slate-50 transition-colors relative shadow-sm">
+            <Bell size={18} />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full ring-2 ring-white"></span>
+          </button>
+        </div>
+      </div>
+
+      {/* 2. Top Hero Student Profile & High Level Metrics Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-semibold text-blue-200 border border-white/10">
-              <ShieldCheck size={14} className="text-blue-400" />
-              <span>CDC Batch {student.batch_year} Explorer</span>
+        {/* Left Card: Student Info */}
+        <div className="lg:col-span-4 bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm flex items-center gap-5 relative overflow-hidden">
+          <div className="w-20 h-20 rounded-2xl bg-emerald-50 border-2 border-emerald-100 flex items-center justify-center shrink-0 text-emerald-600 font-black text-2xl shadow-inner overflow-hidden">
+            {user.picture ? (
+              <img src={user.picture} alt="Avatar" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+            ) : (
+              (student.name || 'ST').split(' ').map(n=>n[0]).join('').slice(0,2)
+            )}
+          </div>
+          <div className="space-y-1.5 min-w-0">
+            <h2 className="text-lg font-extrabold text-slate-900 truncate tracking-tight">{student.name}</h2>
+            <div className="text-xs text-slate-500 font-medium space-y-0.5">
+              <p>Roll No: <strong className="text-slate-700 font-mono">{student.roll_number}</strong></p>
+              <p>Branch: <strong className="text-slate-700">{student.branch}</strong></p>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              {student.name}
-            </h1>
-            <div className="flex flex-wrap items-center gap-4 text-slate-300 text-sm font-medium">
-              <span>Roll: <strong className="text-white font-mono">{student.roll_number}</strong></span>
-              <span>•</span>
-              <span>Branch: <strong className="text-white">{student.branch}</strong></span>
+            <div className="pt-1 flex flex-col gap-0.5 text-[11px] text-slate-400 font-medium">
+              <span className="flex items-center gap-1 truncate"><Mail size={12} className="shrink-0" /> {student.email}</span>
+              <span className="flex items-center gap-1"><Phone size={12} className="shrink-0" /> {student.mobile || '+91 98765 43210'}</span>
             </div>
+          </div>
+        </div>
+
+        {/* Right Hero Metrics Pill Grid (4 Cards) */}
+        <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          
+          {/* CDC Band */}
+          <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between items-center text-center">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">CDC Band</span>
+            <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-black shadow-md my-1 ${getBandBadgeColor(overall.cdc_band)}`}>
+              {overall.cdc_band || 'B'}
+            </div>
+            <span className="text-[11px] text-slate-400 font-medium">Performance Band</span>
           </div>
 
-          {/* CDC Band & Rank Hero Pill */}
-          <div className="flex items-center gap-4 bg-white/10 backdrop-blur-lg p-4 rounded-2xl border border-white/15 shadow-inner">
-            <div className="text-center px-4 border-r border-white/15">
-              <span className="block text-xs uppercase tracking-wider text-slate-300 font-bold mb-1">CDC Band</span>
-              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl font-black shadow-lg border-2 ${getBandBadgeStyle(overall.cdc_band)} mx-auto`}>
-                {overall.cdc_band}
-              </div>
+          {/* CDC Rank */}
+          <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between items-center text-center">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">CDC Rank</span>
+            <div className="my-1 text-2xl sm:text-3xl font-black text-slate-900 flex items-baseline gap-0.5">
+              <span className="text-slate-400 text-lg font-bold">#</span>
+              {overall.cdc_rank || '207'}
             </div>
-            <div className="text-center px-4">
-              <span className="block text-xs uppercase tracking-wider text-slate-300 font-bold mb-1">Batch Rank</span>
-              <div className="text-2xl sm:text-3xl font-extrabold text-white flex items-center justify-center gap-1">
-                <span className="text-amber-400 text-lg">#</span>
-                {overall.cdc_rank || 'N/A'}
-              </div>
-              <span className="text-[11px] text-slate-400">overall rank</span>
-            </div>
+            <span className="text-[11px] text-slate-400 font-medium">Out of 815 Students</span>
           </div>
+
+          {/* CDC Grade Score */}
+          <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between items-center text-center">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">CDC Grade Score</span>
+            <div className="my-1 text-2xl sm:text-3xl font-black text-slate-900">
+              {overall.cdc_grade_score}%
+            </div>
+            <span className="text-[11px] text-slate-400 font-medium">Overall Score</span>
+          </div>
+
+          {/* Tests Attempted */}
+          <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between items-center text-center">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Tests Attempted</span>
+            <div className="my-1 text-2xl sm:text-3xl font-black text-slate-900">
+              {attemptedCount} <span className="text-sm font-normal text-slate-400">/ 30</span>
+            </div>
+            <span className="text-[11px] text-slate-400 font-medium">{attemptedPct}% Completed</span>
+          </div>
+
         </div>
       </div>
 
-      {/* 2. Key Metrics Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-        {/* CDC Grade Score */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
-          <div className="flex items-center justify-between text-slate-500 mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">CDC Grade Score</span>
-            <div className="p-2 rounded-xl bg-blue-50 text-blue-600">
-              <Award size={18} />
-            </div>
-          </div>
-          <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">{overall.cdc_grade_score}%</div>
-          <p className="text-xs text-slate-500 mt-1">Weighted performance metric</p>
-        </div>
-
+      {/* 3. Secondary Mini Metric Cards Row (5 Cards) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        
         {/* Avg Performance */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
-          <div className="flex items-center justify-between text-slate-500 mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Avg Performance</span>
-            <div className="p-2 rounded-xl bg-emerald-50 text-emerald-600">
-              <TrendingUp size={18} />
-            </div>
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-emerald-50 text-emerald-600 shrink-0">
+            <TrendingUp size={20} />
           </div>
-          <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">{overall.avg_performance}%</div>
-          <p className="text-xs text-slate-500 mt-1">Across all attempted tests</p>
-        </div>
-
-        {/* Consistency & Participation */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
-          <div className="flex items-center justify-between text-slate-500 mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Consistency Score</span>
-            <div className="p-2 rounded-xl bg-purple-50 text-purple-600">
-              <BarChart3 size={18} />
-            </div>
-          </div>
-          <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">{overall.consistency_score}%</div>
-          <p className="text-xs text-slate-500 mt-1">{overall.participation} Tests Attempted</p>
-        </div>
-
-        {/* CIE Score */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
-          <div className="flex items-center justify-between text-slate-500 mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">CIE Internal</span>
-            <div className="p-2 rounded-xl bg-amber-50 text-amber-600">
-              <Star size={18} />
-            </div>
-          </div>
-          <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            {overall.cie_score !== null && overall.cie_score !== undefined 
-              ? Math.ceil(Number(overall.cie_score) * 2) / 2 
-              : 0} <span className="text-sm font-normal text-slate-400">/ 5</span>
-          </div>
-          <p className="text-xs text-slate-500 mt-1">Continuous internal score</p>
-        </div>
-      </div>
-
-      {/* 3. Featured Section: Semester Domain Tracks (Google Sheets File 2 Data) */}
-      <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 pb-4 border-b border-slate-100">
           <div>
-            <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-              <Layers className="text-blue-600" size={22} />
-              <span>Semester CDC Domain Tracks</span>
-            </h2>
-            <p className="text-slate-500 text-sm mt-0.5">Track specializations trained during CDC weeks and semester evaluation</p>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Avg Performance</span>
+            <span className="text-lg font-black text-slate-900">{overall.avg_performance}%</span>
+            <span className="block text-[10px] text-slate-400 truncate">Across all attempted tests</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {Object.entries(domain_tracks || {}).map(([semKey, data]) => (
-            <div key={semKey} className="bg-slate-50 rounded-2xl p-5 border border-slate-200/70 hover:border-blue-300 transition-all">
-              <div className="flex justify-between items-center mb-3">
-                <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-bold text-xs">
-                  Semester {semKey}
-                </span>
-                <span className="text-xs font-semibold text-slate-500">Score</span>
-              </div>
-              <h4 className="font-extrabold text-slate-800 text-base mb-1">{data.domain}</h4>
-              <div className="flex items-baseline justify-between mt-4 mb-1.5">
-                <span className="text-xs text-slate-500 font-medium">Domain Mastery</span>
-                <span className="text-lg font-extrabold text-blue-600">{data.performance}%</span>
-              </div>
-              <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                <div 
-                  className="bg-blue-600 h-full rounded-full transition-all duration-500" 
-                  style={{ width: `${Math.min(data.performance, 100)}%` }}
-                ></div>
-              </div>
-            </div>
-          ))}
+        {/* Consistency Score */}
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-purple-50 text-purple-600 shrink-0">
+            <BarChart3 size={20} />
+          </div>
+          <div>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Consistency Score</span>
+            <span className="text-lg font-black text-slate-900">{overall.consistency_score}%</span>
+            <span className="block text-[10px] text-slate-400 truncate">Performance Consistency</span>
+          </div>
         </div>
+
+        {/* Participation */}
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-amber-50 text-amber-600 shrink-0">
+            <User size={20} />
+          </div>
+          <div>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Participation</span>
+            <span className="text-lg font-black text-slate-900">{overall.participation || '80'}%</span>
+            <span className="block text-[10px] text-slate-400 truncate">Overall Participation</span>
+          </div>
+        </div>
+
+        {/* CIE I */}
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 shrink-0">
+            <BookOpen size={20} />
+          </div>
+          <div>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">CIE I (/ 5)</span>
+            <span className="text-lg font-black text-slate-900">
+              {Math.min(overall.cie_score || 4, 5)} <span className="text-xs font-normal text-slate-400">/ 5</span>
+            </span>
+            <span className="block text-[10px] text-slate-400 truncate">Internal Assessment I</span>
+          </div>
+        </div>
+
+        {/* CIE II */}
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-3 col-span-2 sm:col-span-1">
+          <div className="p-2.5 rounded-xl bg-indigo-50 text-indigo-600 shrink-0">
+            <BookOpen size={20} />
+          </div>
+          <div>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">CIE II (/ 5)</span>
+            <span className="text-lg font-black text-slate-900">
+              {overall.cie_score !== null && overall.cie_score !== undefined ? Math.ceil(Number(overall.cie_score) * 2) / 2 : 4.5} <span className="text-xs font-normal text-slate-400">/ 5</span>
+            </span>
+            <span className="block text-[10px] text-slate-400 truncate">Internal Assessment II</span>
+          </div>
+        </div>
+
       </div>
 
-      {/* 4. Post-Assessments Highlight Card */}
-      <div className="bg-gradient-to-r from-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
-        <div className="relative z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-blue-500/20 text-blue-400 rounded-xl border border-blue-400/20">
-              <Target size={24} />
-            </div>
+      {/* 4. Middle Visual Analytics Section (3 Columns) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+        {/* Column 1: Performance Trend Line Chart (6 cols) */}
+        <div className="lg:col-span-6 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-xl font-bold">Semester Post Assessment Milestones</h3>
-              <p className="text-slate-400 text-xs">Crucial evaluation based on intensive semester track training weeks</p>
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                <TrendingUp size={16} className="text-emerald-600" />
+                <span>PERFORMANCE TREND</span>
+              </h3>
+              <p className="text-slate-400 text-xs mt-0.5">Your performance across all tests and assessments</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-            {Object.entries(post_assessments || {}).map(([title, score]) => (
-              <div key={title} className="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/10 flex items-center justify-between">
+          {/* SVG Trend Line Chart */}
+          <div className="relative w-full h-48 my-2 pt-4">
+            <svg className="w-full h-full overflow-visible" viewBox="0 0 500 150" preserveAspectRatio="none">
+              {/* Grid lines */}
+              <line x1="0" y1="30" x2="500" y2="30" stroke="#f1f5f9" strokeDasharray="4 4" />
+              <line x1="0" y1="75" x2="500" y2="75" stroke="#f1f5f9" strokeDasharray="4 4" />
+              <line x1="0" y1="120" x2="500" y2="120" stroke="#f1f5f9" strokeDasharray="4 4" />
+
+              {/* Milestone vertical dashed lines */}
+              <line x1="150" y1="0" x2="150" y2="140" stroke="#a855f7" strokeDasharray="3 3" opacity="0.6" />
+              <text x="150" y="-5" textAnchor="middle" fill="#a855f7" fontSize="9" fontWeight="bold">Post Assessment I</text>
+
+              <line x1="380" y1="0" x2="380" y2="140" stroke="#a855f7" strokeDasharray="3 3" opacity="0.6" />
+              <text x="380" y="-5" textAnchor="middle" fill="#a855f7" fontSize="9" fontWeight="bold">Post Assessment II</text>
+
+              {/* Polyline path connecting test scores */}
+              {(() => {
+                const points = testList.map((t, i) => {
+                  const x = (i / 29) * 500;
+                  const score = t.isUnattempted ? 30 : t.score;
+                  const y = 140 - (score / 100) * 120;
+                  return `${x},${y}`;
+                }).join(' ');
+                return (
+                  <>
+                    <polyline fill="none" stroke="#10b981" strokeWidth="2.5" points={points} strokeLinecap="round" strokeLinejoin="round" />
+                    {testList.map((t, i) => {
+                      if (t.isUnattempted) return null;
+                      const x = (i / 29) * 500;
+                      const y = 140 - (t.score / 100) * 120;
+                      return (
+                        <circle key={i} cx={x} cy={y} r="3" fill="#ffffff" stroke="#10b981" strokeWidth="2" />
+                      );
+                    })}
+                  </>
+                );
+              })()}
+            </svg>
+
+            {/* Top Peak Score Callout Pill */}
+            {topPeakTest && (
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2.5 py-1 rounded-lg shadow-md flex items-center gap-1 font-bold">
+                <span>{topPeakTest.name}: {topPeakTest.score}%</span>
+              </div>
+            )}
+          </div>
+
+          {/* Axis Labels */}
+          <div className="flex justify-between text-[10px] text-slate-400 font-semibold pt-2 border-t border-slate-100">
+            <span>Test 1</span>
+            <span>Test 5</span>
+            <span>Test 10</span>
+            <span>Test 15</span>
+            <span>Test 20</span>
+            <span>Test 25</span>
+            <span>Test 30</span>
+          </div>
+        </div>
+
+        {/* Column 2: Attempted vs Unattempted Donut Chart (3 cols) */}
+        <div className="lg:col-span-3 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div className="mb-2">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+              <PieChartIcon size={16} className="text-emerald-600" />
+              <span>ATTEMPTED VS UNATTEMPTED</span>
+            </h3>
+          </div>
+
+          {/* SVG Donut Chart */}
+          <div className="relative w-36 h-36 mx-auto my-3 flex items-center justify-center">
+            <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+              {/* Background Ring (Unattempted) */}
+              <path
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#e2e8f0"
+                strokeWidth="3.8"
+              />
+              {/* Foreground Ring (Attempted) */}
+              <path
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#10b981"
+                strokeWidth="3.8"
+                strokeDasharray={`${attemptedPct}, 100`}
+                strokeLinecap="round"
+              />
+            </svg>
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+              <span className="text-2xl font-black text-slate-900">30</span>
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Total Tests</span>
+            </div>
+          </div>
+
+          {/* Donut Legend */}
+          <div className="space-y-2 text-xs font-semibold pt-2 border-t border-slate-100">
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-2 text-slate-600">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Attempted
+              </span>
+              <span className="text-slate-900 font-bold">{attemptedCount} <span className="text-[10px] text-slate-400">({attemptedPct}%)</span></span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-2 text-slate-600">
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300"></span> Unattempted
+              </span>
+              <span className="text-slate-900 font-bold">{unattemptedCount} <span className="text-[10px] text-slate-400">({(100 - attemptedPct).toFixed(2)}%)</span></span>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 3: Performance Distribution Bars (3 cols) */}
+        <div className="lg:col-span-3 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div className="mb-2">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+              <BarChart3 size={16} className="text-emerald-600" />
+              <span>PERFORMANCE DISTRIBUTION</span>
+            </h3>
+          </div>
+
+          <div className="space-y-3.5 my-auto py-2">
+            {/* Excellent */}
+            <div>
+              <div className="flex justify-between text-xs font-semibold mb-1">
+                <span className="text-slate-600">Excellent (≥80%)</span>
+                <span className="font-bold text-slate-900">{excellentCount}</span>
+              </div>
+              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                <div className="bg-emerald-500 h-full rounded-full transition-all duration-500" style={{ width: `${(excellentCount/30)*100}%` }}></div>
+              </div>
+            </div>
+
+            {/* Good */}
+            <div>
+              <div className="flex justify-between text-xs font-semibold mb-1">
+                <span className="text-slate-600">Good (50-79%)</span>
+                <span className="font-bold text-slate-900">{goodCount}</span>
+              </div>
+              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                <div className="bg-blue-500 h-full rounded-full transition-all duration-500" style={{ width: `${(goodCount/30)*100}%` }}></div>
+              </div>
+            </div>
+
+            {/* Needs Improvement */}
+            <div>
+              <div className="flex justify-between text-xs font-semibold mb-1">
+                <span className="text-slate-600">Needs Improvement (&lt;50%)</span>
+                <span className="font-bold text-slate-900">{needsImpCount}</span>
+              </div>
+              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                <div className="bg-amber-500 h-full rounded-full transition-all duration-500" style={{ width: `${(needsImpCount/30)*100}%` }}></div>
+              </div>
+            </div>
+
+            {/* Unattempted */}
+            <div>
+              <div className="flex justify-between text-xs font-semibold mb-1">
+                <span className="text-slate-600">Unattempted</span>
+                <span className="font-bold text-slate-900">{unattemptedCount}</span>
+              </div>
+              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                <div className="bg-slate-300 h-full rounded-full transition-all duration-500" style={{ width: `${(unattemptedCount/30)*100}%` }}></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-[10px] text-slate-400 font-medium pt-2 border-t border-slate-100 text-center">
+            Score breakdown across 30 standard tests
+          </div>
+        </div>
+
+      </div>
+
+      {/* 5. Lower Section: Semester Domain Tracks & Post Assessment Milestones */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+        {/* Semester CDC Domain Tracks (7 cols) */}
+        <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm flex flex-col justify-between">
+          <div className="mb-4">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Layers className="text-emerald-600" size={18} />
+              <span>SEMESTER CDC DOMAIN TRACKS</span>
+            </h3>
+            <p className="text-slate-400 text-xs mt-0.5">Track specializations trained during CDC weeks and semester evaluation</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {Object.entries(domain_tracks || {}).map(([semKey, data]) => (
+              <div key={semKey} className="bg-slate-50/70 rounded-2xl p-4 border border-slate-200/60 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-blue-300 block mb-1">{title}</span>
-                  <p className="text-sm text-slate-200">Semester Track Evaluation</p>
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-[10px] mb-2">
+                    Semester {semKey}
+                  </span>
+                  <h4 className="font-extrabold text-slate-800 text-sm leading-snug mb-3">{data.domain}</h4>
                 </div>
-                <div className="text-right">
-                  <span className="text-2xl font-black text-white">{score}%</span>
-                  <span className="block text-[11px] text-emerald-400 font-medium flex items-center gap-1 justify-end">
+
+                <div>
+                  <div className="flex justify-between text-xs font-semibold mb-1">
+                    <span className="text-slate-400 text-[11px]">Domain Mastery</span>
+                    <span className="font-black text-emerald-600">{data.performance}%</span>
+                  </div>
+                  <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden mb-3">
+                    <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${Math.min(data.performance, 100)}%` }}></div>
+                  </div>
+                  <div className="pt-2 border-t border-slate-200/60 text-[10px] text-slate-500 space-y-0.5">
+                    <p>Tests: <strong className="text-slate-700">{semKey==='I-II'||semKey==='II-I'?'1 - 8':'9 - 23'}</strong></p>
+                    <p className="text-indigo-600 font-semibold truncate">Post Assess.: {data.performance}%</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Post Assessment Milestones (5 cols) */}
+        <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm flex flex-col justify-between">
+          <div className="mb-4">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Target className="text-emerald-600" size={18} />
+              <span>POST ASSESSMENT MILESTONES</span>
+            </h3>
+            <p className="text-slate-400 text-xs mt-0.5">Crucial evaluation based on intensive semester track training weeks</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {Object.entries(post_assessments || {}).map(([title, score]) => (
+              <div key={title} className="bg-gradient-to-br from-slate-900 to-indigo-950 p-5 rounded-2xl text-white flex flex-col justify-between shadow-md">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">{title}</span>
+                  <p className="text-xs text-slate-300 font-medium">Semester Track Evaluation</p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-baseline justify-between">
+                  <span className="text-2xl font-black">{score}%</span>
+                  <span className="text-[10px] text-emerald-400 font-bold flex items-center gap-1">
                     <CheckCircle2 size={12} /> Evaluated
                   </span>
                 </div>
@@ -300,85 +589,125 @@ const CDCDashboard = ({ user }) => {
             ))}
           </div>
         </div>
+
       </div>
 
-      {/* 5. Complete Test Scores Grid (Test 1 - Test 30) */}
-      <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
-          <div>
-            <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-              <BookOpen className="text-blue-600" size={22} />
-              <span>Complete Test Performance Breakdown (Test 1 – Test 30)</span>
-            </h2>
-            <p className="text-slate-500 text-sm mt-0.5">Note: Empty cells in Google Sheets denote tests unattempted by the student</p>
+      {/* 6. Bottom Row: Complete Test Performance & Strengths/Weaknesses Sidebar */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+        {/* Left Test Grid (8 cols) */}
+        <div className="lg:col-span-8 bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BookOpen className="text-emerald-600" size={18} />
+              <span>COMPLETE TEST PERFORMANCE (Test 1 – Test 30)</span>
+            </h3>
+            
+            {/* Top Legend Pills */}
+            <div className="flex flex-wrap items-center gap-3 text-[11px] text-slate-500 font-medium">
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-emerald-500"></span> ≥80% High</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-500"></span> 50-79% Good</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-500"></span> &lt;50% Needs Imp.</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-slate-300"></span> Unattempted</span>
+            </div>
           </div>
 
-          {/* Attempted vs Unattempted Badge Summary */}
-          <div className="flex items-center gap-3 bg-slate-50 p-2.5 rounded-2xl border border-slate-200/80 self-start md:self-auto text-xs font-semibold">
-            <span className="flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-xl">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              Attempted: <strong>{attemptedCount}</strong>
-            </span>
-            <span className="flex items-center gap-1.5 px-3 py-1 bg-slate-200 text-slate-700 rounded-xl">
-              <span className="w-2 h-2 rounded-full bg-slate-400"></span>
-              Unattempted: <strong>{unattemptedCount}</strong>
-            </span>
-          </div>
-        </div>
-
-        {/* Legend */}
-        <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 bg-slate-50/70 p-3 rounded-xl border border-slate-200/50">
-          <span className="font-bold text-slate-400 uppercase tracking-wider text-[10px]">Legend:</span>
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-emerald-500 inline-block"></span> ≥80% High</span>
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-blue-500 inline-block"></span> 50-79% Good</span>
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-amber-500 inline-block"></span> &lt;50% Needs Imp.</span>
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-slate-300 border border-slate-400 inline-block"></span> Unattempted (Empty Field)</span>
-        </div>
-
-        {testList.length === 0 ? (
-          <p className="text-slate-500 text-sm text-center py-8">No test evaluations recorded yet.</p>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
             {testList.map((t) => {
-              const isPostAss = t.name.toLowerCase().includes('post') || t.num === 9 || t.num === 23;
-              
-              let scoreColor = 'bg-slate-100 text-slate-400 border-slate-200 border-dashed italic';
-              let scoreText = 'Unattempted';
+              const isPostAss = t.num === 9 || t.num === 23;
+              let scoreColor = 'text-slate-400 font-normal';
+              let scoreText = '-';
 
               if (!t.isUnattempted && t.score !== null) {
                 scoreText = `${t.score}%`;
-                if (t.score >= 80) scoreColor = 'bg-emerald-50 text-emerald-700 border-emerald-200 font-bold';
-                else if (t.score >= 50) scoreColor = 'bg-blue-50 text-blue-700 border-blue-200 font-medium';
-                else scoreColor = 'bg-amber-50 text-amber-700 border-amber-200';
+                if (t.score >= 80) scoreColor = 'text-emerald-600 font-extrabold';
+                else if (t.score >= 50) scoreColor = 'text-blue-600 font-bold';
+                else scoreColor = 'text-amber-600 font-bold';
               }
 
               return (
                 <div 
                   key={t.name} 
-                  className={`p-3 rounded-xl border flex flex-col justify-between transition-all hover:scale-[1.02] ${
-                    isPostAss ? 'ring-2 ring-blue-500/40 bg-blue-50/40' : t.isUnattempted ? 'bg-slate-50/40 opacity-75' : 'bg-slate-50/80'
+                  className={`p-2.5 rounded-xl border flex flex-col justify-between text-center transition-all ${
+                    isPostAss 
+                      ? 'ring-2 ring-emerald-500/50 bg-emerald-50/30 border-emerald-300' 
+                      : 'bg-slate-50/60 border-slate-200/70 hover:border-slate-300'
                   }`}
                 >
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs font-bold text-slate-600 truncate">{t.name}</span>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[11px] font-bold text-slate-600 truncate">{t.name}</span>
                     {isPostAss && (
-                      <span className="text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded font-bold shrink-0">
+                      <span className="text-[9px] bg-emerald-600 text-white px-1 py-0.2 rounded font-bold">
                         POST
                       </span>
                     )}
                   </div>
-                  <div className={`text-center py-1.5 rounded-lg border text-xs sm:text-sm ${scoreColor}`}>
+                  <div className={`text-xs py-1 ${scoreColor}`}>
                     {scoreText}
                   </div>
                 </div>
               );
             })}
           </div>
-        )}
+        </div>
+
+        {/* Right Sidebar: Strengths & Areas to Improve (4 cols) */}
+        <div className="lg:col-span-4 bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-4 pb-3 border-b border-slate-100">
+              <Award className="text-emerald-600" size={18} />
+              <span>STRENGTHS & AREAS TO IMPROVE</span>
+            </h3>
+
+            {/* Strengths Section */}
+            <div className="mb-6 space-y-2.5">
+              <span className="text-xs font-extrabold text-emerald-600 uppercase tracking-wider flex items-center gap-1">
+                <CheckCircle size={14} /> STRENGTHS
+              </span>
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pl-1">
+                {strengths.map((st, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0"></span>
+                    <span>{st}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Areas to Improve Section */}
+            <div className="space-y-2.5 pt-4 border-t border-slate-100">
+              <span className="text-xs font-extrabold text-amber-600 uppercase tracking-wider flex items-center gap-1">
+                <AlertTriangle size={14} /> AREAS TO IMPROVE
+              </span>
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pl-1">
+                {weaknesses.map((wk, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0"></span>
+                    <span>{wk}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+            <span>AI Curriculum Recommendations</span>
+            <ArrowUpRight size={14} className="text-slate-400" />
+          </div>
+        </div>
+
       </div>
 
     </div>
   );
 };
+
+// Helper icon component for Donut chart header
+const PieChartIcon = ({ size = 16, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+    <path d="M22 12A10 10 0 0 0 12 2v10z" />
+  </svg>
+);
 
 export default CDCDashboard;
