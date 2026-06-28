@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { 
   Users, Award, BookOpen, Search, Filter, RefreshCw, 
-  ChevronRight, X, User, CheckCircle2, AlertCircle, TrendingUp, ShieldCheck, Building2,
+  ChevronRight, ChevronLeft, X, User, CheckCircle2, AlertCircle, TrendingUp, ShieldCheck, Building2,
   Target, Layers, BarChart3, Mail, CheckCircle, AlertTriangle
 } from 'lucide-react';
 
@@ -18,6 +18,10 @@ const AdminDashboard = ({ user }) => {
   const [syncing, setSyncing] = useState(false);
   const [syncMessage, setSyncMessage] = useState(null);
   
+  // Pagination state (20 per page)
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 20;
+
   // Modal state for viewing individual student details
   const [selectedStudentRoll, setSelectedStudentRoll] = useState(null);
   const [studentDetail, setStudentDetail] = useState(null);
@@ -45,10 +49,14 @@ const AdminDashboard = ({ user }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedStudentRoll]);
 
-  // Fetch analytics and student roster whenever branch filter or search changes
+  // Debounced search & branch change effect
   useEffect(() => {
-    fetchDashboardData();
-  }, [selectedBranch]);
+    const timer = setTimeout(() => {
+      fetchDashboardData();
+      setCurrentPage(1);
+    }, 250);
+    return () => clearTimeout(timer);
+  }, [selectedBranch, searchQuery]);
 
   const fetchDashboardData = async () => {
     setLoading(true);
@@ -84,10 +92,9 @@ const AdminDashboard = ({ user }) => {
   };
 
   const handleSearchChange = (e) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-    fetchStudentsList(selectedBranch, query);
+    setSearchQuery(e.target.value);
   };
+
 
   const handleSyncSheets = async () => {
     setSyncing(true);
@@ -827,7 +834,7 @@ const AdminDashboard = ({ user }) => {
                   </td>
                 </tr>
               ) : (
-                students.map((st) => (
+                students.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((st) => (
                   <tr 
                     key={st.roll_number || st.email} 
                     onClick={() => openStudentModal(st.roll_number || st.email)}
@@ -874,7 +881,41 @@ const AdminDashboard = ({ user }) => {
             </tbody>
           </table>
         </div>
+
+        {/* Roster Pagination Controls */}
+        {students.length > 0 && (
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-slate-100 text-xs">
+            <span className="text-slate-500 font-medium">
+              Showing <strong className="text-slate-800">{(currentPage - 1) * ITEMS_PER_PAGE + 1}</strong> to <strong className="text-slate-800">{Math.min(currentPage * ITEMS_PER_PAGE, students.length)}</strong> of <strong className="text-slate-800">{students.length}</strong> students
+            </span>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:hover:bg-slate-100 text-slate-700 font-bold rounded-lg transition-colors flex items-center gap-1 cursor-pointer disabled:cursor-not-allowed"
+              >
+                <ChevronLeft size={14} />
+                <span>Previous</span>
+              </button>
+
+              <span className="px-3 py-1 bg-blue-50 text-blue-700 font-extrabold rounded-lg border border-blue-200">
+                Page {currentPage} of {Math.ceil(students.length / ITEMS_PER_PAGE) || 1}
+              </span>
+
+              <button
+                onClick={() => setCurrentPage(p => Math.min(Math.ceil(students.length / ITEMS_PER_PAGE), p + 1))}
+                disabled={currentPage >= Math.ceil(students.length / ITEMS_PER_PAGE)}
+                className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:hover:bg-slate-100 text-slate-700 font-bold rounded-lg transition-colors flex items-center gap-1 cursor-pointer disabled:cursor-not-allowed"
+              >
+                <span>Next</span>
+                <ChevronRight size={14} />
+              </button>
+            </div>
+          </div>
+        )}
       </div>
+
 
       {/* Full Student Detailed CDC Dashboard Modal View */}
       {selectedStudentRoll && (
