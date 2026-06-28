@@ -246,26 +246,8 @@ const AdminDashboard = ({ user }) => {
     return (
       <div className="space-y-6 text-left">
         
-        {/* Modal Header Bar - Flush with Modal Card Edges */}
-        <div className="-mx-6 -mt-6 sm:-mx-8 sm:-mt-8 p-4 sm:p-6 bg-slate-900 text-white rounded-t-3xl sticky top-0 z-30 flex items-center justify-between shadow-md mb-6 border-b border-slate-800">
-          <div className="flex items-center gap-3">
-            <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full text-xs font-bold uppercase tracking-wider">
-              Student CDC Inspection
-            </span>
-            <span className="text-xs text-slate-300 font-mono hidden sm:inline">{student.roll_number}</span>
-          </div>
-          <button
-            onClick={closeStudentModal}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 bg-white/10 hover:bg-white/20 active:bg-white/30 text-white rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm"
-            title="Close Modal (Esc)"
-          >
-            <X size={16} />
-            <span>Close View (Esc)</span>
-          </button>
-        </div>
-
-
         {/* Hero Student Profile Header & Metrics */}
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
           <div className="lg:col-span-4 bg-slate-50 rounded-3xl border border-slate-200 p-6 flex items-center gap-5">
             <div className="w-20 h-20 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-2xl shrink-0">
@@ -988,46 +970,69 @@ const AdminDashboard = ({ user }) => {
       {selectedStudentRoll && (
         <div 
           onClick={handleBackdropClick}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 overflow-y-auto animate-fade-in"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 animate-fade-in"
         >
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-3xl max-w-6xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 relative my-auto"
+            className="bg-white rounded-3xl max-w-6xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden relative my-auto"
           >
+            {/* Fixed Modal Header Bar */}
+            <div className="px-6 py-4 sm:px-8 bg-slate-900 text-white flex items-center justify-between shrink-0 border-b border-slate-800">
+              <div className="flex items-center gap-3">
+                <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full text-xs font-bold uppercase tracking-wider">
+                  Student CDC Inspection
+                </span>
+                <span className="text-xs text-slate-300 font-mono hidden sm:inline">
+                  {studentDetail?.student?.roll_number || selectedStudentRoll}
+                </span>
+              </div>
+              <button
+                onClick={closeStudentModal}
+                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-white/10 hover:bg-white/20 active:bg-white/30 text-white rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm"
+                title="Close Modal (Esc)"
+              >
+                <X size={16} />
+                <span>Close View (Esc)</span>
+              </button>
+            </div>
 
-            {detailLoading ? (
-              <div className="py-24 text-center text-slate-500 font-medium">
-                <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                Loading full detailed student CDC dashboard...
-              </div>
-            ) : detailError ? (
-              <div className="py-16 text-center space-y-4">
-                <div className="inline-flex bg-rose-100 text-rose-600 p-4 rounded-full">
-                  <AlertCircle size={36} />
+            {/* Scrollable Modal Body Content */}
+            <div className="p-6 sm:p-8 overflow-y-auto flex-1 text-left">
+              {detailLoading ? (
+                <div className="py-24 text-center text-slate-500 font-medium">
+                  <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                  Loading full detailed student CDC dashboard...
                 </div>
-                <h3 className="text-xl font-bold text-slate-800">Could not load detailed record</h3>
-                <p className="text-sm text-slate-500 max-w-md mx-auto">{detailError}</p>
-                <div className="pt-2 flex justify-center gap-3">
-                  <button
-                    onClick={() => openStudentModal(selectedStudentRoll)}
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl transition-colors cursor-pointer inline-flex items-center gap-2"
-                  >
-                    <RefreshCw size={14} /> Retry Loading
-                  </button>
-                  <button
-                    onClick={closeStudentModal}
-                    className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors cursor-pointer"
-                  >
-                    Close
-                  </button>
+              ) : detailError ? (
+                <div className="py-16 text-center space-y-4">
+                  <div className="inline-flex bg-rose-100 text-rose-600 p-4 rounded-full">
+                    <AlertCircle size={36} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800">Could not load detailed record</h3>
+                  <p className="text-sm text-slate-500 max-w-md mx-auto">{detailError}</p>
+                  <div className="pt-2 flex justify-center gap-3">
+                    <button
+                      onClick={() => openStudentModal(selectedStudentRoll)}
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl transition-colors cursor-pointer inline-flex items-center gap-2"
+                    >
+                      <RefreshCw size={14} /> Retry Loading
+                    </button>
+                    <button
+                      onClick={closeStudentModal}
+                      className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors cursor-pointer"
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              renderFullStudentView()
-            )}
+              ) : (
+                renderFullStudentView()
+              )}
+            </div>
           </div>
         </div>
       )}
+
 
     </div>
   );
