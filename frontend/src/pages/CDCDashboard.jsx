@@ -170,30 +170,11 @@ const CDCDashboard = ({ user }) => {
     <div className="space-y-6 animate-fade-in pb-16 bg-slate-50/50 min-h-screen">
       
       {/* 1. Top Welcome Header Row */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
-        <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-            Welcome back, <span className="text-emerald-600">{student.name || user.name}</span> 👋
-          </h1>
-          <p className="text-slate-500 text-sm mt-0.5 font-medium">Here's your CDC performance overview</p>
-        </div>
-
-        <div className="flex items-center gap-3 self-start sm:self-auto">
-          {/* Semester View Dropdown */}
-          <div className="relative">
-            <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors">
-              <Calendar size={14} className="text-slate-500" />
-              <span>{selectedSemester}</span>
-              <ChevronDown size={14} className="text-slate-400 ml-1" />
-            </button>
-          </div>
-
-          {/* Notification Bell */}
-          <button className="p-2 bg-white border border-slate-200 rounded-xl text-slate-600 hover:text-emerald-600 hover:bg-slate-50 transition-colors relative shadow-sm">
-            <Bell size={18} />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full ring-2 ring-white"></span>
-          </button>
-        </div>
+      <div className="pt-2">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+          Welcome back, <span className="text-emerald-600">{student.name || user.name}</span> 👋
+        </h1>
+        <p className="text-slate-500 text-sm mt-0.5 font-medium">Here's your CDC performance overview</p>
       </div>
 
       {/* 2. Top Hero Student Profile & High Level Metrics Grid */}
