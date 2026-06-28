@@ -87,6 +87,8 @@ def get_admin_analytics(
 def get_admin_students(
     branch: Optional[str] = Query(None),
     search: Optional[str] = Query(None),
+    band: Optional[str] = Query(None, description="Filter by CDC Band (A, B, C, D)"),
+    sort_by: Optional[str] = Query(None, description="Sort order (rank, perf_desc, perf_asc, cie_desc, consistency_desc, name)"),
     current_admin: User = Depends(get_current_admin),
     db: Session = Depends(get_db)
 ):
@@ -98,6 +100,9 @@ def get_admin_students(
     if effective_branch and effective_branch.upper() != "ALL":
         query = query.filter(func.upper(CDCPerformance.branch) == effective_branch.upper())
         
+    if band and band.upper() != "ALL":
+        query = query.filter(func.upper(CDCPerformance.cdc_band) == band.upper())
+
     if search:
         search_term = f"%{search.strip()}%"
         query = query.filter(
@@ -106,7 +111,21 @@ def get_admin_students(
             (CDCPerformance.email.ilike(search_term))
         )
         
-    records = query.order_by(CDCPerformance.cdc_rank.asc().nullslast()).all()
+    # Sorting logic
+    if sort_by == "perf_desc":
+        query = query.order_by(CDCPerformance.avg_performance.desc().nullslast())
+    elif sort_by == "perf_asc":
+        query = query.order_by(CDCPerformance.avg_performance.asc().nullslast())
+    elif sort_by == "cie_desc":
+        query = query.order_by(CDCPerformance.cie_score.desc().nullslast())
+    elif sort_by == "consistency_desc":
+        query = query.order_by(CDCPerformance.consistency_score.desc().nullslast())
+    elif sort_by == "name":
+        query = query.order_by(CDCPerformance.name.asc().nullslast())
+    else:
+        query = query.order_by(CDCPerformance.cdc_rank.asc().nullslast())
+        
+    records = query.all()
     
     student_list = []
     for r in records:
@@ -126,6 +145,7 @@ def get_admin_students(
         "count": len(student_list),
         "students": student_list
     }
+
 
 @router.get("/student/{roll_number}")
 def get_admin_student_detail(

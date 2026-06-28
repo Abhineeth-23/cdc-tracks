@@ -13,6 +13,8 @@ const AdminDashboard = ({ user }) => {
   const [analytics, setAnalytics] = useState(null);
   const [students, setStudents] = useState([]);
   const [selectedBranch, setSelectedBranch] = useState('ALL');
+  const [selectedBand, setSelectedBand] = useState('ALL');
+  const [sortBy, setSortBy] = useState('rank');
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
@@ -49,14 +51,14 @@ const AdminDashboard = ({ user }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedStudentRoll]);
 
-  // Debounced search & branch change effect
+  // Debounced search & filter change effect
   useEffect(() => {
     const timer = setTimeout(() => {
       fetchDashboardData();
       setCurrentPage(1);
     }, 250);
     return () => clearTimeout(timer);
-  }, [selectedBranch, searchQuery]);
+  }, [selectedBranch, selectedBand, sortBy, searchQuery]);
 
   const fetchDashboardData = async () => {
     setLoading(true);
@@ -69,7 +71,7 @@ const AdminDashboard = ({ user }) => {
       setAnalytics(analyticsRes.data);
 
       // 2. Fetch student list
-      fetchStudentsList(selectedBranch, searchQuery);
+      fetchStudentsList(selectedBranch, searchQuery, selectedBand, sortBy);
     } catch (err) {
       console.error('Failed to fetch admin data:', err);
     } finally {
@@ -77,12 +79,12 @@ const AdminDashboard = ({ user }) => {
     }
   };
 
-  const fetchStudentsList = async (branchFilter, search) => {
+  const fetchStudentsList = async (branchFilter, search, bandFilter, sortOrder) => {
     try {
       const token = user?.email || '';
       const headers = { Authorization: `Bearer ${token}` };
       const res = await axios.get(
-        `${API_URL}/api/admin/students?branch=${branchFilter}&search=${encodeURIComponent(search || '')}`, 
+        `${API_URL}/api/admin/students?branch=${branchFilter}&search=${encodeURIComponent(search || '')}&band=${bandFilter || 'ALL'}&sort_by=${sortOrder || 'rank'}`, 
         { headers }
       );
       setStudents(res.data.students || []);
@@ -90,6 +92,7 @@ const AdminDashboard = ({ user }) => {
       console.error('Failed to fetch students list:', err);
     }
   };
+
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -669,7 +672,7 @@ const AdminDashboard = ({ user }) => {
             Branch:
           </span>
           {isSuperAdmin ? (
-            ['ALL', 'CSE', 'CSM', 'ECE', 'EEE', 'MECH'].map((b) => (
+            ['ALL', 'CSE', 'CSM', 'CSD', 'ECE', 'EEE', 'MECH'].map((b) => (
               <button
                 key={b}
                 onClick={() => setSelectedBranch(b)}
@@ -683,6 +686,7 @@ const AdminDashboard = ({ user }) => {
               </button>
             ))
           ) : (
+
             <div className="px-4 py-2 bg-blue-50 text-blue-700 font-extrabold text-xs rounded-xl border border-blue-200">
               {user?.assigned_branch} Branch Only
             </div>
@@ -793,23 +797,64 @@ const AdminDashboard = ({ user }) => {
 
       {/* Student Roster Section with Search */}
       <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-100">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-3 border-b border-slate-100">
           <div>
             <h3 className="text-lg font-bold text-slate-900">Student Directory & Performance Roster</h3>
             <p className="text-xs text-slate-500">Click any student row to view their full detailed CDC performance dashboard.</p>
           </div>
 
-          <div className="relative max-w-sm w-full">
-            <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input
-              type="text"
-              placeholder="Search by student name, roll number, or email..."
-              value={searchQuery}
-              onChange={handleSearchChange}
-              className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
-            />
+          {/* Roster Controls: Band Filter, Sort Order, Search Input */}
+          <div className="flex flex-wrap items-center gap-2.5 w-full lg:w-auto">
+            
+            {/* Band Filter Dropdown */}
+            <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-2 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700">
+              <Filter size={14} className="text-slate-400 shrink-0" />
+              <span className="text-slate-400 hidden sm:inline">Band:</span>
+              <select
+                value={selectedBand}
+                onChange={(e) => setSelectedBand(e.target.value)}
+                className="bg-transparent focus:outline-none font-bold text-slate-800 cursor-pointer"
+              >
+                <option value="ALL">All Bands</option>
+                <option value="A">Band A</option>
+                <option value="B">Band B</option>
+                <option value="C">Band C</option>
+                <option value="D">Band D</option>
+              </select>
+            </div>
+
+            {/* Sort Order Dropdown */}
+            <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-2 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700">
+              <span className="text-slate-400 hidden sm:inline">Sort:</span>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="bg-transparent focus:outline-none font-bold text-slate-800 cursor-pointer"
+              >
+                <option value="rank">CDC Rank (1 to N)</option>
+                <option value="perf_desc">Avg Performance (High → Low)</option>
+                <option value="perf_asc">Avg Performance (Low → High)</option>
+                <option value="cie_desc">CIE Score (High → Low)</option>
+                <option value="consistency_desc">Consistency (High → Low)</option>
+                <option value="name">Student Name (A → Z)</option>
+              </select>
+            </div>
+
+            {/* Search Box */}
+            <div className="relative flex-1 min-w-[200px] max-w-xs">
+              <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+              <input
+                type="text"
+                placeholder="Search name, roll, email..."
+                value={searchQuery}
+                onChange={handleSearchChange}
+                className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
+              />
+            </div>
+
           </div>
         </div>
+
 
         {/* Roster Table */}
         <div className="overflow-x-auto">
