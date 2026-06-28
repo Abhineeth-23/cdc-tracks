@@ -216,7 +216,6 @@ const CDCDashboard = ({ user }) => {
             </div>
             <div className="pt-1 flex flex-col gap-0.5 text-[11px] text-slate-400 font-medium">
               <span className="flex items-center gap-1 truncate"><Mail size={12} className="shrink-0" /> {student.email}</span>
-              <span className="flex items-center gap-1"><Phone size={12} className="shrink-0" /> {student.mobile || '+91 98765 43210'}</span>
             </div>
           </div>
         </div>
