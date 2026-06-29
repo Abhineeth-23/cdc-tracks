@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import DetailedDashboard from '../components/admin/DetailedDashboard';
 import TrackBatchControlPanel from '../components/admin/TrackBatchControlPanel';
+import ProjectManagementAdmin from '../components/admin/ProjectManagementAdmin';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
@@ -700,6 +701,18 @@ const AdminDashboard = ({ user }) => {
         </button>
 
         <button
+          onClick={() => setActiveTab('projects')}
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
+            activeTab === 'projects'
+              ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+              : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+          }`}
+        >
+          <BookOpen size={16} />
+          <span>Projects & HITAM Requests</span>
+        </button>
+
+        <button
           onClick={() => setActiveTab('control')}
           className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
             activeTab === 'control'
@@ -712,7 +725,9 @@ const AdminDashboard = ({ user }) => {
         </button>
       </div>
 
-      {activeTab === 'control' ? (
+      {activeTab === 'projects' ? (
+        <ProjectManagementAdmin user={user} />
+      ) : activeTab === 'control' ? (
         <TrackBatchControlPanel user={user} />
       ) : activeTab === 'detailed' ? (
         <DetailedDashboard 

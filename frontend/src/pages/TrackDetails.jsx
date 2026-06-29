@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Target, Clock, CheckCircle2, GraduationCap, ArrowRight, ChevronDown, Calendar, Wrench, Briefcase, Zap, GitMerge, Bookmark, Award, Users, X, RefreshCw, AlertCircle, Lock } from 'lucide-react';
+import { ArrowLeft, Target, Clock, CheckCircle2, GraduationCap, ArrowRight, ChevronDown, Calendar, Wrench, Briefcase, Zap, GitMerge, Bookmark, Award, Users, X, RefreshCw, AlertCircle, Lock, Search, SlidersHorizontal, Filter } from 'lucide-react';
 
 import { getTrackBySlug, getPreferredBranchForTrack, isTrackPreferredForBranch } from '../utils/trackLoader';
 import axios from 'axios';
@@ -296,8 +296,35 @@ const TrackDetails = ({ user }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [loadingAction, setLoadingAction] = useState(false);
   const [selectionWindow, setSelectionWindow] = useState(null);
+  const [projectWindow, setProjectWindow] = useState(null);
   const [studentYear, setStudentYear] = useState(1);
   const [studentStatus, setStudentStatus] = useState('active');
+
+  // Track Projects state
+  const [projectsList, setProjectsList] = useState([]);
+  const [projectSearch, setProjectSearch] = useState('');
+  const [projectDifficultyFilter, setProjectDifficultyFilter] = useState('all');
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const [selectedFacultyGuide, setSelectedFacultyGuide] = useState('');
+  const [projectModalTarget, setProjectModalTarget] = useState(null);
+  const [facultyInput, setFacultyInput] = useState('');
+  const [facultyConfirmed, setFacultyConfirmed] = useState(false);
+  const [projectSubmitting, setProjectSubmitting] = useState(false);
+
+  // Filtered projects based on search query and difficulty dropdown
+  const filteredProjects = projectsList.filter((proj) => {
+    const query = projectSearch.toLowerCase().trim();
+    const matchesSearch = !query || 
+      proj.title?.toLowerCase().includes(query) ||
+      proj.problem_statement?.toLowerCase().includes(query) ||
+      proj.technologies?.toLowerCase().includes(query) ||
+      proj.project_code?.toLowerCase().includes(query);
+
+    const matchesDifficulty = projectDifficultyFilter === 'all' || 
+      proj.difficulty?.toLowerCase() === projectDifficultyFilter.toLowerCase();
+
+    return matchesSearch && matchesDifficulty;
+  });
 
   // Modal state for commit confirmation
   const [showCommitModal, setShowCommitModal] = useState(false);
@@ -329,6 +356,20 @@ const TrackDetails = ({ user }) => {
     }
   };
 
+  const fetchTrackProjectsData = async () => {
+    if (!user) return;
+    try {
+      const res = await axios.get(`${API_URL}/api/student/projects?track_slug=${slug}`, {
+        headers: { Authorization: `Bearer ${user.email}` }
+      });
+      setProjectsList(res.data.projects || []);
+      setSelectedProjectId(res.data.selected_project_id);
+      setSelectedFacultyGuide(res.data.selected_faculty_guide || '');
+    } catch (err) {
+      console.error("Failed to fetch track projects:", err);
+    }
+  };
+
   // Fetch current commit/bookmark status from backend on load
   useEffect(() => {
     const fetchStudentStatus = async () => {
@@ -345,11 +386,15 @@ const TrackDetails = ({ user }) => {
         if (response.data.track_selection_window) {
           setSelectionWindow(response.data.track_selection_window);
         }
+        if (response.data.project_selection_window) {
+          setProjectWindow(response.data.project_selection_window);
+        }
       } catch (err) {
         console.error("Failed to load student status for track:", err);
       }
     };
     fetchStudentStatus();
+    fetchTrackProjectsData();
   }, [user, slug, API_URL]);
 
 
@@ -382,6 +427,62 @@ const TrackDetails = ({ user }) => {
       alert(err.response?.data?.detail || ("Error updating track selection: " + err.message));
     } finally {
       setLoadingAction(false);
+    }
+  };
+
+  const handleOpenProjectModal = (project) => {
+    if (!user) return;
+    if (projectWindow && projectWindow.is_open === false) {
+      alert(`🔒 Project selection for this track is locked or closed.\n\nContact: ${projectWindow.contact_email || 'support.cdc@hitam.org'}`);
+      return;
+    }
+    setProjectModalTarget(project);
+    setFacultyInput(selectedProjectId === project.id ? selectedFacultyGuide : '');
+    setFacultyConfirmed(false);
+  };
+
+  const handleSubmitProjectSelection = async (e) => {
+    e.preventDefault();
+    if (!facultyConfirmed) {
+      alert("Please confirm that you have obtained permission from your faculty guide.");
+      return;
+    }
+    if (!facultyInput || !facultyInput.trim()) {
+      alert("Please enter your faculty guide / incharge name.");
+      return;
+    }
+
+    setProjectSubmitting(true);
+    try {
+      await axios.post(`${API_URL}/api/student/select-project`, {
+        project_id: projectModalTarget.id,
+        faculty_guide: facultyInput.trim(),
+        confirmed: facultyConfirmed
+      }, {
+        headers: { Authorization: `Bearer ${user.email}` }
+      });
+      setSelectedProjectId(projectModalTarget.id);
+      setSelectedFacultyGuide(facultyInput.trim());
+      setProjectModalTarget(null);
+      fetchTrackProjectsData();
+    } catch (err) {
+      alert(err.response?.data?.detail || "Failed to save project selection.");
+    } finally {
+      setProjectSubmitting(false);
+    }
+  };
+
+  const handleUnselectProject = async () => {
+    if (!window.confirm("Are you sure you want to clear your current project selection?")) return;
+    try {
+      await axios.delete(`${API_URL}/api/student/select-project`, {
+        headers: { Authorization: `Bearer ${user.email}` }
+      });
+      setSelectedProjectId(null);
+      setSelectedFacultyGuide('');
+      fetchTrackProjectsData();
+    } catch (err) {
+      alert(err.response?.data?.detail || "Failed to clear project selection.");
     }
   };
 
@@ -421,7 +522,7 @@ const TrackDetails = ({ user }) => {
   const activeSemester = track.semesters[activeSemesterIndex];
 
   return (
-    <div className="py-6 max-w-5xl mx-auto">
+    <div className="py-6 max-w-7xl mx-auto px-4 sm:px-6">
       
       {/* Back Button */}
       <Link 
@@ -613,140 +714,406 @@ const TrackDetails = ({ user }) => {
       </div>
 
 
-      {/* --- THE FADE-IN CONTAINER --- */}
-      {/* By keying this container to activeSemesterIndex, React cleanly remounts it, firing our new animate-fade-in class every time the user switches a node. */}
-      <div key={`semester-content-${activeSemesterIndex}`} className="animate-fade-in">
+      {/* --- TWO-COLUMN SPLIT LAYOUT CONTAINER --- */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         
-        {/* Selected Semester Metadata Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        {/* ========================================== */}
+        {/* LEFT COLUMN: FOUNDATIONS, PREREQUISITES & SYLLABUS */}
+        {/* ========================================== */}
+        <div className="space-y-8 animate-fade-in" key={`semester-content-${activeSemesterIndex}`}>
+          
+          {/* --- SECTION 1: COMMON FOUNDATIONS & PREREQUISITES --- */}
+          {(() => {
+            const hasFoundationsContent = !!(
+              activeSemester.focus || 
+              activeSemester.objective || 
+              (activeSemester.pre_requisites && activeSemester.pre_requisites.length > 0) || 
+              (activeSemester.expected_outcomes && activeSemester.expected_outcomes.length > 0)
+            );
 
-          {/* Card 1: Header, Focus & Objective */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col h-full">
-            {/* Title and Hours Row */}
-            <div className="flex items-start justify-between mb-5 pb-5 border-b border-slate-100 gap-4">
-              <h2 className="text-xl font-bold text-slate-800 flex items-center gap-3 leading-snug">
-                <div className="bg-blue-50 p-2 rounded-lg text-blue-600 shrink-0">
-                  <GraduationCap size={20} />
+            // Shrunk state if no content is present
+            if (!hasFoundationsContent) {
+              return (
+                <div className="bg-slate-50/90 rounded-2xl border border-slate-200 p-4 flex items-center justify-between text-xs text-slate-500 shadow-xs">
+                  <div className="flex items-center gap-2.5 font-bold text-slate-700">
+                    <GraduationCap size={18} className="text-blue-600 shrink-0"/>
+                    <span>{activeSemester.semester_title || "Semester Foundations"}</span>
+                  </div>
+                  {activeSemester.hours && (
+                    <span className="bg-white px-3 py-1 rounded-full border border-slate-200 font-semibold text-slate-600 shrink-0">
+                      {activeSemester.hours}h
+                    </span>
+                  )}
                 </div>
-                {activeSemester.semester_title || "Semester Details"}
-              </h2>
-              
-              {/* Conditionally render hours if they exist */}
-              {activeSemester.hours && (
-                <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-semibold shrink-0">
-                  <Clock size={14} className="text-slate-400"/>
-                  {activeSemester.hours}h
+              );
+            }
+
+            // Expanded state with Foundations & Prerequisites combined
+            return (
+              <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6 text-left">
+                {/* Section Header */}
+                <div className="flex items-start justify-between pb-5 border-b border-slate-100 gap-4">
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 font-extrabold text-xs mb-2 border border-blue-100">
+                      <GraduationCap size={14} /> Course Foundations
+                    </div>
+                    <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
+                      {activeSemester.semester_title || "Semester Overview"}
+                    </h2>
+                  </div>
+                  
+                  {activeSemester.hours && (
+                    <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 text-slate-700 px-3.5 py-1.5 rounded-full text-xs font-bold shrink-0 shadow-xs">
+                      <Clock size={14} className="text-slate-400"/>
+                      {activeSemester.hours}h
+                    </div>
+                  )}
                 </div>
-              )}
+
+                {/* Primary Focus & Objectives */}
+                {(activeSemester.focus || activeSemester.objective) && (
+                  <div className="space-y-4 bg-slate-50/70 p-5 rounded-2xl border border-slate-100">
+                    {activeSemester.focus && (
+                      <div>
+                        <h3 className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                          <Target size={14} className="text-blue-600" /> Primary Focus
+                        </h3>
+                        <p className="text-slate-800 font-bold text-sm leading-relaxed">
+                          {activeSemester.focus}
+                        </p>
+                      </div>
+                    )}
+
+                    {activeSemester.objective && (
+                      <div className={activeSemester.focus ? "pt-3 border-t border-slate-200/60" : ""}>
+                        <h3 className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-1">
+                          Objective
+                        </h3>
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                          {activeSemester.objective}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Prerequisites & Expected Outcomes */}
+                {(activeSemester.pre_requisites?.length > 0 || activeSemester.expected_outcomes?.length > 0) && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    {/* Prerequisites */}
+                    {activeSemester.pre_requisites?.length > 0 && (
+                      <div className="space-y-2.5">
+                        <h3 className="text-xs font-extrabold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                          <ArrowRight size={14} className="text-amber-500" /> Prerequisites
+                        </h3>
+                        <ul className="space-y-2">
+                          {activeSemester.pre_requisites.map((prereq, idx) => (
+                            <li key={`sem-prereq-${activeSemesterIndex}-${idx}`} className="flex items-start gap-2 text-slate-600 text-xs sm:text-sm">
+                              <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                              <span className="leading-relaxed">{prereq}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Outcomes */}
+                    {activeSemester.expected_outcomes?.length > 0 && (
+                      <div className="space-y-2.5">
+                        <h3 className="text-xs font-extrabold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                          <CheckCircle2 size={14} className="text-emerald-500" /> Expected Outcomes
+                        </h3>
+                        <ul className="space-y-2">
+                          {activeSemester.expected_outcomes.map((outcome, idx) => (
+                            <li key={`sem-outcome-${activeSemesterIndex}-${idx}`} className="flex items-start gap-2 text-slate-700 text-xs sm:text-sm font-medium">
+                              <CheckCircle2 size={15} className="text-emerald-500 shrink-0 mt-0.5" />
+                              <span className="leading-relaxed">{outcome}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+
+          {/* --- SECTION 2: THE SYLLABUS --- */}
+          <div className="space-y-4 text-left">
+            <div className="flex items-center justify-between px-1">
+              <h3 className="text-lg font-black text-slate-900 tracking-tight flex items-center gap-2">
+                Detailed Syllabus & Curriculum
+              </h3>
             </div>
 
-            {/* Focus and Objective Text */}
-            <div className="space-y-5 flex-1">
-              {activeSemester.focus && (
-                <div>
-                  <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-                    <Target size={14} /> Primary Focus
-                  </h3>
-                  <p className="text-slate-800 font-medium text-sm md:text-base leading-relaxed">
-                    {activeSemester.focus}
-                  </p>
-                </div>
-              )}
+            {/* TYPE A: Standard Modules */}
+            {activeSemester.modules && activeSemester.modules.length > 0 && (
+              <ModuleAccordion modules={activeSemester.modules} />
+            )}
 
-              {activeSemester.objective && (
-                <div>
-                  <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                    Objective
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed text-sm">
-                    {activeSemester.objective}
-                  </p>
-                </div>
-              )}
+            {/* TYPE B: Day-Wise Bootcamp */}
+            {activeSemester.days && activeSemester.days.length > 0 && (
+              <DayBootcamp semester={activeSemester} />
+            )}
 
-              {/* Fallback for Split Tracks that lack high-level descriptions */}
-              {!activeSemester.focus && !activeSemester.objective && (
-                <div className="flex h-full items-center justify-center text-slate-400 italic text-sm">
-                  Specific objectives are defined within the track splits below.
-                </div>
-              )}
-            </div>
+            {/* TYPE C: Split Performance Tracks */}
+            {activeSemester.sub_tracks && activeSemester.sub_tracks.length > 0 && (
+              <SubTrackTabs subTracks={activeSemester.sub_tracks} />
+            )}
+
+            {/* Fallback if data is missing */}
+            {!activeSemester.modules && !activeSemester.days && !activeSemester.sub_tracks && (
+              <div className="p-8 border-2 border-dashed border-slate-200 rounded-3xl text-center text-slate-500 bg-slate-50/50">
+                <p className="font-semibold text-sm">No specific curriculum modules listed for this semester.</p>
+              </div>
+            )}
           </div>
 
-          {/* Card 2: Prerequisites & Outcomes */}
-          {/* Only render this entire card if either array actually has items */}
-          {(activeSemester.pre_requisites?.length > 0 || activeSemester.expected_outcomes?.length > 0) ? (
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col h-full space-y-6">
+        </div>
 
-              {/* Prerequisites Section */}
-              {activeSemester.pre_requisites?.length > 0 && (
+
+        {/* ========================================== */}
+        {/* RIGHT COLUMN: AVAILABLE TRACK PROJECTS */}
+        {/* ========================================== */}
+        <div className="space-y-6 text-left sticky top-6">
+          
+          {/* Section Header & Search/Filter Controls Card */}
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-7 space-y-5">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 font-extrabold text-xs border border-blue-100">
+                <Briefcase size={14} /> Domain Projects
+              </div>
+              <h2 className="text-2xl font-black text-slate-900 tracking-tight">Track Projects</h2>
+              <p className="text-xs text-slate-500 font-medium leading-relaxed">
+                Explore topics corresponding to this track. You can select or change your selected project anytime during the active project window.
+              </p>
+            </div>
+
+            {/* Active Choice Banner */}
+            {selectedProjectId && (
+              <div className="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 flex items-center justify-between gap-4 shrink-0">
                 <div>
-                  <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                    <ArrowRight size={14} /> Prerequisites
-                  </h3>
-                  <ul className="space-y-2.5">
-                    {activeSemester.pre_requisites.map((prereq, idx) => (
-                      <li key={`sem-prereq-${activeSemesterIndex}-${idx}`} className="flex items-start gap-2.5 text-slate-600 text-sm">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0" />
-                        <span className="leading-relaxed">{prereq}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <span className="text-[10px] font-black uppercase text-emerald-700 tracking-wider block">Active Choice</span>
+                  <div className="text-sm font-black text-emerald-950">Faculty Guide: {selectedFacultyGuide}</div>
+                  <span className="text-xs text-emerald-600 font-bold block mt-0.5">Changeable during active window</span>
                 </div>
-              )}
+                {(!projectWindow || projectWindow.is_open !== false) && (
+                  <button
+                    onClick={handleUnselectProject}
+                    className="text-xs font-extrabold text-rose-600 hover:text-rose-800 underline cursor-pointer shrink-0"
+                  >
+                    Clear Choice
+                  </button>
+                )}
+              </div>
+            )}
 
-              {/* Outcomes Section */}
-              {activeSemester.expected_outcomes?.length > 0 && (
-                <div className={activeSemester.pre_requisites?.length > 0 ? "pt-6 border-t border-slate-100" : ""}>
-                  <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                    <CheckCircle2 size={14} /> Expected Outcomes
-                  </h3>
-                  <ul className="space-y-3">
-                    {activeSemester.expected_outcomes.map((outcome, idx) => (
-                      <li key={`sem-outcome-${activeSemesterIndex}-${idx}`} className="flex items-start gap-2.5 text-slate-700 text-sm font-medium">
-                        <CheckCircle2 size={16} className="text-green-500 shrink-0 mt-0.5" />
-                        <span className="leading-relaxed">{outcome}</span>
-                      </li>
-                    ))}
-                  </ul>
+            {/* Closed Window Banner */}
+            {projectWindow && projectWindow.is_open === false && (
+              <div className="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-amber-900 text-xs font-bold flex items-start gap-2.5">
+                <Lock size={16} className="text-amber-600 shrink-0 mt-0.5"/>
+                <span>Project selection window is closed. Contact support at <a href={`mailto:${projectWindow.contact_email}`} className="underline font-black">{projectWindow.contact_email}</a>.</span>
+              </div>
+            )}
+
+            {/* Search & Difficulty Filter Controls */}
+            {projectsList.length > 0 && (
+              <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
+                {/* Techstack/Title Search input */}
+                <div className="relative flex-1">
+                  <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                  <input
+                    type="text"
+                    placeholder="Search by tech or title..."
+                    value={projectSearch}
+                    onChange={(e) => setProjectSearch(e.target.value)}
+                    className="w-full pl-9 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all bg-slate-50/50 focus:bg-white"
+                  />
+                  {projectSearch && (
+                    <button
+                      onClick={() => setProjectSearch('')}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold"
+                    >
+                      ✕
+                    </button>
+                  )}
                 </div>
-              )}
+
+                {/* Difficulty Dropdown */}
+                <div className="relative">
+                  <select
+                    value={projectDifficultyFilter}
+                    onChange={(e) => setProjectDifficultyFilter(e.target.value)}
+                    className="w-full sm:w-auto px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 bg-slate-50/50 focus:bg-white shrink-0 cursor-pointer appearance-none pr-8"
+                  >
+                    <option value="all">All Difficulties</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                  </select>
+                  <Filter size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Internal Scrollable Container for Standalone Project Cards */}
+          {projectsList.length === 0 ? (
+            <div className="p-8 border border-dashed border-slate-200 rounded-3xl text-center text-slate-400 text-sm font-semibold bg-slate-50/50">
+              No track projects currently listed for this track.
+            </div>
+          ) : filteredProjects.length === 0 ? (
+            <div className="p-8 border border-dashed border-slate-200 rounded-3xl text-center text-slate-500 text-sm font-medium bg-slate-50/50 space-y-3">
+              <p>No projects match your current search or difficulty filter.</p>
+              <button
+                onClick={() => { setProjectSearch(''); setProjectDifficultyFilter('all'); }}
+                className="px-4 py-2 bg-blue-50 text-blue-600 font-extrabold text-xs rounded-xl hover:bg-blue-100 transition-colors cursor-pointer"
+              >
+                Reset Filters
+              </button>
             </div>
           ) : (
-            /* Empty state matching the grid layout if a semester has no prereqs/outcomes */
-            <div className="hidden lg:flex bg-slate-50/50 rounded-2xl border border-slate-200 border-dashed items-center justify-center text-slate-400 text-sm p-6">
-              No specific prerequisites listed for this semester.
+            <div className="space-y-5 max-h-[calc(100vh-270px)] overflow-y-auto pr-1.5 hide-scrollbar">
+              {filteredProjects.map((proj) => {
+                const isSelected = selectedProjectId === proj.id;
+
+                return (
+                  <div key={proj.id} className={`p-6 rounded-3xl border transition-all flex flex-col justify-between space-y-4 bg-white ${
+                    isSelected ? 'border-emerald-400 ring-2 ring-emerald-500/20 shadow-md bg-emerald-50/20' : 'border-slate-200 hover:border-slate-300 shadow-sm'
+                  }`}>
+                    <div className="space-y-3.5">
+                      <div className="flex justify-between items-start gap-3">
+                        <span className="px-3 py-1 bg-slate-100 text-slate-700 font-extrabold text-xs rounded-lg border border-slate-200">
+                          {proj.project_code}
+                        </span>
+                        <span className={`px-3 py-1 text-xs font-black rounded-full ${
+                          proj.difficulty?.toLowerCase() === 'easy' ? 'bg-emerald-100 text-emerald-800' :
+                          proj.difficulty?.toLowerCase() === 'hard' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'
+                        }`}>
+                          {proj.difficulty || 'Medium'}
+                        </span>
+                      </div>
+
+                      <h3 className="font-extrabold text-slate-900 text-lg leading-snug">{proj.title}</h3>
+                      
+                      {proj.problem_statement && (
+                        <div className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                          <strong className="text-slate-900 font-extrabold block mb-1 text-xs uppercase tracking-wider">Problem Statement</strong>
+                          {proj.problem_statement}
+                        </div>
+                      )}
+
+                      {proj.key_objectives && (
+                        <div className="text-xs sm:text-sm text-slate-600 font-normal space-y-1">
+                          <strong className="text-slate-900 font-extrabold block text-xs uppercase tracking-wider">Key Objectives</strong>
+                          <p className="leading-relaxed">{proj.key_objectives}</p>
+                        </div>
+                      )}
+
+                      {proj.technologies && (
+                        <div className="pt-1">
+                          <strong className="text-slate-400 font-bold block text-[11px] uppercase tracking-wider mb-2">Technologies & Tools</strong>
+                          <div className="flex flex-wrap gap-1.5">
+                            {proj.technologies.split(',').map((t, i) => (
+                              <span key={i} className="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg border border-slate-200/60">
+                                {t.trim()}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                      {isSelected ? (
+                        <div className="flex items-center gap-2 text-emerald-700 text-sm font-black bg-emerald-50 px-4 py-2 rounded-xl border border-emerald-200">
+                          <CheckCircle2 size={18} /> Selected Project Topic
+                        </div>
+                      ) : (
+                        <button
+                          onClick={() => handleOpenProjectModal(proj)}
+                          disabled={projectWindow && projectWindow.is_open === false}
+                          className="w-full py-3 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-300 text-white font-extrabold text-xs sm:text-sm rounded-xl transition-all shadow-sm cursor-pointer"
+                        >
+                          Select Project Topic
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           )}
-
         </div>
 
-        {/* Dynamic Content Engine based on Semester Type */}
-        <div className="mt-8">
-          
-          {/* TYPE A: Standard Modules */}
-          {activeSemester.modules && activeSemester.modules.length > 0 && (
-            <ModuleAccordion modules={activeSemester.modules} />
-          )}
-
-          {/* TYPE B: Day-Wise Bootcamp */}
-          {activeSemester.days && activeSemester.days.length > 0 && (
-            <DayBootcamp semester={activeSemester} />
-          )}
-
-          {/* TYPE C: Split Performance Tracks */}
-          {activeSemester.sub_tracks && activeSemester.sub_tracks.length > 0 && (
-            <SubTrackTabs subTracks={activeSemester.sub_tracks} />
-          )}
-
-          {/* Fallback if data is missing */}
-          {!activeSemester.modules && !activeSemester.days && !activeSemester.sub_tracks && (
-            <div className="p-8 border-2 border-dashed border-slate-200 rounded-2xl text-center text-slate-500 bg-slate-50">
-              <p className="font-medium">No curriculum details available for this semester.</p>
-            </div>
-          )}
-        </div>
       </div>
+
+      {/* Project Selection Modal */}
+      {projectModalTarget && createPortal(
+        <div className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in text-left">
+          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 relative">
+            <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+              <div>
+                <span className="px-2 py-0.5 bg-blue-50 text-blue-700 font-extrabold text-[10px] rounded uppercase">{projectModalTarget.project_code}</span>
+                <h3 className="text-base font-extrabold text-slate-900 mt-1">{projectModalTarget.title}</h3>
+              </div>
+              <button onClick={() => setProjectModalTarget(null)} className="text-slate-400 hover:text-slate-600 text-lg font-bold">✕</button>
+            </div>
+
+            <form onSubmit={handleSubmitProjectSelection} className="space-y-4 pt-4">
+              <div className="p-3 bg-blue-50/70 rounded-xl border border-blue-100 flex items-start gap-2.5 text-xs text-blue-900 font-medium">
+                <RefreshCw size={16} className="text-blue-600 shrink-0 mt-0.5" />
+                <span><strong>Note:</strong> You are free to change or update your selected project topic anytime during the active project selection window.</span>
+              </div>
+
+              <div>
+                <label className="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-1">Faculty Guide / Incharge Name *</label>
+                <input
+                  type="text"
+                  placeholder="Enter full name of faculty member..."
+                  value={facultyInput}
+                  onChange={(e) => setFacultyInput(e.target.value)}
+                  className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs font-bold outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+
+              <div className="p-3 bg-amber-50 rounded-xl border border-amber-200 flex items-start gap-2.5">
+                <input
+                  type="checkbox"
+                  id="faculty-confirm-check"
+                  checked={facultyConfirmed}
+                  onChange={(e) => setFacultyConfirmed(e.target.checked)}
+                  className="mt-0.5 w-4 h-4 text-blue-600 rounded cursor-pointer"
+                  required
+                />
+                <label htmlFor="faculty-confirm-check" className="text-xs text-amber-950 font-bold leading-relaxed cursor-pointer">
+                  I confirm that I have contacted and informed the faculty member and taken permission to choose them as my faculty incharge.
+                </label>
+              </div>
+
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setProjectModalTarget(null)}
+                  className="flex-1 py-2.5 bg-slate-100 text-slate-700 font-bold text-xs rounded-xl cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={projectSubmitting || !facultyConfirmed}
+                  className="flex-1 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-bold text-xs rounded-xl shadow-md cursor-pointer"
+                >
+                  {projectSubmitting ? 'Confirming...' : 'Confirm Selection'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>,
+        document.body
+      )}
 
       {/* Enrolled Students Modal */}
       {showEnrolledModal && createPortal(

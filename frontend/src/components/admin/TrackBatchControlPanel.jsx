@@ -28,6 +28,8 @@ const TrackBatchControlPanel = ({ user }) => {
     batch_year: '2024-2028',
     track_selection_start: '',
     track_selection_end: '',
+    project_selection_start: '',
+    project_selection_end: '',
     contact_email: 'support.cdc@hitam.org',
     year_1_start: '', year_1_end: '',
     year_2_start: '', year_2_end: '',
@@ -297,7 +299,7 @@ const TrackBatchControlPanel = ({ user }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label className="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Selection Window Start</label>
+              <label className="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Track Selection Start</label>
               <input
                 type="datetime-local"
                 value={formSchedule.track_selection_start ? formSchedule.track_selection_start.slice(0, 16) : ''}
@@ -307,7 +309,7 @@ const TrackBatchControlPanel = ({ user }) => {
             </div>
 
             <div>
-              <label className="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Selection Window End</label>
+              <label className="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Track Selection End</label>
               <input
                 type="datetime-local"
                 value={formSchedule.track_selection_end ? formSchedule.track_selection_end.slice(0, 16) : ''}
@@ -332,10 +334,37 @@ const TrackBatchControlPanel = ({ user }) => {
             </div>
           </div>
 
+          <div className="border-t border-slate-100 pt-5 mt-4">
+            <h4 className="text-sm font-extrabold text-slate-900 mb-4 flex items-center gap-2">
+              <Calendar className="text-indigo-600" size={18} />
+              Project Selection Deadline Window
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Project Selection Start</label>
+                <input
+                  type="datetime-local"
+                  value={formSchedule.project_selection_start ? formSchedule.project_selection_start.slice(0, 16) : ''}
+                  onChange={(e) => setFormSchedule({ ...formSchedule, project_selection_start: e.target.value })}
+                  className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 text-xs font-bold focus:border-indigo-500 outline-none"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Project Selection End</label>
+                <input
+                  type="datetime-local"
+                  value={formSchedule.project_selection_end ? formSchedule.project_selection_end.slice(0, 16) : ''}
+                  onChange={(e) => setFormSchedule({ ...formSchedule, project_selection_end: e.target.value })}
+                  className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 text-xs font-bold focus:border-indigo-500 outline-none"
+                />
+              </div>
+            </div>
+          </div>
+
           <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex items-start gap-3">
             <Info size={18} className="text-blue-600 mt-0.5 shrink-0" />
             <p className="text-xs text-slate-600 leading-relaxed">
-              When students attempt to change tracks outside of the active selection window, they will be presented with a lockout notice informing them that track selection for the semester has ended, along with the designated support contact email.
+              Configure active time windows for students to choose track projects and submit faculty guide details. Outside these deadlines, project choices are locked.
             </p>
           </div>
 

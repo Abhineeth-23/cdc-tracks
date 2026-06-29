@@ -62,6 +62,23 @@ def startup_event():
         except Exception:
             db.rollback()
 
+    batch_cols = ["project_selection_start TIMESTAMP", "project_selection_end TIMESTAMP"]
+    for col_def in batch_cols:
+        try:
+            from sqlalchemy import text
+            db.execute(text(f"ALTER TABLE batch_schedules ADD COLUMN {col_def}"))
+            db.commit()
+        except Exception:
+            db.rollback()
+
+    # Seed Project Topics
+    try:
+        from app.services.project_service import seed_project_topics_data
+        seed_project_topics_data(db)
+    except Exception as e:
+        print(f"Project topic seeding notice: {e}")
+        db.rollback()
+
     # 1.5.1 Ensure default BatchSchedule exists and has clean timestamps
     try:
         from app.models import BatchSchedule

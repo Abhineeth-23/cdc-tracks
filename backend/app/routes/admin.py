@@ -8,7 +8,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from app.database import get_db
-from app.models import User, CDCPerformance, BatchSchedule, TrackSelectionHistory, FinalisedTrack, Track
+from app.models import User, CDCPerformance, BatchSchedule, TrackSelectionHistory, FinalisedTrack, Track, ProjectTopic, StudentProjectSelection, HitamProjectRequest
 from app.utils import calculate_current_year
 
 router = APIRouter(prefix="/api/admin", tags=["Admin Dashboard & Analytics"])
@@ -586,6 +586,8 @@ class BatchScheduleRequest(BaseModel):
     batch_year: str
     track_selection_start: Optional[str] = None
     track_selection_end: Optional[str] = None
+    project_selection_start: Optional[str] = None
+    project_selection_end: Optional[str] = None
     contact_email: Optional[str] = "support.cdc@hitam.org"
     year_1_start: Optional[str] = None
     year_1_end: Optional[str] = None
@@ -613,6 +615,8 @@ def get_batch_schedules(
             "batch_year": s.batch_year,
             "track_selection_start": s.track_selection_start.isoformat() if s.track_selection_start else None,
             "track_selection_end": s.track_selection_end.isoformat() if s.track_selection_end else None,
+            "project_selection_start": s.project_selection_start.isoformat() if s.project_selection_start else None,
+            "project_selection_end": s.project_selection_end.isoformat() if s.project_selection_end else None,
             "contact_email": s.contact_email,
             "year_1_start": s.year_1_start, "year_1_end": s.year_1_end,
             "year_2_start": s.year_2_start, "year_2_end": s.year_2_end,
@@ -637,7 +641,6 @@ def save_batch_schedule(
         try:
             dt = datetime.fromisoformat(dt_str.replace('Z', ''))
             if is_end:
-                # If time component is midnight or unset, set to end of day (23:59:59)
                 if dt.hour == 0 and dt.minute == 0:
                     dt = dt.replace(hour=23, minute=59, second=59)
             return dt
@@ -650,6 +653,8 @@ def save_batch_schedule(
 
     bs.track_selection_start = parse_dt(payload.track_selection_start, is_end=False)
     bs.track_selection_end = parse_dt(payload.track_selection_end, is_end=True)
+    bs.project_selection_start = parse_dt(payload.project_selection_start, is_end=False)
+    bs.project_selection_end = parse_dt(payload.project_selection_end, is_end=True)
 
     bs.contact_email = payload.contact_email or "support.cdc@hitam.org"
     
@@ -868,6 +873,140 @@ def delete_batch_data(
         raise HTTPException(status_code=500, detail=f"Failed to delete batch data: {str(e)}")
 
     return {"message": f"All data for batch {clean_batch} has been permanently deleted."}
+
+
+# ==========================================
+# PROJECT & HITAM MANAGEMENT ADMIN ENDPOINTS
+# ==========================================
+
+class UpdateHitamRequestStatus(BaseModel):
+    status: str # pending, contacted, approved, rejected
+    admin_notes: Optional[str] = None
+
+@router.get("/projects/selections")
+def get_admin_project_selections(
+    branch: Optional[str] = Query(None),
+    track: Optional[str] = Query(None),
+    search: Optional[str] = Query(None),
+    current_admin: User = Depends(get_current_admin),
+    db: Session = Depends(get_db)
+):
+    effective_branch = branch
+    if current_admin.role == "branch_admin":
+        effective_branch = current_admin.assigned_branch
+
+    query = db.query(StudentProjectSelection)
+    if effective_branch and effective_branch.upper() != "ALL":
+        query = query.filter(func.upper(StudentProjectSelection.branch) == effective_branch.upper())
+
+    if track and track.upper() != "ALL":
+        query = query.filter(StudentProjectSelection.track_slug == track)
+
+    if search:
+        term = f"%{search.strip()}%"
+        query = query.filter(
+            (StudentProjectSelection.student_name.ilike(term)) |
+            (StudentProjectSelection.roll_number.ilike(term)) |
+            (StudentProjectSelection.faculty_guide.ilike(term))
+        )
+
+    selections = query.all()
+
+    # Build rich response with topic titles
+    proj_ids = list(set(s.project_id for s in selections))
+    topics = {t.id: t for t in db.query(ProjectTopic).filter(ProjectTopic.id.in_(proj_ids)).all()} if proj_ids else {}
+
+    result = []
+    for s in selections:
+        topic = topics.get(s.project_id)
+        result.append({
+            "id": s.id,
+            "roll_number": s.roll_number,
+            "student_name": s.student_name,
+            "student_email": s.student_email,
+            "branch": s.branch,
+            "track_slug": s.track_slug,
+            "project_id": s.project_id,
+            "project_code": topic.project_code if topic else "N/A",
+            "project_title": topic.title if topic else "Unknown Project",
+            "faculty_guide": s.faculty_guide,
+            "selected_at": s.selected_at.isoformat() if s.selected_at else None
+        })
+
+    return {
+        "total_selections": len(result),
+        "branch_filter": effective_branch or "ALL",
+        "selections": result
+    }
+
+@router.get("/hitam-requests")
+def get_admin_hitam_requests(
+    branch: Optional[str] = Query(None),
+    status_filter: Optional[str] = Query(None),
+    current_admin: User = Depends(get_current_admin),
+    db: Session = Depends(get_db)
+):
+    effective_branch = branch
+    if current_admin.role == "branch_admin":
+        effective_branch = current_admin.assigned_branch
+
+    query = db.query(HitamProjectRequest)
+    if effective_branch and effective_branch.upper() != "ALL":
+        query = query.filter(func.upper(HitamProjectRequest.branch) == effective_branch.upper())
+
+    if status_filter and status_filter.upper() != "ALL":
+        query = query.filter(func.upper(HitamProjectRequest.status) == status_filter.upper())
+
+    requests = query.order_by(HitamProjectRequest.requested_at.desc()).all()
+
+    proj_ids = list(set(r.project_id for r in requests))
+    topics = {t.id: t for t in db.query(ProjectTopic).filter(ProjectTopic.id.in_(proj_ids)).all()} if proj_ids else {}
+
+    result = []
+    for r in requests:
+        topic = topics.get(r.project_id)
+        result.append({
+            "id": r.id,
+            "roll_number": r.roll_number,
+            "student_name": r.student_name,
+            "student_email": r.student_email,
+            "branch": r.branch,
+            "project_id": r.project_id,
+            "project_code": topic.project_code if topic else "N/A",
+            "project_title": topic.title if topic else "Unknown Project",
+            "phone_number": r.phone_number,
+            "reason": r.reason,
+            "status": r.status,
+            "admin_notes": r.admin_notes,
+            "requested_at": r.requested_at.isoformat() if r.requested_at else None
+        })
+
+    return {
+        "total_requests": len(result),
+        "requests": result
+    }
+
+@router.patch("/hitam-requests/{request_id}")
+def update_hitam_request_status(
+    request_id: int,
+    payload: UpdateHitamRequestStatus,
+    current_admin: User = Depends(get_current_admin),
+    db: Session = Depends(get_db)
+):
+    req = db.query(HitamProjectRequest).filter(HitamProjectRequest.id == request_id).first()
+    if not req:
+        raise HTTPException(status_code=404, detail="HITAM project request not found.")
+
+    if current_admin.role == "branch_admin" and req.branch.upper() != current_admin.assigned_branch.upper():
+        raise HTTPException(status_code=403, detail="You do not have permission to manage requests outside your department.")
+
+    req.status = payload.status.lower()
+    if payload.admin_notes is not None:
+        req.admin_notes = payload.admin_notes.strip()
+
+    db.commit()
+    return {"message": "Request status updated successfully.", "id": req.id, "status": req.status}
+
 
 
 

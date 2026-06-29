@@ -308,6 +308,30 @@ const Dashboard = ({ user }) => {
                 </Link>
               </div>
             )}
+
+            {/* Selected Domain Project Card */}
+            {data?.active_project && (
+              <div className="mt-6 bg-emerald-50/70 rounded-xl p-5 border border-emerald-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div className="space-y-1 text-left">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-extrabold rounded uppercase">
+                      {data.active_project.project_code}
+                    </span>
+                    <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Active Track Project</span>
+                  </div>
+                  <h4 className="text-base font-extrabold text-slate-900">{data.active_project.title}</h4>
+                  <p className="text-xs text-slate-600 font-medium">
+                    Faculty Guide: <span className="font-extrabold text-slate-900">{data.active_project.faculty_guide}</span>
+                  </p>
+                </div>
+                <Link
+                  to={`/track/${selectedTrack?.slug || ''}`}
+                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shrink-0 shadow-sm"
+                >
+                  Manage Project
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Recommended Tracks Section */}

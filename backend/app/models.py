@@ -62,6 +62,8 @@ class BatchSchedule(Base):
     batch_year = Column(String, unique=True, index=True, nullable=False) # e.g. "2024-2028"
     track_selection_start = Column(DateTime, nullable=True)
     track_selection_end = Column(DateTime, nullable=True)
+    project_selection_start = Column(DateTime, nullable=True)
+    project_selection_end = Column(DateTime, nullable=True)
     contact_email = Column(String, default="support.cdc@hitam.org", nullable=False)
     
     # Academic Year Timelines (ISO Strings or Datetimes stored)
@@ -104,5 +106,50 @@ class FinalisedTrack(Base):
     semester = Column(String, nullable=True)
     track_id = Column(String, nullable=True)
     finalised_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+class ProjectTopic(Base):
+    __tablename__ = "project_topics"
+
+    id = Column(Integer, primary_key=True, index=True)
+    project_code = Column(String, index=True, nullable=False) # e.g. DT-01, DA-01, CDC-01
+    track_slug = Column(String, index=True, nullable=False)
+    title = Column(String, nullable=False)
+    problem_statement = Column(String, nullable=True)
+    key_objectives = Column(String, nullable=True)
+    technologies = Column(String, nullable=True)
+    concepts = Column(String, nullable=True)
+    difficulty = Column(String, nullable=True)
+    is_hitam = Column(Boolean, default=False, nullable=False)
+
+class StudentProjectSelection(Base):
+    __tablename__ = "student_project_selections"
+
+    id = Column(Integer, primary_key=True, index=True)
+    roll_number = Column(String, index=True, nullable=False)
+    student_name = Column(String, nullable=True)
+    student_email = Column(String, nullable=True)
+    branch = Column(String, nullable=True)
+    track_slug = Column(String, nullable=False)
+    project_id = Column(Integer, nullable=False)
+    faculty_guide = Column(String, nullable=False)
+    confirmed_with_faculty = Column(Boolean, default=True, nullable=False)
+    selected_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    status = Column(String, default="selected", nullable=False)
+
+class HitamProjectRequest(Base):
+    __tablename__ = "hitam_project_requests"
+
+    id = Column(Integer, primary_key=True, index=True)
+    roll_number = Column(String, index=True, nullable=False)
+    student_name = Column(String, nullable=True)
+    student_email = Column(String, nullable=True)
+    branch = Column(String, nullable=True)
+    project_id = Column(Integer, nullable=False)
+    phone_number = Column(String, nullable=False)
+    reason = Column(String, nullable=False)
+    status = Column(String, default="pending", nullable=False) # pending, contacted, approved, rejected
+    admin_notes = Column(String, nullable=True)
+    requested_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
 
 

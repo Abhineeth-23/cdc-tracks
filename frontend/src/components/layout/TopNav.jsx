@@ -1,7 +1,7 @@
 // src/components/layout/TopNav.jsx
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Home, Compass, LayoutDashboard, User, LogOut, LogIn, Award, Menu, X } from 'lucide-react';
+import { Home, Compass, LayoutDashboard, User, LogOut, LogIn, Award, Menu, X, Sparkles } from 'lucide-react';
 
 import cdcLogo from '../../assets/CDC-logo.png';
 
@@ -48,6 +48,11 @@ const TopNav = ({ user, onLogout }) => {
             <NavLink to="/" className={navLinkClass}>
               <Compass size={16} />
               <span>Explore Tracks</span>
+            </NavLink>
+
+            <NavLink to="/hitam-projects" className={navLinkClass}>
+              <Sparkles size={16} className="text-amber-500" />
+              <span>HITAM Projects</span>
             </NavLink>
 
             {user ? (
@@ -126,6 +131,11 @@ const TopNav = ({ user, onLogout }) => {
           <NavLink to="/" className={mobileNavLinkClass} onClick={closeMobileMenu}>
             <Compass size={20} />
             <span>Explore Tracks</span>
+          </NavLink>
+
+          <NavLink to="/hitam-projects" className={mobileNavLinkClass} onClick={closeMobileMenu}>
+            <Sparkles size={20} className="text-amber-500" />
+            <span>HITAM Projects</span>
           </NavLink>
 
           {user ? (

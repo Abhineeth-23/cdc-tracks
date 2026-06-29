@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 from app.database import get_db
-from app.models import User, Track, BatchSchedule, TrackSelectionHistory, FinalisedTrack
+from app.models import User, Track, BatchSchedule, TrackSelectionHistory, FinalisedTrack, ProjectTopic, StudentProjectSelection, HitamProjectRequest
 from app.utils import calculate_current_year, get_auto_allocated_track_id
 from app.services.cdc_service import get_cdc_performance_by_roll
 
@@ -39,6 +39,16 @@ class TrackSelectionRequest(BaseModel):
 
 class TrackBookmarkRequest(BaseModel):
     track_id: str
+
+class SelectProjectRequest(BaseModel):
+    project_id: int
+    faculty_guide: str
+    confirmed: bool
+
+class HitamRequestModel(BaseModel):
+    project_id: int
+    phone_number: str
+    reason: str
 
 @router.post("/select-track")
 def select_track(
@@ -192,19 +202,29 @@ def get_dashboard_data(
 
     now = datetime.utcnow()
     is_selection_open = True
+    is_project_selection_open = True
     contact_email = "support.cdc@hitam.org"
     start_str = None
     end_str = None
+    proj_start_str = None
+    proj_end_str = None
 
     if batch_schedule:
         contact_email = batch_schedule.contact_email or contact_email
         start_str = batch_schedule.track_selection_start.isoformat() if batch_schedule.track_selection_start else None
         end_str = batch_schedule.track_selection_end.isoformat() if batch_schedule.track_selection_end else None
+        proj_start_str = batch_schedule.project_selection_start.isoformat() if batch_schedule.project_selection_start else None
+        proj_end_str = batch_schedule.project_selection_end.isoformat() if batch_schedule.project_selection_end else None
 
         if batch_schedule.track_selection_start and now < batch_schedule.track_selection_start:
             is_selection_open = False
         if batch_schedule.track_selection_end and now > batch_schedule.track_selection_end:
             is_selection_open = False
+
+        if batch_schedule.project_selection_start and now < batch_schedule.project_selection_start:
+            is_project_selection_open = False
+        if batch_schedule.project_selection_end and now > batch_schedule.project_selection_end:
+            is_project_selection_open = False
 
     # Retrieve complete details for the selected track (auto-resolve if null)
     if not user.selected_track_id:
@@ -233,6 +253,25 @@ def get_dashboard_data(
                 "track_name": t.track_name
             })
             
+    # Fetch active student project selection
+    active_project = None
+    student_proj_sel = db.query(StudentProjectSelection).filter(StudentProjectSelection.roll_number == user.roll_number).first()
+    if student_proj_sel:
+        proj_topic = db.query(ProjectTopic).filter(ProjectTopic.id == student_proj_sel.project_id).first()
+        if proj_topic:
+            active_project = {
+                "id": student_proj_sel.id,
+                "project_id": proj_topic.id,
+                "project_code": proj_topic.project_code,
+                "title": proj_topic.title,
+                "problem_statement": proj_topic.problem_statement,
+                "key_objectives": proj_topic.key_objectives,
+                "technologies": proj_topic.technologies,
+                "difficulty": proj_topic.difficulty,
+                "faculty_guide": student_proj_sel.faculty_guide,
+                "selected_at": student_proj_sel.selected_at.isoformat() if student_proj_sel.selected_at else None
+            }
+
     return {
         "student": {
             "email": user.email,
@@ -255,7 +294,14 @@ def get_dashboard_data(
             "start_time": start_str,
             "end_time": end_str,
             "contact_email": contact_email
-        }
+        },
+        "project_selection_window": {
+            "is_open": is_project_selection_open,
+            "start_time": proj_start_str,
+            "end_time": proj_end_str,
+            "contact_email": contact_email
+        },
+        "active_project": active_project
     }
 
 
@@ -308,5 +354,168 @@ def trigger_google_sheets_sync(
     if not res["success"]:
         raise HTTPException(status_code=400, detail=res["message"])
     return res
+
+
+@router.get("/projects")
+def get_track_projects(
+    track_slug: Optional[str] = None,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    target_slug = track_slug or user.selected_track_id
+    if not target_slug:
+        raise HTTPException(status_code=400, detail="No track specified or selected.")
+
+    projects = db.query(ProjectTopic).filter(ProjectTopic.track_slug == target_slug, ProjectTopic.is_hitam == False).all()
+    
+    # Get student active selection if any
+    active_sel = db.query(StudentProjectSelection).filter(StudentProjectSelection.roll_number == user.roll_number).first()
+    
+    return {
+        "track_slug": target_slug,
+        "projects": [
+            {
+                "id": p.id,
+                "project_code": p.project_code,
+                "title": p.title,
+                "problem_statement": p.problem_statement,
+                "key_objectives": p.key_objectives,
+                "technologies": p.technologies,
+                "concepts": p.concepts,
+                "difficulty": p.difficulty
+            } for p in projects
+        ],
+        "selected_project_id": active_sel.project_id if active_sel else None,
+        "selected_faculty_guide": active_sel.faculty_guide if active_sel else None
+    }
+
+@router.post("/select-project")
+def select_project(
+    payload: SelectProjectRequest,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    if not payload.confirmed:
+        raise HTTPException(status_code=400, detail="You must confirm that you have obtained permission from your faculty guide.")
+        
+    if not payload.faculty_guide or not payload.faculty_guide.strip():
+        raise HTTPException(status_code=400, detail="Faculty guide/incharge name is required.")
+
+    # Check project selection window
+    batch_year = f"{user.joining_year}-{user.graduation_year}"
+    batch_schedule = db.query(BatchSchedule).filter(BatchSchedule.batch_year == batch_year).first()
+    if not batch_schedule:
+        batch_schedule = db.query(BatchSchedule).first()
+
+    now = datetime.utcnow()
+    if batch_schedule:
+        if batch_schedule.project_selection_start and now < batch_schedule.project_selection_start:
+            raise HTTPException(status_code=403, detail="Project selection window has not opened yet.")
+        if batch_schedule.project_selection_end and now > batch_schedule.project_selection_end:
+            raise HTTPException(status_code=403, detail=f"Project selection window has closed. Contact {batch_schedule.contact_email} for assistance.")
+
+    proj = db.query(ProjectTopic).filter(ProjectTopic.id == payload.project_id).first()
+    if not proj:
+        raise HTTPException(status_code=404, detail="Project topic not found.")
+
+    existing_sel = db.query(StudentProjectSelection).filter(StudentProjectSelection.roll_number == user.roll_number).first()
+    if existing_sel:
+        existing_sel.project_id = proj.id
+        existing_sel.track_slug = proj.track_slug
+        existing_sel.faculty_guide = payload.faculty_guide.strip()
+        existing_sel.confirmed_with_faculty = True
+        existing_sel.selected_at = now
+    else:
+        new_sel = StudentProjectSelection(
+            roll_number=user.roll_number,
+            student_name=user.name,
+            student_email=user.email,
+            branch=user.branch,
+            track_slug=proj.track_slug,
+            project_id=proj.id,
+            faculty_guide=payload.faculty_guide.strip(),
+            confirmed_with_faculty=True,
+            selected_at=now
+        )
+        db.add(new_sel)
+
+    db.commit()
+    return {"message": "Project selected successfully!", "project_id": proj.id, "faculty_guide": payload.faculty_guide.strip()}
+
+@router.delete("/select-project")
+def unselect_project(
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    existing_sel = db.query(StudentProjectSelection).filter(StudentProjectSelection.roll_number == user.roll_number).first()
+    if existing_sel:
+        db.delete(existing_sel)
+        db.commit()
+    return {"message": "Project choice cleared successfully."}
+
+@router.get("/hitam-projects")
+def get_hitam_projects(
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    projects = db.query(ProjectTopic).filter(ProjectTopic.is_hitam == True).all()
+    requests = db.query(HitamProjectRequest).filter(HitamProjectRequest.roll_number == user.roll_number).all()
+
+    req_map = {r.project_id: {"id": r.id, "status": r.status, "phone": r.phone_number, "reason": r.reason, "requested_at": r.requested_at.isoformat() if r.requested_at else None} for r in requests}
+
+    return {
+        "projects": [
+            {
+                "id": p.id,
+                "project_code": p.project_code,
+                "title": p.title,
+                "problem_statement": p.problem_statement,
+                "key_objectives": p.key_objectives,
+                "technologies": p.technologies,
+                "concepts": p.concepts,
+                "difficulty": p.difficulty,
+                "student_request": req_map.get(p.id)
+            } for p in projects
+        ]
+    }
+
+@router.post("/request-hitam-project")
+def request_hitam_project(
+    payload: HitamRequestModel,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    if not payload.phone_number or len(payload.phone_number.strip()) < 10:
+        raise HTTPException(status_code=400, detail="Valid phone number (at least 10 digits) is required.")
+    if not payload.reason or not payload.reason.strip():
+        raise HTTPException(status_code=400, detail="Please explain why you want to work on this HITAM project.")
+
+    proj = db.query(ProjectTopic).filter(ProjectTopic.id == payload.project_id, ProjectTopic.is_hitam == True).first()
+    if not proj:
+        raise HTTPException(status_code=404, detail="HITAM project not found.")
+
+    existing = db.query(HitamProjectRequest).filter(HitamProjectRequest.roll_number == user.roll_number, HitamProjectRequest.project_id == proj.id).first()
+    if existing:
+        existing.phone_number = payload.phone_number.strip()
+        existing.reason = payload.reason.strip()
+        existing.status = "pending"
+        existing.requested_at = datetime.utcnow()
+    else:
+        req = HitamProjectRequest(
+            roll_number=user.roll_number,
+            student_name=user.name,
+            student_email=user.email,
+            branch=user.branch,
+            project_id=proj.id,
+            phone_number=payload.phone_number.strip(),
+            reason=payload.reason.strip(),
+            status="pending",
+            requested_at=datetime.utcnow()
+        )
+        db.add(req)
+
+    db.commit()
+    return {"message": "HITAM project request submitted successfully! CDC team will review your application."}
+
 
 
