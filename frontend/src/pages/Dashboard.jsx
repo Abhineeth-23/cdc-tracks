@@ -100,47 +100,79 @@ const Dashboard = ({ user }) => {
   };
 
   const windowInfo = data?.track_selection_window;
+  const projectWindowInfo = data?.project_selection_window;
 
   return (
     <div className="py-6 space-y-8 animate-fade-in">
       
-      {/* Track Selection Window Lockout / Active Alert Banner */}
-      {windowInfo && (
-        windowInfo.is_open ? (
-          <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl flex items-center justify-between shadow-xs">
-            <div className="flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
-              <span className="text-xs md:text-sm font-extrabold text-emerald-900">
-                🟢 Track Selection for Semester is Open! You can freely select or change your committed learning track.
-              </span>
-            </div>
-            {windowInfo.end_time && (
-              <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-xl">
-                Closes: {new Date(windowInfo.end_time).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric' })}, 11:59 PM IST
-              </span>
-            )}
-
-
-
-          </div>
-        ) : (
-          <div className="bg-amber-50 border-2 border-amber-300 p-5 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
-            <div className="flex items-start gap-3.5">
-              <div className="p-2.5 bg-amber-500 text-white rounded-xl shrink-0 mt-0.5">
-                <AlertCircle size={22} />
+      {/* Selection Windows Alert Area */}
+      <div className="space-y-4">
+        {/* Track Selection Window Banner */}
+        {windowInfo && (
+          windowInfo.is_open ? (
+            <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl flex items-center justify-between shadow-xs">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+                <span className="text-xs md:text-sm font-extrabold text-emerald-900">
+                  🟢 Track Selection for Semester is Open! You can freely select or change your committed learning track.
+                </span>
               </div>
-              <div>
-                <h3 className="text-sm md:text-base font-extrabold text-amber-950">
-                  🔒 Track selection for the semester has ended.
-                </h3>
-                <p className="text-xs md:text-sm font-semibold text-amber-900 mt-1">
-                  For track changes or related issues, please contact: <a href={`mailto:${windowInfo.contact_email}`} className="underline font-black hover:text-amber-700">{windowInfo.contact_email}</a>
-                </p>
+              {windowInfo.end_time && (
+                <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-xl">
+                  Closes: {new Date(windowInfo.end_time).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric' })}, 11:59 PM IST
+                </span>
+              )}
+            </div>
+          ) : (
+            <div className="bg-amber-50 border-2 border-amber-300 p-5 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
+              <div className="flex items-start gap-3.5">
+                <div className="p-2.5 bg-amber-500 text-white rounded-xl shrink-0 mt-0.5">
+                  <AlertCircle size={22} />
+                </div>
+                <div>
+                  <h3 className="text-sm md:text-base font-extrabold text-amber-950">
+                    🔒 Track selection for the semester has ended.
+                  </h3>
+                  <p className="text-xs md:text-sm font-semibold text-amber-900 mt-1">
+                    For track changes or related issues, please contact: <a href={`mailto:${windowInfo.contact_email}`} className="underline font-black hover:text-amber-700">{windowInfo.contact_email}</a>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      )}
+          )
+        )}
+
+        {/* Project Selection Window Banner */}
+        {projectWindowInfo && (
+          projectWindowInfo.is_open ? (
+            <div className="bg-blue-50 border border-blue-200 p-4 rounded-2xl flex items-center justify-between shadow-xs">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-blue-500 animate-ping"></div>
+                <span className="text-xs md:text-sm font-extrabold text-blue-900">
+                  🚀 Project Selection Window is Active! Choose your domain project topic & assign your faculty guide.
+                </span>
+              </div>
+              {projectWindowInfo.end_time && (
+                <span className="text-xs font-bold text-blue-700 bg-blue-100 px-3 py-1 rounded-xl">
+                  Closes: {new Date(projectWindowInfo.end_time).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric' })}, 11:59 PM IST
+                </span>
+              )}
+            </div>
+          ) : (
+            <div className="bg-slate-100 border border-slate-200 p-4 rounded-2xl flex items-center justify-between shadow-xs text-slate-700">
+              <div className="flex items-center gap-3">
+                <Lock size={18} className="text-slate-500 shrink-0"/>
+                <span className="text-xs md:text-sm font-extrabold">
+                  🔒 Project Selection Window for this semester is currently closed.
+                </span>
+              </div>
+              <a href={`mailto:${projectWindowInfo.contact_email}`} className="text-xs font-bold text-blue-600 underline">
+                {projectWindowInfo.contact_email}
+              </a>
+            </div>
+          )
+        )}
+      </div>
 
       {/* Welcome Banner */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 md:p-8 text-white shadow-md relative overflow-hidden">

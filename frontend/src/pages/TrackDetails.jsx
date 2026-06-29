@@ -909,12 +909,26 @@ const TrackDetails = ({ user }) => {
               </div>
             )}
 
-            {/* Closed Window Banner */}
-            {projectWindow && projectWindow.is_open === false && (
-              <div className="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-amber-900 text-xs font-bold flex items-start gap-2.5">
-                <Lock size={16} className="text-amber-600 shrink-0 mt-0.5"/>
-                <span>Project selection window is closed. Contact support at <a href={`mailto:${projectWindow.contact_email}`} className="underline font-black">{projectWindow.contact_email}</a>.</span>
-              </div>
+            {/* Project Selection Window Status Banners */}
+            {projectWindow && (
+              projectWindow.is_open ? (
+                <div className="p-3.5 bg-blue-50 rounded-2xl border border-blue-200 text-blue-950 text-xs font-extrabold flex items-center justify-between gap-3 shadow-xs">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-ping"></div>
+                    <span>🟢 Project Selection Window is OPEN!</span>
+                  </div>
+                  {projectWindow.end_time && (
+                    <span className="text-[11px] font-black text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-lg shrink-0">
+                      Closes: {new Date(projectWindow.end_time).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric' })}, 11:59 PM IST
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <div className="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-amber-900 text-xs font-bold flex items-start gap-2.5">
+                  <Lock size={16} className="text-amber-600 shrink-0 mt-0.5"/>
+                  <span>Project selection window is currently closed. Contact support at <a href={`mailto:${projectWindow.contact_email}`} className="underline font-black">{projectWindow.contact_email}</a>.</span>
+                </div>
+              )
             )}
 
             {/* Search & Difficulty Filter Controls */}
